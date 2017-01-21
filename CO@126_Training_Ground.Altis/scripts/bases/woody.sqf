@@ -1,0 +1,1 @@
+["Woody",["Land_ClutterCutter_large_F",359.546,[6561.88,18674.3,0]],["Land_Bench_F",189.958,[6559.95,18674.6,0.0037384]],["Land_ChairWood_F",79.5181,[6561.8,18675.7,-0.000305176]],["Land_MapBoard_F",239.039,[6558.16,18675.7,0.0128479]],["CamoNet_BLUFOR_F",189.106,[6561.95,18674.6,-0.0118103]]] call GOL_Fnc_CreateObjects;
