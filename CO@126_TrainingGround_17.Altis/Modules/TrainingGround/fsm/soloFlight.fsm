@@ -1,0 +1,279 @@
+/*%FSM<COMPILE "D:\SteamLibrary\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, soloFlight">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,-1958.338501,570.532837,-1868.338379,620.533020,0.000000,"START"};
+item1[] = {"Caller_is_Pilot",4,218,-1959.040039,477.328644,-1869.040039,527.328613,0.000000,"Caller is Pilot"};
+item2[] = {"Generate_HLS",2,250,-1958.613892,400.641296,-1868.613770,450.641296,0.000000,"Generate HLS"};
+item3[] = {"Wait_for_Trigger",4,218,-1968.624512,304.215790,-1859.437866,371.734039,0.000000,"Wait for Trigger"};
+item4[] = {"_",-1,250,-1912.822632,346.776672,-1912.822632,374.305359,0.000000,""};
+item5[] = {"Chopper_Arrives",2,250,-1780.684326,307.341644,-1674.022827,367.864716,0.000000,"Chopper Arrives"};
+item6[] = {"",7,210,-1731.922241,498.033081,-1723.922241,506.033081,0.000000,""};
+item7[] = {"Pilot_Leaves_Cho",4,218,-2133.401123,180.213409,-2042.463867,258.292297,0.000000,"Pilot" \n "Leaves" \n "Chopper"};
+item8[] = {"",7,210,-1732.049561,214.496048,-1724.049805,222.495972,0.000000,""};
+item9[] = {"",7,210,-2091.955566,421.539551,-2083.955566,429.539551,0.000000,""};
+item10[] = {"END",1,250,-2132.670410,83.656181,-2042.670410,133.656174,0.000000,"END"};
+item11[] = {"",7,210,-2006.802124,421.844971,-1998.802246,429.844940,0.000000,""};
+item12[] = {"",7,210,-2008.664307,153.632996,-2000.664429,161.632996,0.000000,""};
+item13[] = {"Pilot_is_Dead",4,218,-1960.683350,133.568207,-1870.683350,183.568207,0.000000,"Pilot is Dead"};
+item14[] = {"",7,210,-1732.117920,155.314880,-1724.117920,163.314896,0.000000,""};
+item15[] = {"",7,210,-1918.807373,103.844429,-1910.807495,111.844414,0.000000,""};
+item16[] = {"RESET",4,4314,-1956.500610,666.009827,-1866.500488,716.009766,0.000000,"RESET"};
+item17[] = {"",7,210,-2007.841553,686.230713,-1999.841675,694.230713,0.000000,""};
+item18[] = {"",7,210,-1732.603638,687.331665,-1724.603638,695.331665,0.000000,""};
+item19[] = {"END_1",1,250,-1955.260742,751.104980,-1865.260742,801.104980,0.000000,"END"};
+version=1;
+class LayoutItems
+{
+	class Item4
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10;
+			lStyle=1;
+		};
+	};
+};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,11};
+link4[] = {3,5};
+link5[] = {5,6};
+link6[] = {5,8};
+link7[] = {6,1};
+link8[] = {6,18};
+link9[] = {7,10};
+link10[] = {8,7};
+link11[] = {8,14};
+link12[] = {9,7};
+link13[] = {11,9};
+link14[] = {11,12};
+link15[] = {11,17};
+link16[] = {12,13};
+link17[] = {13,15};
+link18[] = {14,13};
+link19[] = {15,10};
+link20[] = {16,19};
+link21[] = {17,16};
+link22[] = {18,16};
+globals[] = {0.000000,0,0,0,0,640,480,1,44,6316128,1,-2159.075684,-1654.839844,792.725708,70.394943,458,828,1};
+window[] = {2,-1,-1,-1,-1,828,26,994,26,3,476};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "soloFlight";
+        class States
+        {
+                /*%FSM<STATE "START">*/
+                class START
+                {
+                        name = "START";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"// Gather Incoming Data" \n
+                         "_caller = _this select 0; // ObjRef of player calling the FSM" \n
+                         "_side = _this select 1; // Side of the player calling the FSM" \n
+                         "_capacity = _this select 2; // Capacity of the chopper" \n
+                         "_chopper = _this select 3; // ObjRef of the chopper used by the FSM" \n
+                         "" \n
+                         "// Set Locals" \n
+                         "_markers = [""fsm"",""fsm_1"",""fsm_2"",""fsm_3"",""fsm_4"",""fsm_5"",""fsm_6"",""fsm_7"",""fsm_8"",""fsm_9"",""fsm_10""," \n
+                         """fsm_11"",""fsm_12"",""fsm_13"",""fsm_14"",""fsm_15"",""fsm_16"",""fsm_17"",""fsm_18"",""fsm_19"",""fsm_20""," \n
+                         """fsm_21"",""fsm_22"",""fsm_23"",""fsm_24"",""fsm_25"",""fsm_26"",""fsm_27"",""fsm_28"",""fsm_29"",""fsm_30""," \n
+                         """fsm_31"",""fsm_32"",""fsm_33"",""fsm_34"",""fsm_35"",""fsm_36"",""fsm_37"",""fsm_38"",""fsm_39"",""fsm_40""," \n
+                         """fsm_41"",""fsm_42"",""fsm_43"",""fsm_44"",""fsm_45"",""fsm_46"",""fsm_47"",""fsm_48"",""fsm_49"",""fsm_50""," \n
+                         """fsm_51"",""fsm_52"",""fsm_53"",""fsm_54"",""fsm_55"",""fsm_56"",""fsm_57"",""fsm_58"",""fsm_59"",""fsm_60""," \n
+                         """fsm_61"",""fsm_62"",""fsm_63"",""fsm_64"",""fsm_65"",""fsm_66"",""fsm_67"",""fsm_68"",""fsm_69"",""fsm_70""," \n
+                         """fsm_71"",""fsm_72"",""fsm_73"",""fsm_74""]; // Array of viable markers" \n
+                         "_markersPop = _markers; // Second array used as blacklist" \n
+                         "_SoloTrigFired = 1; // Tracks Trigger State" \n
+                         "_SoloCounter = 1; // Counter for task ID" \n
+                         "_resetTrigger = 0;" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Caller_is_Pilot">*/
+                                class Caller_is_Pilot
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Generate_HLS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"// FSM should not start proper until the player is the pilot of the chopper" \n
+                                         "_caller isEqualTo driver objectParent _caller;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Generate_HLS">*/
+                class Generate_HLS
+                {
+                        name = "Generate_HLS";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"// Create Task" \n
+                         "_marker = _markersPop call BIS_fnc_SelectRandom;" \n
+                         "_markerArray = [_marker];" \n
+                         "_markersPop = _markers - _markerArray;" \n
+                         "_taskID = format [""%1"",_SoloCounter];" \n
+                         "_destination = getmarkerpos _marker;" \n
+                         "[_caller,[_taskID],[""Fly to the destination"",""Destination"",_marker],_destination,true,9,true,""navigate""] call BIS_fnc_taskCreate;" \n
+                         "" \n
+                         "// Create Trigger to detect arrival" \n
+                         "_trg = createTrigger [""EmptyDetector"", _destination];" \n
+                         "_trg setTriggerArea [100, 100, 0, false,5];" \n
+                         "_trg setTriggerActivation [""ANY"", ""PRESENT"", false];" \n
+                         "_trg setTriggerStatements [""(GW_TrainingGround_soloBird in thislist) && (isTouchingGround GW_TrainingGround_soloBird)"",""GW_TrainingGround_SoloFSM setFSMVariable [""""_SoloTrigFired"""", 2];"",""_SoloTrigFired = 1;""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Pilot_Leaves_Cho">*/
+                                class Pilot_Leaves_Cho
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"// Pilot leaves the chopper or dies (thus leaving the chopper anyway)" \n
+                                         "driver objectParent _caller != _caller;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Pilot_is_Dead">*/
+                                class Pilot_is_Dead
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _caller"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "RESET">*/
+                                class RESET
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="END_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_resetTrigger == 1;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wait_for_Trigger">*/
+                                class Wait_for_Trigger
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Chopper_Arrives";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_SoloTrigFired == 2;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Chopper_Arrives">*/
+                class Chopper_Arrives
+                {
+                        name = "Chopper_Arrives";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"[_taskID] call BIS_fnc_deleteTask;" \n
+                         "deleteVehicle _trg;" \n
+                         "_SoloCounter = _SoloCounter + 1;" \n
+                         "_SoloTrigFired = 1;" \n
+                         "//_trg = 0;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Pilot_Leaves_Cho">*/
+                                class Pilot_Leaves_Cho
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"// Pilot leaves the chopper or dies (thus leaving the chopper anyway)" \n
+                                         "driver objectParent _caller != _caller;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Pilot_is_Dead">*/
+                                class Pilot_is_Dead
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _caller"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "RESET">*/
+                                class RESET
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="END_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_resetTrigger == 1;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Caller_is_Pilot">*/
+                                class Caller_is_Pilot
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Generate_HLS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"// FSM should not start proper until the player is the pilot of the chopper" \n
+                                         "_caller isEqualTo driver objectParent _caller;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"[_taskID] call BIS_fnc_deleteTask;" \n
+                         "deleteVehicle _trg;" \n
+                         "systemChat ""Solo Flight Ended"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END_1">*/
+                class END_1
+                {
+                        name = "END_1";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="START";
+        finalStates[] =
+        {
+                "END",
+                "END_1",
+        };
+};
+/*%FSM</COMPILE>*/
