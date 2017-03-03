@@ -8,22 +8,22 @@ class EditorData
 	toggles=613;
 	class ItemIDProvider
 	{
-		nextID=1845;
+		nextID=2004;
 	};
 	class MarkerIDProvider
 	{
-		nextID=12;
+		nextID=14;
 	};
 	class LayerIndexProvider
 	{
-		nextID=772;
+		nextID=787;
 	};
 	class Camera
 	{
-		pos[]={19049.953,51.832447,14502.508};
-		dir[]={-0.66751182,-0.5860061,0.45938465};
-		up[]={-0.48273632,0.81030506,0.33222175};
-		aside[]={0.5669263,-1.9193976e-007,0.82377481};
+		pos[]={11865.219,157.45131,13644.496};
+		dir[]={-0.55328012,-0.72032601,0.41837037};
+		up[]={-0.57455945,0.69363147,0.43446112};
+		aside[]={0.60314715,5.6825229e-008,0.79764366};
 	};
 };
 binarizationWanted=0;
@@ -1928,6 +1928,8 @@ class Mission
 {
 	class Intel
 	{
+		briefingName="Training Ground 2017";
+		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0;
 		startWind=0.1;
@@ -1945,7 +1947,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=161;
+		items=269;
 		class Item0
 		{
 			dataType="Group";
@@ -6816,32 +6818,22 @@ class Mission
 		class Item131
 		{
 			dataType="Marker";
-			position[]=
-			{
-				15414.338,
-				1.#QNAN,
-				15855.4
-			};
+			position[]={15414.338,1,15855.4};
 			name="fsm_45";
 			text="fsm_45";
 			type="Empty";
 			id=1803;
-			atlOffset=1.#QNAN;
+			atlOffset=-3.3500037;
 		};
 		class Item132
 		{
 			dataType="Marker";
-			position[]=
-			{
-				16663.385,
-				1.#QNAN,
-				20584.805
-			};
+			position[]={16663.385,1,20584.805};
 			name="fsm_46";
 			text="fsm_46";
 			type="Empty";
 			id=1804;
-			atlOffset=1.#QNAN;
+			atlOffset=-3.3422408;
 		};
 		class Item133
 		{
@@ -6886,17 +6878,12 @@ class Mission
 		class Item137
 		{
 			dataType="Marker";
-			position[]=
-			{
-				16698.635,
-				1.#QNAN,
-				15672.063
-			};
+			position[]={16698.635,1,15672.063};
 			name="fsm_51";
 			text="fsm_51";
 			type="Empty";
 			id=1809;
-			atlOffset=1.#QNAN;
+			atlOffset=2.6201587;
 		};
 		class Item138
 		{
@@ -6911,17 +6898,12 @@ class Mission
 		class Item139
 		{
 			dataType="Marker";
-			position[]=
-			{
-				16701.822,
-				1.#QNAN,
-				13518.622
-			};
+			position[]={16701.822,1,13518.622};
 			name="fsm_53";
 			text="fsm_53";
 			type="Empty";
 			id=1811;
-			atlOffset=1.#QNAN;
+			atlOffset=-9.1615458;
 		};
 		class Item140
 		{
@@ -7132,6 +7114,1087 @@ class Mission
 			type="Empty";
 			id=1833;
 			atlOffset=-24.079054;
+		};
+		class Item161
+		{
+			dataType="Marker";
+			position[]={14683.248,-1.9637928e-012,16748.785};
+			name="parking";
+			text="parking";
+			type="Empty";
+			id=1853;
+			atlOffset=-17.91;
+		};
+		class Item162
+		{
+			dataType="Marker";
+			position[]={14668.47,-1.9637928e-012,16735.463};
+			name="parking_1";
+			text="parking_1";
+			type="Empty";
+			id=1854;
+			atlOffset=-17.91;
+		};
+		class Item163
+		{
+			dataType="Marker";
+			position[]={14655.148,-1.9637928e-012,16721.896};
+			name="parking_2";
+			text="parking_2";
+			type="Empty";
+			id=1855;
+			atlOffset=-17.91;
+		};
+		class Item164
+		{
+			dataType="Marker";
+			position[]={14642.794,-6.6199336e-006,16709.061};
+			name="parking_3";
+			text="parking_3";
+			type="Empty";
+			id=1856;
+			atlOffset=-17.910006;
+		};
+		class Item165
+		{
+			dataType="Marker";
+			position[]={14702.868,-1.0880467e-014,16730.859};
+			name="parking_4";
+			text="parking_4";
+			type="Empty";
+			id=1857;
+			atlOffset=-17.91;
+		};
+		class Item166
+		{
+			dataType="Marker";
+			position[]={14688.576,-1.0880467e-014,16718.02};
+			name="parking_5";
+			text="parking_5";
+			type="Empty";
+			id=1858;
+			atlOffset=-17.91;
+		};
+		class Item167
+		{
+			dataType="Marker";
+			position[]={14675.737,-8.9842883e-011,16703.971};
+			name="parking_6";
+			text="parking_6";
+			type="Empty";
+			id=1859;
+			atlOffset=-17.91;
+		};
+		class Item168
+		{
+			dataType="Marker";
+			position[]={14662.9,-3.8137108e-029,16691.617};
+			name="parking_7";
+			text="parking_7";
+			type="Empty";
+			id=1860;
+			atlOffset=-17.91;
+		};
+		class Item169
+		{
+			dataType="Marker";
+			position[]={14630.248,1.7475062e-012,16694.779};
+			name="parking_8";
+			text="parking_8";
+			type="Empty";
+			id=1861;
+			atlOffset=-17.91;
+		};
+		class Item170
+		{
+			dataType="Marker";
+			position[]={14617.894,-5.1820963e-025,16681.943};
+			name="parking_9";
+			text="parking_9";
+			type="Empty";
+			id=1862;
+			atlOffset=-17.91;
+		};
+		class Item171
+		{
+			dataType="Marker";
+			position[]={14650.837,-1.1282908e-020,16676.854};
+			name="parking_10";
+			text="parking_10";
+			type="Empty";
+			id=1863;
+			atlOffset=-17.91;
+		};
+		class Item172
+		{
+			dataType="Marker";
+			position[]={14638,-5.1801084e-025,16664.5};
+			name="parking_11";
+			text="parking_11";
+			type="Empty";
+			id=1864;
+			atlOffset=-17.91;
+		};
+		class Item173
+		{
+			dataType="Marker";
+			position[]={14710.411,1.1816923e-005,16776.926};
+			name="parking_12";
+			text="parking_12";
+			type="Empty";
+			id=1865;
+			atlOffset=-17.909988;
+		};
+		class Item174
+		{
+			dataType="Marker";
+			position[]={14698.057,-5.1820963e-025,16764.09};
+			name="parking_13";
+			text="parking_13";
+			type="Empty";
+			id=1866;
+			atlOffset=-17.91;
+		};
+		class Item175
+		{
+			dataType="Marker";
+			position[]={14731,-1.1281101e-024,16759};
+			name="parking_14";
+			text="parking_14";
+			type="Empty";
+			id=1867;
+			atlOffset=-17.91;
+		};
+		class Item176
+		{
+			dataType="Marker";
+			position[]={14718.163,3.5554641e+030,16746.646};
+			name="parking_15";
+			text="parking_15";
+			type="Empty";
+			id=1868;
+			atlOffset=3.5554641e+030;
+		};
+		class Item177
+		{
+			dataType="Marker";
+			position[]={14726.5,17.91,16679.5};
+			name="marker_13";
+			markerType="ELLIPSE";
+			type="ellipse";
+			a=5000;
+			b=5000;
+			id=1869;
+		};
+		class Item178
+		{
+			dataType="Marker";
+			position[]={14719.461,-2.5560615e-017,20710.924};
+			name="fsm_75";
+			text="fsm_75";
+			type="Empty";
+			id=1870;
+			atlOffset=-44.933502;
+		};
+		class Item179
+		{
+			dataType="Marker";
+			position[]={12834.626,-1.0782526e-016,19701.049};
+			name="fsm_76";
+			text="fsm_76";
+			type="Empty";
+			id=1871;
+			atlOffset=-47.09523;
+		};
+		class Item180
+		{
+			dataType="Marker";
+			position[]={13961.763,-8.1972337e-019,18457.406};
+			name="fsm_77";
+			text="fsm_77";
+			type="Empty";
+			id=1873;
+			atlOffset=-18.033817;
+		};
+		class Item181
+		{
+			dataType="Marker";
+			position[]={13851.762,7.2713806e-007,18597.164};
+			name="fsm_78";
+			text="fsm_78";
+			type="Empty";
+			id=1874;
+			atlOffset=-19.780001;
+		};
+		class Item182
+		{
+			dataType="Marker";
+			position[]={13994.32,1.3572987e+011,18890.031};
+			name="fsm_79";
+			text="fsm_79";
+			type="Empty";
+			id=1875;
+			atlOffset=1.3572987e+011;
+		};
+		class Item183
+		{
+			dataType="Marker";
+			position[]={14166.575,-8.3201197e-019,18655.781};
+			name="fsm_80";
+			text="fsm_80";
+			type="Empty";
+			id=1876;
+			atlOffset=-27.372608;
+		};
+		class Item184
+		{
+			dataType="Marker";
+			position[]={16242.074,-5.8036333e-021,17321};
+			name="fsm_81";
+			text="fsm_81";
+			type="Empty";
+			id=1877;
+			atlOffset=-25.714315;
+		};
+		class Item185
+		{
+			dataType="Marker";
+			position[]={16576.385,-9.9700933e-013,17307.85};
+			name="fsm_82";
+			text="fsm_82";
+			type="Empty";
+			id=1878;
+			atlOffset=-27.25329;
+		};
+		class Item186
+		{
+			dataType="Marker";
+			position[]={14473.807,-1.1680805e-023,17516.305};
+			name="fsm_83";
+			text="fsm_83";
+			type="Empty";
+			id=1880;
+			atlOffset=-22.486841;
+		};
+		class Item187
+		{
+			dataType="Marker";
+			position[]={14402.244,-1.7675111e-012,17746.746};
+			name="fsm_84";
+			text="fsm_84";
+			type="Empty";
+			id=1881;
+			atlOffset=-16.913847;
+		};
+		class Item188
+		{
+			dataType="Marker";
+			position[]={14619.295,-1.0067654e-012,17596.215};
+			name="fsm_85";
+			text="fsm_85";
+			type="Empty";
+			id=1882;
+			atlOffset=-24.957457;
+		};
+		class Item189
+		{
+			dataType="Marker";
+			position[]={16635.158,-1.836825e-012,16047.693};
+			name="fsm_86";
+			text="fsm_86";
+			type="Empty";
+			id=1884;
+			atlOffset=-15.2582;
+		};
+		class Item190
+		{
+			dataType="Marker";
+			position[]={16576.939,-1.2043876e-011,16139.103};
+			name="fsm_87";
+			text="fsm_87";
+			type="Empty";
+			id=1886;
+			atlOffset=-14.806528;
+		};
+		class Item191
+		{
+			dataType="Marker";
+			position[]={16803.916,-1.2388434e-011,16184.688};
+			name="fsm_88";
+			text="fsm_88";
+			type="Empty";
+			id=1887;
+			atlOffset=-18.799997;
+		};
+		class Item192
+		{
+			dataType="Marker";
+			position[]={18817.988,-7.5958788e-012,16619.506};
+			name="fsm_89";
+			text="fsm_89";
+			type="Empty";
+			id=1889;
+			atlOffset=-30.942135;
+		};
+		class Item193
+		{
+			dataType="Marker";
+			position[]={18984.307,-2.1663221e-010,16462.914};
+			name="fsm_90";
+			text="fsm_90";
+			type="Empty";
+			id=1891;
+			atlOffset=-24.472939;
+		};
+		class Item194
+		{
+			dataType="Marker";
+			position[]={18869.598,-2.006601e-010,16462.369};
+			name="fsm_91";
+			text="fsm_91";
+			type="Empty";
+			id=1892;
+			atlOffset=-27.653986;
+		};
+		class Item195
+		{
+			dataType="Marker";
+			position[]={18148.844,-1.3815451e-009,15138.61};
+			name="fsm_92";
+			text="fsm_92";
+			type="Empty";
+			id=1894;
+			atlOffset=-21.154177;
+		};
+		class Item196
+		{
+			dataType="Marker";
+			position[]={18110.838,-5.548102e-010,15384.563};
+			name="fsm_93";
+			text="fsm_93";
+			type="Empty";
+			id=1897;
+			atlOffset=-35.216557;
+		};
+		class Item197
+		{
+			dataType="Marker";
+			position[]={18289.674,-5.3047766e-010,15173.331};
+			name="fsm_94";
+			text="fsm_94";
+			type="Empty";
+			id=1898;
+			atlOffset=-22.763359;
+		};
+		class Item198
+		{
+			dataType="Marker";
+			position[]={12183.967,-1.4324768e-009,15654.13};
+			name="fsm_95";
+			text="fsm_95";
+			type="Empty";
+			id=1900;
+			atlOffset=-22.302555;
+		};
+		class Item199
+		{
+			dataType="Marker";
+			position[]={12434.299,-2.4583953e-009,15694.405};
+			name="fsm_96";
+			text="fsm_96";
+			type="Empty";
+			id=1901;
+			atlOffset=-20.969276;
+		};
+		class Item200
+		{
+			dataType="Marker";
+			position[]={12437.995,-7.116034e-009,15916.45};
+			name="fsm_97";
+			text="fsm_97";
+			type="Empty";
+			id=1903;
+			atlOffset=-20.528145;
+		};
+		class Item201
+		{
+			dataType="Marker";
+			position[]={11360.846,-6.703095e-009,14115.694};
+			name="fsm_98";
+			text="fsm_98";
+			type="Empty";
+			id=1904;
+			atlOffset=-19.598978;
+		};
+		class Item202
+		{
+			dataType="Marker";
+			position[]={11177.711,-5.0986895e-009,14414.786};
+			name="fsm_99";
+			text="fsm_99";
+			type="Empty";
+			id=1905;
+			atlOffset=-26.646605;
+		};
+		class Item203
+		{
+			dataType="Marker";
+			position[]={11267.289,-4.7550228e-011,14527.257};
+			name="fsm_100";
+			text="fsm_100";
+			type="Empty";
+			id=1906;
+			atlOffset=-29.496418;
+		};
+		class Item204
+		{
+			dataType="Marker";
+			position[]={12401.583,-3.3169583e-009,14346.198};
+			name="fsm_101";
+			text="fsm_101";
+			type="Empty";
+			id=1909;
+			atlOffset=-8.6110783;
+		};
+		class Item205
+		{
+			dataType="Marker";
+			position[]={12441.926,-3.5034473e-009,14168.212};
+			name="fsm_102";
+			text="fsm_102";
+			type="Empty";
+			id=1910;
+			atlOffset=-3.5019531;
+		};
+		class Item206
+		{
+			dataType="Marker";
+			position[]={12689.19,-1.0528492e-008,14222.846};
+			name="fsm_103";
+			text="fsm_103";
+			type="Empty";
+			id=1915;
+			atlOffset=-1.9426794;
+		};
+		class Item207
+		{
+			dataType="Marker";
+			position[]={17406.346,-1.7120804e-008,13177.533};
+			name="fsm_104";
+			text="fsm_104";
+			type="Empty";
+			id=1917;
+			atlOffset=-14.261803;
+		};
+		class Item208
+		{
+			dataType="Marker";
+			position[]={11839.462,-8.6993253e-008,13768.883};
+			name="fsm_105";
+			text="fsm_105";
+			type="Empty";
+			id=1919;
+			atlOffset=-13.231174;
+		};
+		class Item209
+		{
+			dataType="Marker";
+			position[]={11715.499,-7.6223927e-008,13563.96};
+			name="fsm_106";
+			text="fsm_106";
+			type="Empty";
+			id=1921;
+			atlOffset=-11.538045;
+		};
+		class Item210
+		{
+			dataType="Marker";
+			position[]={10910.724,-7.5235306e-008,13347.962};
+			name="fsm_107";
+			text="fsm_107";
+			type="Empty";
+			id=1923;
+			atlOffset=-31.465828;
+		};
+		class Item211
+		{
+			dataType="Marker";
+			position[]={11153.908,-1.1568872e-007,13321.974};
+			name="fsm_108";
+			text="fsm_108";
+			type="Empty";
+			id=1925;
+			atlOffset=-18.960674;
+		};
+		class Item212
+		{
+			dataType="Marker";
+			position[]={16380.71,-4.6776256e-007,12464.088};
+			name="fsm_109";
+			text="fsm_109";
+			type="Empty";
+			id=1927;
+			atlOffset=5.0642281;
+		};
+		class Item213
+		{
+			dataType="Marker";
+			position[]={16534.063,-3.5646951e-007,12546.002};
+			name="fsm_110";
+			text="fsm_110";
+			type="Empty";
+			id=1928;
+			atlOffset=-2.2700002;
+		};
+		class Item214
+		{
+			dataType="Marker";
+			position[]={16662.213,-1.4924916e-007,12294.078};
+			name="fsm_111";
+			text="fsm_111";
+			type="Empty";
+			id=1929;
+			atlOffset=-2.7448344;
+		};
+		class Item215
+		{
+			dataType="Marker";
+			position[]={16501.043,-2.4391657e-006,12792.702};
+			name="fsm_112";
+			text="fsm_112";
+			type="Empty";
+			id=1932;
+			atlOffset=-9.0154438;
+		};
+		class Item216
+		{
+			dataType="Marker";
+			position[]={17033.141,-3.0731693e-012,12764.643};
+			name="fsm_113";
+			text="fsm_113";
+			type="Empty";
+			id=1934;
+			atlOffset=-15.658416;
+		};
+		class Item217
+		{
+			dataType="Marker";
+			position[]={16548.547,9.3618983e-006,12785.165};
+			name="fsm_114";
+			text="fsm_114";
+			type="Empty";
+			id=1935;
+			atlOffset=-11.057944;
+		};
+		class Item218
+		{
+			dataType="Marker";
+			position[]={16589.154,-4.4730012e-028,12831.51};
+			name="fsm_115";
+			text="fsm_115";
+			type="Empty";
+			id=1936;
+			atlOffset=-11;
+		};
+		class Item219
+		{
+			dataType="Marker";
+			position[]={16635.498,9.3582312e-006,12804.586};
+			name="fsm_116";
+			text="fsm_116";
+			type="Empty";
+			id=1937;
+			atlOffset=-10.99999;
+		};
+		class Item220
+		{
+			dataType="Marker";
+			position[]={11435.744,6.7895303e-007,14242.477};
+			name="fsm_117";
+			text="fsm_117";
+			type="Empty";
+			id=1938;
+			atlOffset=-21.287624;
+		};
+		class Item221
+		{
+			dataType="Marker";
+			position[]={16693.113,-1.0698237e-018,12790.208};
+			name="fsm_118";
+			text="fsm_118";
+			type="Empty";
+			id=1939;
+			atlOffset=-18.501139;
+		};
+		class Item222
+		{
+			dataType="Marker";
+			position[]={17016.551,-8.3300511e-006,12806.463};
+			name="fsm_119";
+			text="fsm_119";
+			type="Empty";
+			id=1940;
+			atlOffset=-16.349617;
+		};
+		class Item223
+		{
+			dataType="Marker";
+			position[]={16978.061,-1.070684e-018,12870.515};
+			name="fsm_120";
+			text="fsm_120";
+			type="Empty";
+			id=1941;
+			atlOffset=-16.628313;
+		};
+		class Item224
+		{
+			dataType="Marker";
+			position[]={17186.092,-1.0698237e-018,13303.127};
+			name="fsm_121";
+			text="fsm_121";
+			type="Empty";
+			id=1942;
+			atlOffset=-12.675172;
+		};
+		class Item225
+		{
+			dataType="Marker";
+			position[]={18373.313,-7.9089186e-006,15486.106};
+			name="fsm_122";
+			text="fsm_122";
+			type="Empty";
+			id=1943;
+			atlOffset=-48.608673;
+		};
+		class Item226
+		{
+			dataType="Marker";
+			position[]={18399.354,-7.9089186e-006,15283.764};
+			name="fsm_123";
+			text="fsm_123";
+			type="Empty";
+			id=1944;
+			atlOffset=-27.326105;
+		};
+		class Item227
+		{
+			dataType="Marker";
+			position[]={18384.477,-8.501298e-006,15247.357};
+			name="fsm_124";
+			text="fsm_124";
+			type="Empty";
+			id=1945;
+			atlOffset=-27.088116;
+		};
+		class Item228
+		{
+			dataType="Marker";
+			position[]={15764.246,-8.501298e-006,15997.573};
+			name="fsm_125";
+			text="fsm_125";
+			type="Empty";
+			id=1946;
+			atlOffset=-4.2031164;
+		};
+		class Item229
+		{
+			dataType="Marker";
+			position[]={15459.53,-2.8040524e-014,15750.703};
+			name="fsm_126";
+			text="fsm_126";
+			type="Empty";
+			id=1947;
+			atlOffset=8.4709015;
+		};
+		class Item230
+		{
+			dataType="Marker";
+			position[]={15362.884,-2.8040524e-014,15886.121};
+			name="fsm_127";
+			text="fsm_127";
+			type="Empty";
+			id=1948;
+			atlOffset=-4.5221925;
+		};
+		class Item231
+		{
+			dataType="Marker";
+			position[]={15546.4,-0.045136258,16293.26};
+			name="fsm_128";
+			text="fsm_128";
+			type="Empty";
+			id=1949;
+			atlOffset=-13.222434;
+		};
+		class Item232
+		{
+			dataType="Marker";
+			position[]={15567.58,-7.9052516e-006,16294.65};
+			name="fsm_129";
+			text="fsm_129";
+			type="Empty";
+			id=1950;
+			atlOffset=-13.388678;
+		};
+		class Item233
+		{
+			dataType="Marker";
+			position[]={15344.677,-7.9052516e-006,16265.142};
+			name="fsm_130";
+			text="fsm_130";
+			type="Empty";
+			id=1951;
+			atlOffset=-10.000438;
+		};
+		class Item234
+		{
+			dataType="Marker";
+			position[]={15365.855,-8.501298e-006,16267.569};
+			name="fsm_131";
+			text="fsm_131";
+			type="Empty";
+			id=1952;
+			atlOffset=-9.9925871;
+		};
+		class Item235
+		{
+			dataType="Marker";
+			position[]={15936.085,-7.9052516e-006,17032.795};
+			name="fsm_132";
+			text="fsm_132";
+			type="Empty";
+			id=1953;
+			atlOffset=-14.066463;
+		};
+		class Item236
+		{
+			dataType="Marker";
+			position[]={16039.518,-1.0148352e-016,17122.664};
+			name="fsm_133";
+			text="fsm_133";
+			type="Empty";
+			id=1954;
+			atlOffset=-13.414233;
+		};
+		class Item237
+		{
+			dataType="Marker";
+			position[]={15569.145,-6.0603532e-005,17442.264};
+			name="fsm_134";
+			text="fsm_134";
+			type="Empty";
+			id=1955;
+			atlOffset=-14.637065;
+		};
+		class Item238
+		{
+			dataType="Marker";
+			position[]={15365.606,-5.9501312e-005,17406.932};
+			name="fsm_135";
+			text="fsm_135";
+			type="Empty";
+			id=1956;
+			atlOffset=-16.952173;
+		};
+		class Item239
+		{
+			dataType="Marker";
+			position[]={15347.692,-0.045136258,17425.346};
+			name="fsm_136";
+			text="fsm_136";
+			type="Empty";
+			id=1957;
+			atlOffset=-17.052158;
+		};
+		class Item240
+		{
+			dataType="Marker";
+			position[]={15327.786,-5.9530648e-005,17442.264};
+			name="fsm_137";
+			text="fsm_137";
+			type="Empty";
+			id=1958;
+			atlOffset=-17.279524;
+		};
+		class Item241
+		{
+			dataType="Marker";
+			position[]={15228.256,-5.9769067e-005,17435.797};
+			name="fsm_138";
+			text="fsm_138";
+			type="Empty";
+			id=1959;
+			atlOffset=-17.51487;
+		};
+		class Item242
+		{
+			dataType="Marker";
+			position[]={15190.438,-0.045136258,17369.113};
+			name="fsm_139";
+			text="fsm_139";
+			type="Empty";
+			id=1960;
+			atlOffset=-17.971218;
+		};
+		class Item243
+		{
+			dataType="Marker";
+			position[]={14907.28,-8.501298e-006,17155.627};
+			name="fsm_140";
+			text="fsm_140";
+			type="Empty";
+			id=1961;
+			atlOffset=-16.904112;
+		};
+		class Item244
+		{
+			dataType="Marker";
+			position[]={14604.908,-5.8278951e-005,16788.193};
+			name="fsm_141";
+			text="fsm_141";
+			type="Empty";
+			id=1962;
+			atlOffset=-17.910059;
+		};
+		class Item245
+		{
+			dataType="Marker";
+			position[]={14483.723,-0.094667047,16329.919};
+			name="fsm_142";
+			text="fsm_142";
+			type="Empty";
+			id=1963;
+			atlOffset=-18.956264;
+		};
+		class Item246
+		{
+			dataType="Marker";
+			position[]={14189.243,-5.9486643e-005,16309.988};
+			name="fsm_143";
+			text="fsm_143";
+			type="Empty";
+			id=1964;
+			atlOffset=-19.230381;
+		};
+		class Item247
+		{
+			dataType="Marker";
+			position[]={11323.035,3.9382751e+028,14145.425};
+			name="fsm_144";
+			text="fsm_144";
+			type="Empty";
+			id=1965;
+			atlOffset=3.9382751e+028;
+		};
+		class Item248
+		{
+			dataType="Marker";
+			position[]={11692.05,-2.046819e-020,15915.161};
+			name="fsm_145";
+			text="fsm_145";
+			type="Empty";
+			id=1966;
+			atlOffset=-37.651257;
+		};
+		class Item249
+		{
+			dataType="Marker";
+			position[]={12640.49,-2.4772751e-010,16414.094};
+			name="fsm_146";
+			text="fsm_146";
+			type="Empty";
+			id=1967;
+			atlOffset=-33.895096;
+		};
+		class Item250
+		{
+			dataType="Marker";
+			position[]={12842.322,-1.9645675e-008,16679.447};
+			name="fsm_147";
+			text="fsm_147";
+			type="Empty";
+			id=1968;
+			atlOffset=-90.988419;
+		};
+		class Item251
+		{
+			dataType="Marker";
+			position[]={14292.004,-0.059342429,18862.918};
+			name="fsm_148";
+			text="fsm_148";
+			type="Empty";
+			id=1969;
+			atlOffset=-36.602928;
+		};
+		class Item252
+		{
+			dataType="Marker";
+			position[]={14396.369,-0.09530744,18909.488};
+			name="fsm_149";
+			text="fsm_149";
+			type="Empty";
+			id=1970;
+			atlOffset=-37.388142;
+		};
+		class Item253
+		{
+			dataType="Marker";
+			position[]={14323.986,-0.059342429,18933.055};
+			name="fsm_150";
+			text="fsm_150";
+			type="Empty";
+			id=1971;
+			atlOffset=-36.912991;
+		};
+		class Item254
+		{
+			dataType="Marker";
+			position[]={14193.028,-0.059281394,21196.449};
+			name="fsm_151";
+			text="fsm_151";
+			type="Empty";
+			id=1972;
+			atlOffset=-73.566933;
+		};
+		class Item255
+		{
+			dataType="Marker";
+			position[]={10432.581,-1.000481e-009,17232.9};
+			name="fsm_152";
+			text="fsm_152";
+			type="Empty";
+			id=1974;
+			atlOffset=-83.374687;
+		};
+		class Item256
+		{
+			dataType="Marker";
+			position[]={11257.696,3.5552874e+028,14353.224};
+			name="fsm_153";
+			text="fsm_153";
+			type="Empty";
+			id=1975;
+			atlOffset=3.5552874e+028;
+		};
+		class Item257
+		{
+			dataType="Marker";
+			position[]={10993.164,-2.0663452e-038,13478.712};
+			name="fsm_154";
+			text="fsm_154";
+			type="Empty";
+			id=1976;
+			atlOffset=-27.770948;
+		};
+		class Item258
+		{
+			dataType="Marker";
+			position[]={11725.855,-3.7655051e-016,13740.106};
+			name="fsm_155";
+			text="fsm_155";
+			type="Empty";
+			id=1977;
+			atlOffset=-12.699553;
+		};
+		class Item259
+		{
+			dataType="Marker";
+			position[]={12476.801,-3.3851846e-009,14316.606};
+			name="fsm_156";
+			text="fsm_156";
+			type="Empty";
+			id=1978;
+			atlOffset=-9.4680004;
+		};
+		class Item260
+		{
+			dataType="Marker";
+			position[]={12946.508,-0.040604636,15069.071};
+			name="fsm_157";
+			text="fsm_157";
+			type="Empty";
+			id=1979;
+			atlOffset=-28.898546;
+		};
+		class Item261
+		{
+			dataType="Marker";
+			position[]={12342.93,-4.2365453e-009,15681.705};
+			name="fsm_158";
+			text="fsm_158";
+			type="Empty";
+			id=1980;
+			atlOffset=-24.168699;
+		};
+		class Item262
+		{
+			dataType="Marker";
+			position[]={14638.54,-1.0062613e-034,20796.65};
+			name="fsm_159";
+			text="fsm_159";
+			type="Empty";
+			id=1981;
+			atlOffset=-48.603146;
+		};
+		class Item263
+		{
+			dataType="Marker";
+			position[]={14039.336,-3.7644378e-016,18729.158};
+			name="fsm_160";
+			text="fsm_160";
+			type="Empty";
+			id=1982;
+			atlOffset=-26.455854;
+		};
+		class Item264
+		{
+			dataType="Marker";
+			position[]={14488.623,-1.1812152e-018,17670.926};
+			name="fsm_161";
+			text="fsm_161";
+			type="Empty";
+			id=1983;
+			atlOffset=-20.920218;
+		};
+		class Item265
+		{
+			dataType="Marker";
+			position[]={16280.558,-3.7655051e-016,17121.076};
+			name="fsm_162";
+			text="fsm_162";
+			type="Empty";
+			id=1984;
+			atlOffset=-16.263958;
+		};
+		class Item266
+		{
+			dataType="Marker";
+			position[]={16589.887,-1.1812152e-018,16118.727};
+			name="fsm_163";
+			text="fsm_163";
+			type="Empty";
+			id=1985;
+			atlOffset=-15.087358;
+		};
+		class Item267
+		{
+			dataType="Marker";
+			position[]={18110.627,-3.3851846e-009,15241.239};
+			name="fsm_164";
+			text="fsm_164";
+			type="Empty";
+			id=1986;
+			atlOffset=-24.472425;
+		};
+		class Item268
+		{
+			dataType="Marker";
+			position[]={18823.254,-3.3851846e-009,16600.953};
+			name="fsm_165";
+			text="fsm_165";
+			type="Empty";
+			id=1987;
+			atlOffset=-30.341541;
 		};
 	};
 };

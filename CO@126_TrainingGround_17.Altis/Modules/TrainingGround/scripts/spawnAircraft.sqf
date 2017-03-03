@@ -31,7 +31,7 @@
 					{
 						switch (_exerciseID) do
 						{
-							case 1:
+							case 1: // Solo Practice
 							{
 								_position = getmarkerpos "ravenSolo";
 								if(isServer) then
@@ -41,6 +41,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{
@@ -73,6 +133,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign/Exercise Switch";
@@ -103,6 +223,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{
@@ -135,6 +315,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi8_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi8_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi8_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi8_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign/Exercise Switch";
@@ -165,6 +405,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{
@@ -197,6 +497,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign/Exercise Switch";
@@ -228,6 +588,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign/Exercise Switch";
@@ -258,6 +678,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_O_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{
@@ -300,6 +780,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["B_Heli_Transport_01_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["B_Heli_Transport_01_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["B_Heli_Transport_01_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["B_Heli_Transport_01_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign/Exercise Switch";
@@ -330,6 +870,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["B_Heli_Transport_01_camo_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["B_Heli_Transport_01_camo_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["B_Heli_Transport_01_camo_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["B_Heli_Transport_01_camo_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{
@@ -362,6 +962,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_AW159_Unarmed_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_AW159_Unarmed_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_AW159_Unarmed_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_AW159_Unarmed_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign/Exercise Switch";
@@ -392,6 +1052,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_AW159_Unarmed_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_AW159_Unarmed_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_AW159_Unarmed_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_AW159_Unarmed_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{
@@ -424,6 +1144,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_MH60S_FFV_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_MH60S_FFV_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_MH60S_FFV_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_MH60S_FFV_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign/Exercise Switch";
@@ -454,6 +1234,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_MH60S_FFV_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_MH60S_FFV_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_MH60S_FFV_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_MH60S_FFV_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{
@@ -486,6 +1326,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign/Exercise Switch";
@@ -517,6 +1417,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign/Exercise Switch";
@@ -547,6 +1507,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_B_Mi17_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{
@@ -589,6 +1609,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["I_Heli_light_03_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["I_Heli_light_03_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["I_Heli_light_03_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["I_Heli_light_03_F", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Callsign/Exercise Switch";
@@ -619,6 +1699,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["CUP_I_Ka60_GL_Blk_ION", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["CUP_I_Ka60_GL_Blk_ION", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["CUP_I_Ka60_GL_Blk_ION", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["CUP_I_Ka60_GL_Blk_ION", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{
@@ -651,6 +1791,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Callsign/Exercise Switch";
@@ -682,6 +1882,66 @@
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Callsign/Exercise Switch";
@@ -712,6 +1972,66 @@
 									GW_TrainingGround_spawnedAssets pushBack _heli;
 								};
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								if(isServer) then
+								{
+									{
+										_position = getMarkerPos _x;
+										_heli = createVehicle ["JAS_CUP_I_SA330_Puma_HC2_AAC", _position, [], 0, "CAN_COLLIDE"];
+										_heli setDir 130;
+										GW_TrainingGround_spawnedAssets pushBack _heli;
+									}foreach _parkingSlots;
+								};
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
 							};
 							default
 							{

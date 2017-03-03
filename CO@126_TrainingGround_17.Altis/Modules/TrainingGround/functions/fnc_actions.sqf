@@ -12,7 +12,9 @@
  
  // Shared Actions For Laptops
  {
-	_x addAction ["Reset Training Area","[] call GW_TrainingGround_Fnc_resetTraining;",bullShit,5];
+	_x addAction ["<t color='#FF0000'>===========================</t>","",bullShit,5];
+	_x addAction ["<t color='#FFFF00'>Reset Training Area","[] call GW_TrainingGround_Fnc_resetTraining;",bullShit,5];
+	_x addAction ["<t color='#FF0000'>===========================</t>","",bullShit,5];
  }foreach _laptopArray;
  
  // Teleportation Actions
@@ -34,5 +36,14 @@
  }foreach _portPoleArray;
  
  // Aircraft Exercise Control Laptop
- Laptop_1 addAction ["Raven Solo HLS Generator","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Raven",1],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FFFF00'>Raven Solo HLS Generator</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Raven",1],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FFFF00'>Raven Normal Ops HLS Generator</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Raven",2],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FFFF00'>Raven Urban Ops HLS Generator</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Raven",3],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FFFF00'>Raven Special Ops HLS Generator</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Raven",4],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FFFF00'>Raven Air Assault HLS Generator</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Raven",5],1,false,false,"",""];
+ Laptop_1 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
  
