@@ -7,6 +7,7 @@
  
  // Exit all FSMs
  GW_TrainingGround_SoloFSM setFSMVariable ["_resetTrigger", 1];
+ GW_TrainingGround_AACFSM setFSMVariable ["_resetTrigger", 1];
  
  // Remove All Actions from Laptops and poles
  {
@@ -20,6 +21,9 @@
  {
 	deleteVehicle _x;
  }foreach GW_TrainingGround_spawnedAssets;
+ {
+	deleteVehicle _x;
+ }foreach GW_TrainingGround_spawnedOPFOR;
  
  // Reset Globals
  GW_TrainingGround_Laptops = [];

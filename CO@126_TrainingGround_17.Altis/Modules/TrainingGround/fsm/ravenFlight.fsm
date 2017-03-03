@@ -1,0 +1,227 @@
+/*%FSM<COMPILE "D:\SteamLibrary\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, ravenFlight">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,-1958.338501,570.532837,-1868.338379,620.533020,0.000000,"START"};
+item1[] = {"Action_Used",4,218,-1957.462646,500.087860,-1867.462646,550.087891,0.000000,"Action Used"};
+item2[] = {"Generate_HLS",2,4346,-1958.563477,413.112793,-1868.563477,463.112793,0.000000,"Generate HLS"};
+item3[] = {"",7,210,-1801.127563,434.030884,-1793.127686,442.030884,0.000000,""};
+item4[] = {"_",-1,250,-1912.822632,346.776672,-1912.822632,374.305359,0.000000,""};
+item5[] = {"",7,210,-1800.862549,522.188904,-1792.862549,530.188904,0.000000,""};
+item6[] = {"Reset",4,218,-1959.664429,322.834717,-1869.664307,372.834717,0.000000,"Reset"};
+item7[] = {"END",1,250,-1959.664551,246.869080,-1869.664551,296.869019,0.000000,"END"};
+version=1;
+class LayoutItems
+{
+	class Item4
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10;
+			lStyle=1;
+		};
+	};
+};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,6};
+link4[] = {3,5};
+link5[] = {5,1};
+link6[] = {6,7};
+globals[] = {0.000000,0,0,0,0,640,480,1,50,6316128,1,-2159.075684,-1654.839844,792.725708,70.394943,458,828,1};
+window[] = {2,-1,-1,-32000,-32000,880,78,1046,78,3,476};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "ravenFlight";
+        class States
+        {
+                /*%FSM<STATE "START">*/
+                class START
+                {
+                        name = "START";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"// Gather Incoming Data" \n
+                         "_caller = _this select 0; // OBJRef of player calling the FSM" \n
+                         "_side = _this select 1; // Side of the player calling the FSM" \n
+                         "_capacity = _this select 2; // Capacity of the chopper" \n
+                         "_exercise = _this select 3; // ObjRef of the chopper used by the FSM" \n
+                         "_group = _this select 4; // Group of player calling the FSM" \n
+                         "" \n
+                         "// Set Locals" \n
+                         "switch (_side) do" \n
+                         "{" \n
+                         "	case 0:" \n
+                         "	{" \n
+                         "		_side = ""EAST"";" \n
+                         "	};" \n
+                         "	case 1:" \n
+                         "	{" \n
+                         "		_side = ""WEST"";" \n
+                         "	};" \n
+                         "	case 2:" \n
+                         "	{" \n
+                         "		_side = ""GUER"";" \n
+                         "	};" \n
+                         "};" \n
+                         "" \n
+                         "_markers = [];" \n
+                         "switch (_exercise) do" \n
+                         "{" \n
+                         "	case ""normal"":" \n
+                         "	{" \n
+                         "		_markers = [""fsm"",""fsm_1"",""fsm_2"",""fsm_3"",""fsm_4"",""fsm_5"",""fsm_6"",""fsm_7"",""fsm_8"",""fsm_9"",""fsm_10""," \n
+                         "		""fsm_11"",""fsm_12"",""fsm_13"",""fsm_14"",""fsm_15"",""fsm_16"",""fsm_17"",""fsm_18"",""fsm_19"",""fsm_20""," \n
+                         "		""fsm_21"",""fsm_22"",""fsm_23"",""fsm_24"",""fsm_25"",""fsm_26"",""fsm_27"",""fsm_28"",""fsm_29"",""fsm_30""," \n
+                         "		""fsm_31"",""fsm_32"",""fsm_33"",""fsm_34"",""fsm_35"",""fsm_36"",""fsm_37"",""fsm_38"",""fsm_39"",""fsm_40""," \n
+                         "		""fsm_41"",""fsm_42"",""fsm_43"",""fsm_44"",""fsm_45"",""fsm_46"",""fsm_47"",""fsm_48"",""fsm_49"",""fsm_50""," \n
+                         "		""fsm_51"",""fsm_52"",""fsm_53"",""fsm_54"",""fsm_55"",""fsm_56"",""fsm_57"",""fsm_58"",""fsm_59"",""fsm_60""," \n
+                         "		""fsm_61"",""fsm_62"",""fsm_63"",""fsm_64"",""fsm_65"",""fsm_66"",""fsm_67"",""fsm_68"",""fsm_69"",""fsm_70""," \n
+                         "		""fsm_71"",""fsm_72"",""fsm_73"",""fsm_74""]; // Array of viable markers" \n
+                         "	};" \n
+                         "	case ""urban"":" \n
+                         "	{" \n
+                         "		_markers = [""fsm_75"",""fsm_76"",""fsm_77"",""fsm_78"",""fsm_79"",""fsm_80"",""fsm_81"",""fsm_82""," \n
+                         "		""fsm_83"",""fsm_84"",""fsm_85"",""fsm_86"",""fsm_87"",""fsm_88"",""fsm_89"",""fsm_90"",""fsm_91""," \n
+                         "		""fsm_92"",""fsm_93"",""fsm_94"",""fsm_95"",""fsm_96"",""fsm_97"",""fsm_98"",""fsm_99"",""fsm_100""," \n
+                         "		""fsm_101"",""fsm_102"",""fsm_103"",""fsm_104"",""fsm_105"",""fsm_106"",""fsm_107"",""fsm_108"",""fsm_109""," \n
+                         "		""fsm_110"",""fsm_111"",""fsm_112"",""fsm_113""]; // Array of viable markers" \n
+                         "	};" \n
+                         "	case ""special"":" \n
+                         "	{" \n
+                         "		_markers = [""fsm_114"",""fsm_115"",""fsm_116"",""fsm_117"",""fsm_118"",""fsm_119"",""fsm_120"",""fsm_121""," \n
+                         "		""fsm_122"",""fsm_123"",""fsm_124"",""fsm_125"",""fsm_126"",""fsm_127"",""fsm_128"",""fsm_129"",""fsm_130""," \n
+                         "		""fsm_131"",""fsm_132"",""fsm_133"",""fsm_134"",""fsm_135"",""fsm_136"",""fsm_137"",""fsm_138"",""fsm_139""," \n
+                         "		""fsm_140"",""fsm_141"",""fsm_142"",""fsm_143"",""fsm_144"",""fsm_145"",""fsm_146"",""fsm_147"",""fsm_148""," \n
+                         "		""fsm_149"",""fsm_150"",""fsm_151""]; // Array of viable markers" \n
+                         "	};" \n
+                         "	case ""assault"":" \n
+                         "	{" \n
+                         "		_markers = [""fsm_152"",""fsm_153"",""fsm_154"",""fsm_155"",""fsm_156"",""fsm_157"",""fsm_158"",""fsm_159""," \n
+                         "		""fsm_160"",""fsm_161"",""fsm_162"",""fsm_163"",""fsm_164"",""fsm_165""]; // Array of viable markers" \n
+                         "	};" \n
+                         "	case ""casevac"":" \n
+                         "	{" \n
+                         "		_markers = [""fsm"",""fsm_1"",""fsm_2"",""fsm_3"",""fsm_4"",""fsm_5"",""fsm_6"",""fsm_7"",""fsm_8"",""fsm_9"",""fsm_10""," \n
+                         "		""fsm_11"",""fsm_12"",""fsm_13"",""fsm_14"",""fsm_15"",""fsm_16"",""fsm_17"",""fsm_18"",""fsm_19"",""fsm_20""," \n
+                         "		""fsm_21"",""fsm_22"",""fsm_23"",""fsm_24"",""fsm_25"",""fsm_26"",""fsm_27"",""fsm_28"",""fsm_29"",""fsm_30""," \n
+                         "		""fsm_31"",""fsm_32"",""fsm_33"",""fsm_34"",""fsm_35"",""fsm_36"",""fsm_37"",""fsm_38"",""fsm_39"",""fsm_40""," \n
+                         "		""fsm_41"",""fsm_42"",""fsm_43"",""fsm_44"",""fsm_45"",""fsm_46"",""fsm_47"",""fsm_48"",""fsm_49"",""fsm_50""," \n
+                         "		""fsm_51"",""fsm_52"",""fsm_53"",""fsm_54"",""fsm_55"",""fsm_56"",""fsm_57"",""fsm_58"",""fsm_59"",""fsm_60""," \n
+                         "		""fsm_61"",""fsm_62"",""fsm_63"",""fsm_64"",""fsm_65"",""fsm_66"",""fsm_67"",""fsm_68"",""fsm_69"",""fsm_70""," \n
+                         "		""fsm_71"",""fsm_72"",""fsm_73"",""fsm_74""]; // Array of viable markers" \n
+                         "	};" \n
+                         "	default" \n
+                         "	{" \n
+                         "		hint ""Code Fail in FSM INIT _exercise Switch"";" \n
+                         "	};" \n
+                         "};" \n
+                         "" \n
+                         "_markersPop = _markers; // Second array used as blacklist" \n
+                         "_RavenTrigFired = 1; // Tracks Trigger State" \n
+                         "_RavenCounter = 1; // Counter for task ID" \n
+                         "_resetTrigger = 0; // Variable to track FSM reset" \n
+                         "_taskID = ""0"";" \n
+                         "" \n
+                         "_caller addAction [""<t color='#FFFF00'>Generate HLS</t>"",{GW_TrainingGround_AACFSM setFSMVariable [""_RavenTrigFired"", 2];},[],1,false,false,"""",""""];" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Action_Used">*/
+                                class Action_Used
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Generate_HLS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_RavenTrigFired == 2"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Generate_HLS">*/
+                class Generate_HLS
+                {
+                        name = "Generate_HLS";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"// Clear Task" \n
+                         "[_taskID] call BIS_fnc_deleteTask;" \n
+                         "_RavenCounter = _RavenCounter + 1;" \n
+                         "_RavenTrigFired = 1;" \n
+                         "" \n
+                         "// Create Task" \n
+                         "_marker = _markersPop call BIS_fnc_SelectRandom;" \n
+                         "_markerArray = [_marker];" \n
+                         "_markersPop = _markers - _markerArray;" \n
+                         "_taskID = format [""%1"",_RavenCounter];" \n
+                         "_destination = getmarkerpos _marker;" \n
+                         "[_group,[_taskID],[""Fly to the destination"",""Destination"",_marker],_destination,true,9,true,""navigate""] call BIS_fnc_taskCreate;" \n
+                         "" \n
+                         "switch (_exercise) do" \n
+                         "{" \n
+                         "	case ""assault"":" \n
+                         "	{" \n
+                         "		[_side,_destination,""HLS""] execVM ""Modules\TrainingGround\functions\fnc_spawnBadGuys.sqf"";" \n
+                         "	};" \n
+                         "	default" \n
+                         "	{" \n
+                         "		" \n
+                         "	};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Action_Used">*/
+                                class Action_Used
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Generate_HLS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_RavenTrigFired == 2"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Reset">*/
+                                class Reset
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_resetTrigger == 1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"removeAllActions _caller;" \n
+                         "[_taskID] call BIS_fnc_deleteTask;" \n
+                         "systemChat ""Flight Exercise Ended"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="START";
+        finalStates[] =
+        {
+                "END",
+        };
+};
+/*%FSM</COMPILE>*/
