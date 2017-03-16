@@ -1,0 +1,153 @@
+/*%FSM<COMPILE "D:\SteamLibrary\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, EPFlight">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,-1958.338501,570.532837,-1868.338379,620.533020,0.000000,"START"};
+item1[] = {"Caller_is_Pilot",4,218,-1959.040039,477.328644,-1869.040039,527.328613,0.000000,"Caller is Pilot"};
+item2[] = {"Generate_Fault",2,250,-1958.613892,400.641296,-1868.613770,450.641296,0.000000,"Generate Fault"};
+item3[] = {"Wait_for_Timer",4,218,-1968.624512,304.215790,-1859.437866,371.734039,0.000000,"Wait for Timer"};
+item4[] = {"_",-1,250,-1912.822632,346.776672,-1912.822632,374.305359,0.000000,""};
+item5[] = {"Apply_Fault",2,4346,-1967.846069,167.520767,-1861.184570,228.043839,0.000000,"Apply Fault"};
+item6[] = {"END",1,250,-2132.670410,83.656181,-2042.670410,133.656174,0.000000,"END"};
+item7[] = {"_",8,218,-1959.542603,82.926346,-1869.542603,132.926331,0.000000,""};
+version=1;
+class LayoutItems
+{
+	class Item4
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10;
+			lStyle=1;
+		};
+	};
+};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,5};
+link4[] = {5,7};
+link5[] = {7,6};
+globals[] = {0.000000,0,0,0,0,640,480,1,44,6316128,1,-2159.075684,-1654.839844,792.725708,70.394943,458,828,1};
+window[] = {2,-1,-1,-1,-1,1010,208,1176,208,3,476};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "EPFlight";
+        class States
+        {
+                /*%FSM<STATE "START">*/
+                class START
+                {
+                        name = "START";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"// Gather Incoming Data" \n
+                         "_caller = _this select 0; // ObjRef of player calling the FSM" \n
+                         "_side = _this select 1; // Side of the player calling the FSM" \n
+                         "_capacity = _this select 2; // Capacity of the chopper" \n
+                         "_chopper = _this select 3; // ObjRef of the chopper used by the FSM" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Caller_is_Pilot">*/
+                                class Caller_is_Pilot
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Generate_Fault";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"// FSM should not start proper until the player is the pilot of the chopper" \n
+                                         "_caller isEqualTo driver objectParent _caller;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Generate_Fault">*/
+                class Generate_Fault
+                {
+                        name = "Generate_Fault";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = [] spawn" \n
+                         "{" \n
+                         "	_delay = floor(random 200)+300;" \n
+                         "	sleep _delay;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait_for_Timer">*/
+                                class Wait_for_Timer
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Apply_Fault";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptdone _timeout;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Apply_Fault">*/
+                class Apply_Fault
+                {
+                        name = "Apply_Fault";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"_fault = selectRandom [""engine"",""ATRQ""];" \n
+                         "" \n
+                         "switch (_fault) do" \n
+                         "{" \n
+                         "	case ""engine"":" \n
+                         "	{" \n
+                         "		_chopper setFuel 0;" \n
+                         "	};" \n
+                         "	case ""ATRQ"":" \n
+                         "	{" \n
+                         "		_chopper setHitPointDamage [""HitVRotor"", 1];" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="START";
+        finalStates[] =
+        {
+                "END",
+        };
+};
+/*%FSM</COMPILE>*/

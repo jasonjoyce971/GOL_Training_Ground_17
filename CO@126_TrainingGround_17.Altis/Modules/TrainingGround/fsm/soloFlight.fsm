@@ -1,7 +1,7 @@
 /*%FSM<COMPILE "D:\SteamLibrary\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, soloFlight">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-1958.338501,570.532837,-1868.338379,620.533020,0.000000,"START"};
+item0[] = {"START",0,4346,-1958.338501,570.532837,-1868.338379,620.533020,0.000000,"START"};
 item1[] = {"Caller_is_Pilot",4,218,-1959.040039,477.328644,-1869.040039,527.328613,0.000000,"Caller is Pilot"};
 item2[] = {"Generate_HLS",2,250,-1958.613892,400.641296,-1868.613770,450.641296,0.000000,"Generate HLS"};
 item3[] = {"Wait_for_Trigger",4,218,-1968.624512,304.215790,-1859.437866,371.734039,0.000000,"Wait for Trigger"};
@@ -17,7 +17,7 @@ item12[] = {"",7,210,-2008.664307,153.632996,-2000.664429,161.632996,0.000000,""
 item13[] = {"Pilot_is_Dead",4,218,-1960.683350,133.568207,-1870.683350,183.568207,0.000000,"Pilot is Dead"};
 item14[] = {"",7,210,-1732.117920,155.314880,-1724.117920,163.314896,0.000000,""};
 item15[] = {"",7,210,-1918.807373,103.844429,-1910.807495,111.844414,0.000000,""};
-item16[] = {"RESET",4,4314,-1956.500610,666.009827,-1866.500488,716.009766,0.000000,"RESET"};
+item16[] = {"RESET",4,218,-1956.500610,666.009827,-1866.500488,716.009766,0.000000,"RESET"};
 item17[] = {"",7,210,-2007.841553,686.230713,-1999.841675,694.230713,0.000000,""};
 item18[] = {"",7,210,-1732.603638,687.331665,-1724.603638,695.331665,0.000000,""};
 item19[] = {"END_1",1,250,-1955.260742,751.104980,-1865.260742,801.104980,0.000000,"END"};
@@ -58,7 +58,7 @@ link20[] = {16,19};
 link21[] = {17,16};
 link22[] = {18,16};
 globals[] = {0.000000,0,0,0,0,640,480,1,44,6316128,1,-2159.075684,-1654.839844,792.725708,70.394943,458,828,1};
-window[] = {2,-1,-1,-1,-1,828,26,994,26,3,476};
+window[] = {2,-1,-1,-1,-1,1036,234,1202,234,3,476};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -75,16 +75,45 @@ class FSM
                          "_side = _this select 1; // Side of the player calling the FSM" \n
                          "_capacity = _this select 2; // Capacity of the chopper" \n
                          "_chopper = _this select 3; // ObjRef of the chopper used by the FSM" \n
+                         "_exercise = _this select 4; // Callsign to dictate HLS selection" \n
+                         "" \n
+                         "_markers = [];" \n
                          "" \n
                          "// Set Locals" \n
-                         "_markers = [""fsm"",""fsm_1"",""fsm_2"",""fsm_3"",""fsm_4"",""fsm_5"",""fsm_6"",""fsm_7"",""fsm_8"",""fsm_9"",""fsm_10""," \n
-                         """fsm_11"",""fsm_12"",""fsm_13"",""fsm_14"",""fsm_15"",""fsm_16"",""fsm_17"",""fsm_18"",""fsm_19"",""fsm_20""," \n
-                         """fsm_21"",""fsm_22"",""fsm_23"",""fsm_24"",""fsm_25"",""fsm_26"",""fsm_27"",""fsm_28"",""fsm_29"",""fsm_30""," \n
-                         """fsm_31"",""fsm_32"",""fsm_33"",""fsm_34"",""fsm_35"",""fsm_36"",""fsm_37"",""fsm_38"",""fsm_39"",""fsm_40""," \n
-                         """fsm_41"",""fsm_42"",""fsm_43"",""fsm_44"",""fsm_45"",""fsm_46"",""fsm_47"",""fsm_48"",""fsm_49"",""fsm_50""," \n
-                         """fsm_51"",""fsm_52"",""fsm_53"",""fsm_54"",""fsm_55"",""fsm_56"",""fsm_57"",""fsm_58"",""fsm_59"",""fsm_60""," \n
-                         """fsm_61"",""fsm_62"",""fsm_63"",""fsm_64"",""fsm_65"",""fsm_66"",""fsm_67"",""fsm_68"",""fsm_69"",""fsm_70""," \n
-                         """fsm_71"",""fsm_72"",""fsm_73"",""fsm_74""]; // Array of viable markers" \n
+                         "switch (_exercise) do" \n
+                         "{" \n
+                         "	case ""Raven"":" \n
+                         "	{" \n
+                         "		_markers = [""fsm"",""fsm_1"",""fsm_2"",""fsm_3"",""fsm_4"",""fsm_5"",""fsm_6"",""fsm_7"",""fsm_8"",""fsm_9"",""fsm_10""," \n
+                         "		""fsm_11"",""fsm_12"",""fsm_13"",""fsm_14"",""fsm_15"",""fsm_16"",""fsm_17"",""fsm_18"",""fsm_19"",""fsm_20""," \n
+                         "		""fsm_21"",""fsm_22"",""fsm_23"",""fsm_24"",""fsm_25"",""fsm_26"",""fsm_27"",""fsm_28"",""fsm_29"",""fsm_30""," \n
+                         "		""fsm_31"",""fsm_32"",""fsm_33"",""fsm_34"",""fsm_35"",""fsm_36"",""fsm_37"",""fsm_38"",""fsm_39"",""fsm_40""," \n
+                         "		""fsm_41"",""fsm_42"",""fsm_43"",""fsm_44"",""fsm_45"",""fsm_46"",""fsm_47"",""fsm_48"",""fsm_49"",""fsm_50""," \n
+                         "		""fsm_51"",""fsm_52"",""fsm_53"",""fsm_54"",""fsm_55"",""fsm_56"",""fsm_57"",""fsm_58"",""fsm_59"",""fsm_60""," \n
+                         "		""fsm_61"",""fsm_62"",""fsm_63"",""fsm_64"",""fsm_65"",""fsm_66"",""fsm_67"",""fsm_68"",""fsm_69"",""fsm_70""," \n
+                         "		""fsm_71"",""fsm_72"",""fsm_73"",""fsm_74""]; // Array of viable markers" \n
+                         "	};" \n
+                         "	case ""Giant"":" \n
+                         "	{" \n
+                         "		_markers = [""fsm_166"",""fsm_1"",""fsm_2"",""fsm_3"",""fsm_4"",""fsm_167"",""fsm_6"",""fsm_7"",""fsm_8""," \n
+                         "		""fsm_9"",""fsm_10"",""fsm_108"",""fsm_12"",""fsm_13"",""fsm_14"",""fsm_15"",""fsm_16"",""fsm_17"",""fsm_18""," \n
+                         "		""fsm_19"",""fsm_20"",""fsm_21"",""fsm_168"",""fsm_23"",""fsm_24"",""fsm_25"",""fsm_26"",""fsm_27"",""fsm_169""," \n
+                         "		""fsm_170"",""fsm_31"",""fsm_32"",""fsm_33"",""fsm_171"",""fsm_83"",""fsm_37"",""fsm_38"",""fsm_39"",""fsm_40""," \n
+                         "		""fsm_41"",""fsm_42"",""fsm_43"",""fsm_44"",""fsm_46"",""fsm_172"",""fsm_173"",""fsm_81"",""fsm_88"",""fsm_51""," \n
+                         "		""fsm_52"",""fsm_53"",""fsm_54"",""fsm_174"",""fsm_56"",""fsm_57"",""fsm_58"",""fsm_59"",""fsm_60"",""fsm_61""," \n
+                         "		""fsm_62"",""fsm_64"",""fsm_175"",""fsm_91"",""fsm_94"",""fsm_68"",""fsm_176"",""fsm_177"",""fsm_71"",""fsm_72""," \n
+                         "		""fsm_73"",""fsm_74""]; // Array of viable markers" \n
+                         "	};" \n
+                         "	case ""Condor"":" \n
+                         "	{" \n
+                         "		_markers = [""fsm_178"",""fsm_1"",""fsm_98"",""fsm_108"",""fsm_105"",""fsm_101"",""fsm_17"",""fsm_96""," \n
+                         "		""fsm_16"",""fsm_31"",""fsm_171"",""fsm_78"",""fsm_85"",""fsm_44"",""fsm_91"",""fsm_60"",""fsm_61"",""fsm_54""]; // Array of viable markers" \n
+                         "	};" \n
+                         "	default" \n
+                         "	{" \n
+                         "		hint ""Code Fail in FSM INIT _exercise Switch"";" \n
+                         "	};" \n
+                         "};" \n
                          "_markersPop = _markers; // Second array used as blacklist" \n
                          "_SoloTrigFired = 1; // Tracks Trigger State" \n
                          "_SoloCounter = 1; // Counter for task ID" \n

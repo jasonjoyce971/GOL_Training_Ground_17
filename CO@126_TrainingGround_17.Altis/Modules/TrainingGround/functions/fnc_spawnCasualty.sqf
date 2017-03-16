@@ -11,7 +11,7 @@
  
  {
 	deleteVehicle _x;
- }foreach GW_TrainingGround_spawnedCasualty;
+ }foreach GW_TrainingGround_spawnedOPFOR;
  
  switch (_side) do
  {
@@ -21,34 +21,84 @@
 		{
 			case "HLS":
 			{
-				if (isServer) then
+				_group = createGroup west;
+				'B_Soldier_F' createUnit [_target, _group,'pat1=this; dostop pat1'];
+				_hitpoints = ["head","body","hand_l","hand_r","leg_l","leg_r"];
 				{
-					for "_i" from 1 to 6 do
+					_hit = selectRandom ["true","false"];
+					if(_hit == "true")then
 					{
-						_group = createGroup east;
-						for "_i" from 1 to 5 do
-						{
-							_unitType = ["O_Soldier_F","O_Soldier_AR_F","O_medic_F","O_Soldier_GL_F","O_HeavyGunner_F","O_soldier_M_F","O_Soldier_SL_F","O_Soldier_TL_F"];
-							_unit = _unitType call BIS_fnc_selectRandom;
-							_group createUnit [_unit, _target, [], 0, "NONE"];
-							{
-								GW_TrainingGround_spawnedOPFOR pushBack _x;
-							} foreach units _group;
-						};
-						[_group,_group,200] spawn CBA_fnc_taskDefend;
-						sleep 30;
+						[pat1, selectRandom[0.5,0.7,0.9], _x, selectrandom ["bullet","grenade","explosive","shell","vehiclecrash","backblast","stab","punch","falling""ropeburn"]] call ace_medical_fnc_addDamageToUnit;
 					};
-				};
+				}foreach _hitpoints;
+				[pat1, 0.7, "body", "bullet"] call ace_medical_fnc_addDamageToUnit;
+				[pat1] call ace_medical_fnc_handleDamage_advancedSetDamage;
+				[pat1,true,600,true] call ace_medical_fnc_setUnconscious;
+				GW_TrainingGround_spawnedOPFOR pushBack pat1;
 			};
 			default
 			{
-				hint "CODE BREAK. spawnBadGuys side/west/exercise sub-switch";
+				hint "CODE BREAK. spawnCasualty side/west/exercise sub-switch";
+			};
+		};
+	};
+	case "EAST":
+	{
+		switch (_exercise) do
+		{
+			case "HLS":
+			{
+				_group = createGroup east;
+				'O_Soldier_F' createUnit [_target, _group,'pat1=this; dostop pat1'];
+				_hitpoints = ["head","body","hand_l","hand_r","leg_l","leg_r"];
+				{
+					_hit = selectRandom ["true","false"];
+					if(_hit == "true")then
+					{
+						[pat1, selectRandom[0.5,0.7,0.9], _x, selectrandom ["bullet","grenade","explosive","shell","vehiclecrash","backblast","stab","punch","falling""ropeburn"]] call ace_medical_fnc_addDamageToUnit;
+					};
+				}foreach _hitpoints;
+				[pat1, 0.7, "body", "bullet"] call ace_medical_fnc_addDamageToUnit;
+				[pat1] call ace_medical_fnc_handleDamage_advancedSetDamage;
+				[pat1,true,600,true] call ace_medical_fnc_setUnconscious;
+				GW_TrainingGround_spawnedOPFOR pushBack pat1;
+			};
+			default
+			{
+				hint "CODE BREAK. spawnCasualty side/east/exercise sub-switch";
+			};
+		};
+	};
+	case "GUER":
+	{
+		switch (_exercise) do
+		{
+			case "HLS":
+			{
+				_group = createGroup independent;
+				'I_soldier_F' createUnit [_target, _group,'pat1=this; dostop pat1'];
+				_hitpoints = ["head","body","hand_l","hand_r","leg_l","leg_r"];
+				{
+					_hit = selectRandom ["true","false"];
+					if(_hit == "true")then
+					{
+						[pat1, selectRandom[0.5,0.7,0.9], _x, selectrandom ["bullet","grenade","explosive","shell","vehiclecrash","backblast","stab","punch","falling""ropeburn"]] call ace_medical_fnc_addDamageToUnit;
+					};
+				}foreach _hitpoints;
+				[pat1, 0.7, "body", "bullet"] call ace_medical_fnc_addDamageToUnit;
+				[pat1] call ace_medical_fnc_handleDamage_advancedSetDamage;
+				[pat1,true,600,true] call ace_medical_fnc_setUnconscious;
+				GW_TrainingGround_spawnedOPFOR pushBack pat1;
+			};
+			default
+			{
+				hint "CODE BREAK. spawnCasualty side/guer/exercise sub-switch";
 			};
 		};
 	};
 	default
 	{
-		hint "CODE BREAK. spawnBadGuys side switch";
+		hint "CODE BREAK. spawnCasualty side switch";
 	};
  };
  
