@@ -1,0 +1,4 @@
+equipment loadouts are fucking tonk -> rectify
+
+"marksman" role requires 82mm rangecard and batteries for laser designator -> framework bug
+
