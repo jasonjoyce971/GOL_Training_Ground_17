@@ -21,12 +21,196 @@ class GW_FRAMEWORK {	// NOTE: SENSETIVE, UPPERCASE ONLY FOR BOOL
 // 		currently broken		Name = "Training Ground 2017";				// Mission Name
 		Author = "Jason";						// Author
 		AuthorUID[] = {"_SP_PLAYER_"};
-		Description = "Last Update 19/02/17";	// Description in mission select
+		Description = "Last Update 16/03/17";	// Description in mission select
 		onLoad = "Remember the 7 Ps";						// Description on loading
 		Picture = "";									// Picture on loading
 		version = 0.1;									// Version of mission
 		GameMode = "Coop";								// mission will be filterd with
 	};
+};
+
+class CfgIdentities
+{
+    class WPCamera1
+    {
+        name = "Camera 1";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera2
+    {
+        name = "Camera 2";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera3
+    {
+        name = "Camera 3";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera4
+    {
+        name = "Camera 4";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera5
+    {
+        name = "Camera 5";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera6
+    {
+        name = "Camera 6";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera7
+    {
+        name = "Camera 7";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera8
+    {
+        name = "Camera 8";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera9
+    {
+        name = "Camera 9";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera10
+    {
+        name = "Camera 10";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera11
+    {
+        name = "Camera 11";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera12
+    {
+        name = "Camera 12";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera13
+    {
+        name = "Camera 13";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera14
+    {
+        name = "Camera 14";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera15
+    {
+        name = "Camera 15";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera16
+    {
+        name = "Camera 16";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera17
+    {
+        name = "Camera 17";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera18
+    {
+        name = "Camera 18";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera19
+    {
+        name = "Camera 19";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
+	class WPCamera20
+    {
+        name = "Camera 20";
+        nameSound = "Givens";
+        face="WhiteHead_06";
+		glasses="None";
+		speaker="Male05ENG";
+		pitch=1.1;
+    };
 };
 
 // *	DO NOT EDIT BELOW

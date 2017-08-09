@@ -88,22 +88,12 @@ switch (toLower(_role)) do {
 		[[_pistol_mag,2],[_smokegrenadeY,3]] call _addToUniform;
 		[[_grenademini,2],[_grenade,2],[_rifle_mag,4],[_rifle_mag_tr,4]] call _addToVest;
 		[_map, "", "", _compass, _watch, _nvg] call _addLinkedItems;
-		if (isPlayer _unit) then {
-			["","","","",_backpack] call _addEquipment;
-			[_LAT, _LAT_mag, ""] call _addLaunchers;
-			[[_cables,1],[_defusalKit,1],[_clacker,1],[_demoCharge,2],[_satchelCharge,1]] call _addToBackpack;
-			[_map, "", "", _compass, _watch, _nvg] call _addLinkedItems;
-			if (_LAT_ReUsable) then {
-				[[_LAT_mag,1]] call _addToBackpack;
-			};
-		} else {
-			if ((random 1) >= 0.7) then {
-				[_LAT, _LAT_mag, ""] call _addLaunchers;
-				if (_LAT_ReUsable) then {
-					["","","","",_backpack] call _addEquipment;
-					[[_LAT_mag,2]] call _addToBackpack;
-				};
-			};
+		["","","","",_backpack] call _addEquipment;
+		[_LAT, _LAT_mag, ""] call _addLaunchers;
+		[[_cables,1],[_defusalKit,1],[_clacker,1],[_demoCharge,2],[_satchelCharge,1]] call _addToBackpack;
+		[_map, "", "", _compass, _watch, _nvg] call _addLinkedItems;
+		if (_LAT_ReUsable) then {
+			[[_LAT_mag,1]] call _addToBackpack;
 		};
 	};
 
@@ -128,7 +118,12 @@ switch (toLower(_role)) do {
 		_IFAK call _addToUniform;
 		[[_pistol_mag,2],[_smokegrenadeY,4],[_grenademini,2]] call _addToUniform;
 		[[_grenade,1],[_rifle_mag,4],[_rifle_mag_tr,4]] call _addToVest;
-		(_FAKSmall + [[_LMG_mag_tr,COUNT_AG_MAGS(_LMG_mag_tr)]]) call _addToBackpack;
+		[[_LMG_mag_tr,COUNT_AG_MAGS(_LMG_mag_tr)]] call _addToBackpack;
+		if (GVAR(extraGear)) then {
+			(_FAKBig) call _addToBackpack;
+		} else {
+			(_FAKSmall) call _addToBackpack;
+		};
 		[_map, "", "", _compass, _watch, _nvg] call _addLinkedItems;
 		_rangefinder call _addBino;
 	};
@@ -157,11 +152,10 @@ switch (toLower(_role)) do {
 
 	case "crew": {
 		[_goggles,_helmet,_uniform,_vest] call _addEquipment;
-		[_rifleC, _rifleC_mag_tr, ""] call _addPrimary;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
 		[[_pistol_mag,2],[_smokegrenadeY,2]] call _addToUniform;
-		[[_rifleC_mag_tr,4],[_smokegrenadeP,3],[_grenademini,1]] call _addToVest;
+		[[_smokegrenadeP,3],[_grenademini,1]] call _addToVest;
 		[_map, _gps, "", _compass, _watch, _nvg] call _addLinkedItems;
 	};
 
@@ -218,7 +212,7 @@ switch (toLower(_role)) do {
 		_IFAK call _addToUniform;
 		[[_pistol_mag,2],[_rangecard,1]] call _addToUniform;
 		[[_rifleMarksman_mag,3],[_grenademini,2],[_smokegrenadeY,6],[_smokegrenadeG,6],[_smokegrenadeB,2],[_smokegrenadeP,2]] call _addToVest;
-		[[_rifleMarksman_mag_tr,2],[_smokegrenadeG,5]] call _addToBackpack;
+		[[_battery,1],[_rifleMarksman_mag_tr,2],[_smokegrenadeG,5]] call _addToBackpack;
 		if (call EFUNC(Common,isNight)) then {
 			[[_chemG,5],[_chemR,5],[_handFlareG,2],[_IRStrobe,2]] call _addToBackpack;
 		};
@@ -232,6 +226,6 @@ switch (toLower(_role)) do {
 	};
 };
 
-if ((call EFUNC(Common,isNight)) && _allowedNightStuff && (isPlayer _unit)) then {
+if ((call EFUNC(Common,isNight)) && _allowedNightStuff) then {
 	[[_mapFlashLight,1],[_IRStrobe,1]] call _addToUniform;
 };

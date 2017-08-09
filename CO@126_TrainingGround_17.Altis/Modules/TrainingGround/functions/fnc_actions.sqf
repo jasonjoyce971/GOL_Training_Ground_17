@@ -89,3 +89,9 @@
  Laptop_3 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
  Laptop_3 addAction ["<t color='#FFFF00'>SEAD Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Range",4],1,false,false,"",""];
  Laptop_3 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+ 
+ // Vehicle Range Control Laptop
+ Laptop_4 addAction ["<t color='#FFFF00'>Driving Course</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Vehicle",1],1,false,false,"",""];
+ Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+ Laptop_4 addAction ["<t color='#FFFF00'>Weapons Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Vehicle",2],1,false,false,"",""];
+ 

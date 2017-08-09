@@ -681,7 +681,7 @@ switch (_callsign) do
 			case 5:
 			{
 				_position = getmarkerpos "ravenSolo";
-				_heli = createVehicle ["JAS_CUP_B_MH60S_FFV_USMC", _position, [], 0, "CAN_COLLIDE"];
+				_heli = createVehicle ["JAS_CUP_B_MH60L_DAP_4x_AT_USN_AAC", _position, [], 0, "CAN_COLLIDE"];
 				GW_TrainingGround_soloBird = _heli;
 				GW_TrainingGround_spawnedAssets pushBack _heli;
 				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Raven"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
