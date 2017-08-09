@@ -16,6 +16,7 @@
  _opfor = GW_Gear_Opfor;
  _indep = GW_Gear_Independent;
  _airTgts = GW_TrainingGround_airTargets;
+ _vehTgts = GW_TrainingGround_vehTargets;
  
  // Main Switch
  switch (_side) do
@@ -300,7 +301,57 @@
 							};
 							default
 							{
-								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/EP/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATH",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATH",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATH",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>KamAZ</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATH",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATH",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATH",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Quad Bike</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATH",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Typhoon</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATH",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATH",8],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATH",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATH",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATH",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATH",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATH",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATH",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATH",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -596,6 +647,56 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>KamAZ</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Quad Bike</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATW",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Typhoon</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATW",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATW",8],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATW",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
@@ -885,6 +986,56 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATU",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATU",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATU",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>KamAZ</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATU",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATU",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATU",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Quad Bike</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATU",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Typhoon</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATU",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATU",8],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -1180,6 +1331,58 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-3</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BRDM-2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-90</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Vodnik</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>UAZ</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Ural</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",8],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-90</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["RUS",9],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["RUS",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["RUS",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-3</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["RUS",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BRDM-2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["RUS",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-90</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["RUS",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["RUS",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-90</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["RUS",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
@@ -1469,6 +1672,70 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-1</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BRDM-2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-40</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-60</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M113</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Land Rover</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>V3S</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",8],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>SUV</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",9],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>UAZ</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",10],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Ural</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",11],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-34</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",12],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-55</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",13],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKA",14],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-1</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BRDM-2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-40</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-34</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-55</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",7],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -1764,6 +2031,46 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-40</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Land Rover</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>V3S</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",3],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
@@ -2056,6 +2363,46 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-40</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Land Rover</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>V3S</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",3],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
@@ -2345,6 +2692,46 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-40</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Land Rover</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>V3S</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["TKM",3],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -2654,6 +3041,58 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOD",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Badger</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOD",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Namer</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOD",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>HEMTT</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOD",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M-ATV</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOD",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Prowler</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOD",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Quad Bike</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOD",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Challenger 2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOD",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Merkava</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOD",8],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Badger</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Namer</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M-ATV HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M-ATV GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Prowler</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Challenger 2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Merkava</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",7],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign Switch";
@@ -2947,6 +3386,62 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Badger</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Bradley</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Namer</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>HEMTT</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>HMMWV</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M-ATV</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Prowler</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Quad Bike</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",8],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M1A1 Abrams</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",9],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Merkava</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["NATOW",10],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Badger</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Namer</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M-ATV HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M-ATV GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Prowler</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M1A1 Abrams</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Merkava</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",7],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -3246,13 +3741,83 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Bulldog</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Warrior</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Coyote</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Jackal</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Land Rover</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Mastiff</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Ridgeback</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Wolfhound</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",8],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Challenger 2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFD",9],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Bulldog</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Warrior</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Coyote HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Coyote GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Jackal HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Jackal GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Land Rover WMIK HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Land Rover WMIK GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",8],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Mastiff HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",9],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Mastiff GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",10],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Ridgeback HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",11],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Ridgeback GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",12],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Wolfhound HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",13],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Wolfhound GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",14],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Challenger 2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",15],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign Switch";
 					};
 				};
 			};
-			case "BAF-W":
+			/*case "BAF-W":
 			{
 				switch (_callsign) do
 				{
@@ -3542,12 +4107,64 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Bulldog</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Warrior</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Coyote</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Jackal</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Land Rover</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Mastiff</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Ridgeback</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Wolfhound</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",8],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Challenger 2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["BAFW",9],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFW",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign Switch";
 					};
 				};
-			};
+			};*/
 			case "USMC-D":
 			{
 				switch (_callsign) do
@@ -3835,6 +4452,54 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCD",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>AAVP7</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCD",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>LAV-25</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCD",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M1030</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCD",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>HMMWV</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCD",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>MTVR</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCD",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>RG31</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCD",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Abrams</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCD",7],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -4134,6 +4799,54 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>AAVP7</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>LAV-25</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M1030</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>HMMWV</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>MTVR</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>RG31</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCW",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Abrams</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCW",7],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign Switch";
@@ -4427,6 +5140,54 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["INSW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>AAVP7</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["INSW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>LAV-25</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["INSW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M1030</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["INSW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>HMMWV</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["INSW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>MTVR</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["INSW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>RG31</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["INSW",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Abrams</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["INSW",7],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["INSW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["INSW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["INSW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["INSW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["INSW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["INSW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["INSW",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -4726,6 +5487,29 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								_position = getmarkerpos "jaegerWP_21";
+								_heli = createVehicle ["CUP_B_T72_CDF", _position, [], 0, "CAN_COLLIDE"];
+								_heli setDir 180;
+								null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign Switch";
@@ -5019,6 +5803,29 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								_position = getmarkerpos "jaegerWP_21";
+								_heli = createVehicle ["CUP_B_T72_CDF", _position, [], 0, "CAN_COLLIDE"];
+								_heli setDir 180;
+								null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -5328,6 +6135,56 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["AAFW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Warrior</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["AAFW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>M-113</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["AAFW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Pandur</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["AAFW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Fennek</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["AAFW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>KamAZ</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["AAFW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Landrover</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["AAFW",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Quad Bike</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["AAFW",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Leopard</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["AAFW",8],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Callsign Switch";
@@ -5621,6 +6478,32 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["PMC",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>SUV</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["PMC",1],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["PMC",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>SUV</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["PMC",1],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -5920,6 +6803,29 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								_position = getmarkerpos "jaegerWP_21";
+								_heli = createVehicle ["CUP_I_T55_TK_GUE", _position, [], 0, "CAN_COLLIDE"];
+								_heli setDir 180;
+								null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Callsign Switch";
@@ -6216,6 +7122,29 @@
 							};
 						};
 					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								_position = getmarkerpos "jaegerWP_21";
+								_heli = createVehicle ["CUP_I_T55_TK_GUE", _position, [], 0, "CAN_COLLIDE"];
+								_heli setDir 180;
+								null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Callsign Switch";
@@ -6509,6 +7438,29 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								_position = getmarkerpos "jaegerWP_21";
+								_heli = createVehicle ["CUP_I_T55_TK_GUE", _position, [], 0, "CAN_COLLIDE"];
+								_heli setDir 180;
+								null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+								null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};

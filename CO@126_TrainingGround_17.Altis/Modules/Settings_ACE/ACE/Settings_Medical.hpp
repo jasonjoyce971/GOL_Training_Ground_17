@@ -79,9 +79,8 @@ class ace_medical_remoteControlledAI {
 	typeName = "BOOL";
 	force = 1;
 };
-// Instant death original 0
 class ace_medical_preventInstaDeath {
-	value = 1;
+	value = 0;
 	typeName = "BOOL";
 	force = 1;
 };
@@ -178,15 +177,14 @@ class ace_medical_delayUnconCaptive {
 	typeName = "SCALAR";
 	force = 1;
 };
-// enable revive original 0
+
 class ace_medical_enableRevive {
-	value = 2;
+	value = 0;
 	typeName = "SCALAR";
 	force = 1;
 };
-// maximum revival time original 120
 class ace_medical_maxReviveTime {
-	value = 600;
+	value = 120;
 	typeName = "SCALAR";
 	force = 1;
 };

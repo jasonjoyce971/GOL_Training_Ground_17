@@ -49,5 +49,7 @@ if (!GVARMAIN(mod_ACE3)) exitWith {false};
 		ACE_Medical_painCoefficient = 2;
 		ACE_Medical_playerDamageThreshold = 1.5;
 		ACE_Medical_AIDamageThreshold = 1;
+		
+		ACE_Medical_enableRevive = 1; // Enable Revive and CPR
 	};
 }] call CBA_fnc_addEventHandler;

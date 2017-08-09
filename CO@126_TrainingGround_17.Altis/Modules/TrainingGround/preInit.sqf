@@ -31,3 +31,6 @@ GVAR(airTargets) = ["airtgt","airtgt_1","airtgt_2","airtgt_3","airtgt_4","airtgt
 					"airtgt_141","airtgt_142","airtgt_143","airtgt_144","airtgt_145","airtgt_146","airtgt_147","airtgt_148","airtgt_149","airtgt_150",
 					"airtgt_151","airtgt_152","airtgt_153","airtgt_154","airtgt_155","airtgt_156","airtgt_157","airtgt_158","airtgt_159","airtgt_160",
 					"airtgt_161"];
+GVAR(vehTargets) = ["vehtgt","vehtgt_1","vehtgt_2","vehtgt_3","vehtgt_4","vehtgt_5","vehtgt_6","vehtgt_7","vehtgt_8","vehtgt_9","vehtgt_10",
+					"vehtgt_11","vehtgt_12","vehtgt_13","vehtgt_14","vehtgt_15","vehtgt_16","vehtgt_17","vehtgt_18","vehtgt_19","vehtgt_20",
+					"vehtgt_21","vehtgt_22","vehtgt_23","vehtgt_24","vehtgt_25","vehtgt_26","vehtgt_27","vehtgt_28"];

@@ -29,11 +29,11 @@ _unit addAction ["<t color='#FF0000'>Squad > Grenadier</t>","[player,'g'] call G
 _unit addAction ["<t color='#4785f4'>Squad > Asst. Gunner</t>","[player,'ag'] call GW_Gear_Fnc_Handler;",bullShit,5];
 _unit addAction ["<t color='#4785f4'>Squad > Automatic Rifleman</t>","[player,'ar'] call GW_Gear_Fnc_Handler;",bullShit,5];
 
-_unit addAction ["Echo > Pilot","[player,'p'] call GW_Gear_Fnc_Handler;",bullShit,5];
-_unit addAction ["Echo > Crew","[player,'crew'] call GW_Gear_Fnc_Handler;",bullShit,5];
+_unit addAction ["Charlie Team > Asst. Medium AT","[player,'amat'] call GW_Gear_Fnc_Handler;",bullShit,5];
+_unit addAction ["Charlie Team > Medium AT","[player,'mat'] call GW_Gear_Fnc_Handler;",bullShit,5];
+_unit addAction ["Charlie Team > Asst. Medium Machine Gunner","[player,'ammg'] call GW_Gear_Fnc_Handler;",bullShit,5];
+_unit addAction ["Charlie Team > Medium Machine Gunner","[player,'mmg'] call GW_Gear_Fnc_Handler;",bullShit,5];
 
-_unit addAction ["Special > Asst. Medium AT","[player,'amat'] call GW_Gear_Fnc_Handler;",bullShit,5];
-_unit addAction ["Special > Medium AT","[player,'mat'] call GW_Gear_Fnc_Handler;",bullShit,5];
-_unit addAction ["Special > Asst. Medium Machine Gunner","[player,'ammg'] call GW_Gear_Fnc_Handler;",bullShit,5];
-_unit addAction ["Special > Medium Machine Gunner","[player,'mmg'] call GW_Gear_Fnc_Handler;",bullShit,5];
-_unit addAction ["Special > Marksman","[player,'marksman'] call GW_Gear_Fnc_Handler;",bullShit,5];
+_unit addAction ["Echo > Chopper Pilot","[player,'p'] call GW_Gear_Fnc_Handler;",bullShit,5];
+_unit addAction ["Echo > Jet Pilot","[player,'crew'] call GW_Gear_Fnc_Handler;",bullShit,5];
+_unit addAction ["Echo > Jaeger","[player,'marksman'] call GW_Gear_Fnc_Handler;",bullShit,5];
