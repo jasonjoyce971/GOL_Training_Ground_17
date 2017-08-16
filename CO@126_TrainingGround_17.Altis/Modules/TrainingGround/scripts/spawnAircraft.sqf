@@ -263,6 +263,15 @@
 									sleep 30;
 								};
 							};
+							case 5: // Jaeger Range @ OP Dragon
+							{
+								null = [[monitor5],["spotter_20"]] execVM "LFC\feedInit.sqf";
+								_handler = 	[player,BIS_weaponsFiringRange_board,
+								[BIS_weaponsFiringRange_1_target_1, BIS_weaponsFiringRange_1_target_2, BIS_weaponsFiringRange_1_target_3, BIS_weaponsFiringRange_1_target_4, BIS_weaponsFiringRange_1_target_5,
+								BIS_weaponsFiringRange_1_target_6,BIS_weaponsFiringRange_1_target_7,BIS_weaponsFiringRange_1_target_8],
+								"Marksman Range",format["%1 %2", localize "STR_A3_MP_Bootcamp_Lane_WeaponsRange", 1],BIS_weaponsFiringRange_1_trigger,60,60,true,true,false,false,nil,BIS_weaponsFiringRange_1_observer
+								] execFSM "Modules\TrainingGround\FSM\firingRange.fsm";
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -4485,17 +4494,15 @@
 								
 								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",0],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>AAVP7</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",1],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>LAV-25</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",2],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>HMMWV</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",3],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>RG31</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",4],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",5],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Abrams</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",5],1,false,false,"",""];
 							};
 							default
 							{
@@ -4824,22 +4831,20 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Abrams</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["USMCW",7],1,false,false,"",""];
 							};
 							case 2: // Range
-							{
+							{	
 								removeAllActions Laptop_4;
 								
 								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",0],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>AAVP7</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",1],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>LAV-25</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",2],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>HMMWV</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",3],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>RG31</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",4],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",5],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Abrams</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",5],1,false,false,"",""];
 							};
 							default
 							{
@@ -6167,17 +6172,17 @@
 								
 								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",0],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Warrior</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",1],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Pandur</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",2],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Fennek-HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",3],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Fennek-GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",4],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Landrover</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",5],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
-								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Leopard</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["AAFW",5],1,false,false,"",""];
 							};
 							default
 							{

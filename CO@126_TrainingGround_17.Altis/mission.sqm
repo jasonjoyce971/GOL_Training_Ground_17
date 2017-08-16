@@ -5,14 +5,14 @@ class EditorData
 	angleGridStep=0.08726646;
 	scaleGridStep=10;
 	autoGroupingDist=10;
-	toggles=613;
+	toggles=577;
 	class ItemIDProvider
 	{
-		nextID=2939;
+		nextID=2992;
 	};
 	class MarkerIDProvider
 	{
-		nextID=32;
+		nextID=33;
 	};
 	class LayerIndexProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8329.124,230.27402,18227.633};
-		dir[]={0.79774666,-0.58152801,-0.15949972};
-		up[]={0.57024771,0.81352109,-0.11401428};
-		aside[]={-0.19605882,-2.2097083e-007,-0.98059881};
+		pos[]={8319.8789,80.367416,10067.136};
+		dir[]={0.85000879,-0.4855909,0.20420751};
+		up[]={0.4721579,0.87418622,0.11343212};
+		aside[]={0.2335977,8.3906343e-008,-0.97234142};
 	};
 };
 binarizationWanted=0;
@@ -58,7 +58,8 @@ addons[]=
 	"ace_refuel",
 	"A3_Structures_F_Mil_Fortification",
 	"ARMA3_CUP_Enhancement_MH60",
-	"A3_Soft_F_Exp_MRAP_01"
+	"A3_Structures_F_Civ_InfoBoards",
+	"A3_Structures_F_Bootcamp_Training"
 };
 class AddonsMetaData
 {
@@ -212,8 +213,8 @@ class AddonsMetaData
 		};
 		class Item21
 		{
-			className="A3_Soft_F_Exp";
-			name="Arma 3 Apex - Unarmored Land Vehicles";
+			className="A3_Structures_F_Bootcamp";
+			name="Arma 3 Bootcamp Update - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -2023,7 +2024,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=593;
+		items=605;
 		class Item0
 		{
 			dataType="Group";
@@ -10937,7 +10938,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={9219.9316,110.83105,11459.637};
-				angles[]={0,1.5386472,0};
+				angles[]={0,1.5386473,0};
 			};
 			side="Empty";
 			flags=5;
@@ -11018,8 +11019,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9223.418,109.85015,11458.317};
-				angles[]={0,5.0900869,0};
+				position[]={9223.418,109.85,11458.317};
+				angles[]={0,5.0900784,0};
 			};
 			side="Empty";
 			class Attributes
@@ -11029,7 +11030,7 @@ class Mission
 			};
 			id=2612;
 			type="Land_HelipadEmpty_F";
-			atlOffset=0.060150146;
+			atlOffset=0.059997559;
 		};
 		class Item507
 		{
@@ -12710,21 +12711,21 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8965,39.001438,10975.05};
+						position[]={8965,39.001118,10975.05};
 						angles[]={0,0.085957468,0};
 					};
 					side="Civilian";
 					flags=3;
 					class Attributes
 					{
-						init="this setIdentity ""WPCamera18"";";
+						init="call{this setIdentity ""WPCamera18"";}";
 						name="spotter_17";
 						disableSimulation=1;
 						ignoreByDynSimulGrid=1;
 					};
 					id=2652;
 					type="C_Nikos";
-					atlOffset=3.9133224;
+					atlOffset=3.913002;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12792,7 +12793,7 @@ class Mission
 			{
 			};
 			id=2651;
-			atlOffset=3.9133224;
+			atlOffset=3.913002;
 		};
 		class Item526
 		{
@@ -15331,32 +15332,496 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={10147.465,14.632565,11857.503};
-				angles[]={6.1519442,0,0.13386136};
+				position[]={8327.1309,76.907898,10072.502};
+				angles[]={0,0.89530158,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				skill=0.40000001;
+				init="call{this addAction [""Score Board"", { [""initialize"", [_this select 0, ""FiringRange""]] call GW_TrainingGround_fnc_focusOnObject; }, [], 99, true, true, """", ""_this distance _target < 7.5""]; this setVariable [""BIS_whiteboardTexture"", ""a3\missions_f_bootcamp\data\img\whiteboards\ScoreBoard.paa""]; if (local this) then { this setObjectTextureGlobal [0, this getVariable ""BIS_whiteboardTexture""]; };}";
+				name="BIS_weaponsFiringRange_board";
 			};
-			id=2932;
-			type="B_T_MRAP_01_gmg_F";
+			id=2975;
+			type="Land_MapBoard_F";
+			atlOffset=0.0019989014;
 		};
 		class Item592
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8322.6211,80.012962,10077.241};
+						angles[]={0,0.89104295,6.2817187};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.60000002;
+						name="BIS_weaponsFiringRange_1_observer";
+						disableSimulation=1;
+						ignoreByDynSimulGrid=1;
+					};
+					id=2977;
+					type="B_Soldier_unarmed_F";
+					atlOffset=0.00042724609;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="allowDamage";
+							expression="_this allowdamage _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="hideObject";
+							expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=2976;
+			atlOffset=0.00042724609;
+		};
+		class Item593
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={10470.351,17.240967,11896.157};
-				angles[]={0.0080009829,0,0.0053265258};
+				position[]={8308.4609,76.394043,10072.521};
+				angles[]={0.0080084298,5.6447072,6.2392135};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				skill=0.60000002;
+				init="this enablesimulationglobal false; this allowdamage false;";
+				name="Table_5";
 			};
-			id=2933;
-			type="B_T_MRAP_01_gmg_F";
+			id=2978;
+			type="Land_CampingTable_small_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item594
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8307.8018,76.165657,10073.392};
+				angles[]={0.0080084298,5.6207609,6.2392135};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				init="call{this attachto [Table_5,[0,0,0.56]]; this allowdamage false;  }";
+				name="Laptop_5";
+			};
+			id=2979;
+			type="Land_Laptop_device_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item595
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8918.3584,37.060314,10901.353};
+						angles[]={0,0.35246924,0};
+					};
+					side="Civilian";
+					flags=3;
+					class Attributes
+					{
+						init="call{this setIdentity ""WPCamera20"";}";
+						name="spotter_20";
+						disableSimulation=1;
+						ignoreByDynSimulGrid=1;
+					};
+					id=2981;
+					type="C_Nikos";
+					atlOffset=3.9239922;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="allowDamage";
+							expression="_this allowdamage _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="hideObject";
+							expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="enableStamina";
+							expression="_this enablestamina _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=2980;
+			atlOffset=3.9239922;
+		};
+		class Item596
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8328.2246,76.981056,10067.82};
+				angles[]={0,1.5386473,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="monitor5";
+			};
+			id=2982;
+			type="SignAd_Sponsor_Quontrol_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item597
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8910.167,34.374096,10937.796};
+				angles[]={6.1362457,0.61086524,6.2725215};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.40000001;
+				init="this setpos [getpos this select 0, getpos this select 1, 0.11308313];";
+				name="BIS_weaponsFiringRange_1_target_1";
+			};
+			id=2983;
+			type="TargetBootcampHumanSimple_F";
+			atlOffset=0.034000397;
+		};
+		class Item598
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8937.5908,35.499645,10950.871};
+				angles[]={6.2818484,0.61086524,0.066567369};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.40000001;
+				init="this setpos [getpos this select 0, getpos this select 1, 0.11308313];";
+				name="BIS_weaponsFiringRange_1_target_2";
+			};
+			id=2984;
+			type="TargetBootcampHumanSimple_F";
+			atlOffset=0.050994873;
+		};
+		class Item599
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8947.8193,35.541977,10945.105};
+				angles[]={6.251195,0.61086524,6.1756024};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.40000001;
+				init="this setpos [getpos this select 0, getpos this select 1, 0.11308313];";
+				name="BIS_weaponsFiringRange_1_target_3";
+			};
+			id=2985;
+			type="TargetBootcampHumanSimple_F";
+			atlOffset=0.015037537;
+		};
+		class Item600
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8955.1475,34.79747,10942.881};
+				angles[]={6.1349478,0.61086524,0.0026744273};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.40000001;
+				init="this setpos [getpos this select 0, getpos this select 1, 0.11308313];";
+				name="BIS_weaponsFiringRange_1_target_4";
+			};
+			id=2986;
+			type="TargetBootcampHumanSimple_F";
+			atlOffset=0.071990967;
+		};
+		class Item601
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8962.8564,35.489452,10960.947};
+				angles[]={6.2485328,0.61086524,6.2818484};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.40000001;
+				init="this setpos [getpos this select 0, getpos this select 1, 0.11308313];";
+				name="BIS_weaponsFiringRange_1_target_6";
+			};
+			id=2988;
+			type="TargetBootcampHumanSimple_F";
+			atlOffset=0.042331696;
+		};
+		class Item602
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8943.0859,35.577309,10947.624};
+				angles[]={6.2511969,0.61086524,0.014664836};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.40000001;
+				init="this setpos [getpos this select 0, getpos this select 1, 0.11308313];";
+				name="BIS_weaponsFiringRange_1_target_7";
+			};
+			id=2989;
+			type="TargetBootcampHumanSimple_F";
+		};
+		class Item603
+		{
+			dataType="Trigger";
+			position[]={8322.8359,75.694351,10076.612};
+			angle=5.6377773;
+			class Attributes
+			{
+				name="BIS_weaponsFiringRange_1_trigger";
+				condition="call{this && { player in thislist }}";
+				onActivation="call{BIS_insideTrigger = true;_handler = [player, BIS_weaponsFiringRange_board, [BIS_weaponsFiringRange_1_target_1, BIS_weaponsFiringRange_1_target_2, BIS_weaponsFiringRange_1_target_3, BIS_weaponsFiringRange_1_target_4, BIS_weaponsFiringRange_1_target_5,BIS_weaponsFiringRange_1_target_6,BIS_weaponsFiringRange_1_target_7], ""MarksmanRange"", format[""%1 %2"", localize ""STR_A3_MP_Bootcamp_Lane_WeaponsRange"", 1], BIS_weaponsFiringRange_1_trigger, 60, 60, true, true, false, false, nil, BIS_weaponsFiringRange_1_observer] execFSM ""Modules\TrainingGround\FSM\firingRange.fsm""; null = [[monitor5],[""spotter_20""]] execVM ""LFC\feedInit.sqf""; " \n "}";
+				onDeactivation="BIS_insideTrigger = nil;";
+				sizeA=4;
+				sizeB=4;
+				interuptable=1;
+				repeatable=1;
+				activationBy="ANY";
+				isRectangle=1;
+			};
+			id=2991;
+			type="EmptyDetector";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item604
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8949.8242,34.435692,10928.132};
+				angles[]={6.1756024,0.61086524,0.0039967569};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.40000001;
+				init="this setpos [getpos this select 0, getpos this select 1, 0.11308313];";
+				name="BIS_weaponsFiringRange_1_target_5";
+			};
+			id=2987;
+			type="TargetBootcampHumanSimple_F";
 		};
 	};
 };

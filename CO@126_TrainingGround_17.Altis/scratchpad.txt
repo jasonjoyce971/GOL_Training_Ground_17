@@ -1,0 +1,54 @@
+equipment loadouts are fucking tonk -> rectify
+
+"marksman" role requires 82mm rangecard and batteries for laser designator -> framework bug
+
+timer loop from karts:
+while {!isNull _logic} do {
+		if (side group player in (_logic getVariable "RscAttributeOwners")) then {
+			_showWinner = TRUE;
+			_cp = player getVariable "BIS_curatorRace_current";
+			if (_cp != _oldCP) then {
+				_oldCP = _cp;
+				playSound "FD_Timer_F";
+			};
+			_cpPos = position _cp;
+			leader _newGrp setPos [_cpPos select 0, _cpPos select 1, -1];
+
+			_timeNow = time - _startTime;
+			_timeNowFormat = [_timeNow, "MM:SS.MS", TRUE] call BIS_fnc_secondsToString;
+
+			_text = "<t align='left' color='" + BIS_TT_colorTextHTML + "'>";
+
+			_textCurrent = "";
+			_colorCurrent = BIS_TT_colorTextHTML;
+			_iconCurrent = "A3\Modules_F_Beta\data\FiringDrills\timer_ca";
+
+			_textCurrent = _textCurrent + "<img image='" + _iconCurrent + "' /> ";
+			_textCurrent = _textCurrent + (format ["%1:%2<t size='0.8'>.%3</t>", _timeNowFormat select 0, _timeNowFormat select 1, _timeNowFormat select 2]);
+			_textCurrent = _textCurrent + "</t>";
+
+			_text  = _text + _textCurrent;
+
+			RscFiringDrillTime_current = parseText _text;
+
+			if (difficultyOption "waypoints" > 0) then {
+				_newGrp setGroupIconParams [BIS_TT_colorText, (str round (player distance _cp)) + localize "STR_A3_rscdisplayarcademap_meters", 1, TRUE];
+			} else {
+				_newGrp setGroupIconParams [BIS_TT_colorText, "", 1, TRUE];
+			};
+		};
+		sleep 0.01;
+	};
+
+======================================================================================================
+
+wing_fold_cover_l
+wing_fold_cover_r
+wing_fold_l -> has funky onPhaseChanged handler -> could auto fold/unfold all?
+wing_fold_r
+
+_this animateSource ["wing_fold_l", 1];
+
+=========================================================================================================
+
+
