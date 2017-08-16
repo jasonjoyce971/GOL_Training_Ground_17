@@ -95,3 +95,6 @@
  Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
  Laptop_4 addAction ["<t color='#FFFF00'>Weapons Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Vehicle",2],1,false,false,"",""];
  
+ // Jaeger Range Control Laptop
+ Laptop_5 addAction ["<t color='#FFFF00'>Start Marksman Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Range",5],1,false,false,"",""];
+ 

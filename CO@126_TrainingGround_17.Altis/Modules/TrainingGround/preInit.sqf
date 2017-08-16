@@ -6,6 +6,8 @@ PREP(detectPortFlags);
 PREP(resetTraining);
 PREP(spawnBadGuys);
 PREP(spawnCasualty);
+PREP(focusOnObject);
+PREP(firingRange);
 
 GVAR(Laptops) = [];
 GVAR(portPoles) = [];
