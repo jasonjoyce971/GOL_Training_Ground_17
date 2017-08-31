@@ -80,7 +80,7 @@
  Laptop_2 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
  Laptop_2 addAction ["<t color='#FFFF00'>Generate CASEVAC Live Scenario</t>","Modules\TrainingGround\scripts\spawnCasualty.sqf",[3],1,false,false,"",""];
 
- // AAC Range Control Laptop
+ // AAC Range Control Laptop @ FOB Jaeger
  Laptop_3 addAction ["<t color='#FFFF00'>Rocket/Gunnery Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Range",1],1,false,false,"",""];
  Laptop_3 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
  Laptop_3 addAction ["<t color='#FFFF00'>ATGM Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Range",2],1,false,false,"",""];
@@ -90,11 +90,14 @@
  Laptop_3 addAction ["<t color='#FFFF00'>SEAD Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Range",4],1,false,false,"",""];
  Laptop_3 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
  
- // Vehicle Range Control Laptop
+ // Vehicle Range Control Laptop @ FOB Jaeger
  Laptop_4 addAction ["<t color='#FFFF00'>Driving Course</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Vehicle",1],1,false,false,"",""];
  Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
  Laptop_4 addAction ["<t color='#FFFF00'>Weapons Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Vehicle",2],1,false,false,"",""];
  
- // Jaeger Range Control Laptop
- Laptop_5 addAction ["<t color='#FFFF00'>Start Marksman Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Range",5],1,false,false,"",""];
+ // Mortar Range Control Laptop @ OP Dragon
+ Laptop_5 addAction ["<t color='#FFFF00'>Generate Mortar Range</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["Range",5],1,false,false,"",""];
+ 
+ // FOB Unpack Laptop @ FOB Cluster
+ Laptop_6 addAction ["<t color='#FFFF00'>Unpack FOB Cluster</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["FOB",1],1,false,false,"",""];
  
