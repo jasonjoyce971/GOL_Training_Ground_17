@@ -17,6 +17,7 @@
  _indep = GW_Gear_Independent;
  _airTgts = GW_TrainingGround_airTargets;
  _vehTgts = GW_TrainingGround_vehTargets;
+  _morTgts = GW_TrainingGround_morTargets;
  
  // Main Switch
  switch (_side) do
@@ -263,14 +264,34 @@
 									sleep 30;
 								};
 							};
-							case 5: // Jaeger Range @ OP Dragon
+							case 5: // Mortar Range @ OP Dragon
 							{
-								null = [[monitor5],["spotter_20"]] execVM "LFC\feedInit.sqf";
-								_handler = 	[player,BIS_weaponsFiringRange_board,
-								[BIS_weaponsFiringRange_1_target_1, BIS_weaponsFiringRange_1_target_2, BIS_weaponsFiringRange_1_target_3, BIS_weaponsFiringRange_1_target_4, BIS_weaponsFiringRange_1_target_5,
-								BIS_weaponsFiringRange_1_target_6,BIS_weaponsFiringRange_1_target_7,BIS_weaponsFiringRange_1_target_8],
-								"Marksman Range",format["%1 %2", localize "STR_A3_MP_Bootcamp_Lane_WeaponsRange", 1],BIS_weaponsFiringRange_1_trigger,60,60,true,true,false,false,nil,BIS_weaponsFiringRange_1_observer
-								] execFSM "Modules\TrainingGround\FSM\firingRange.fsm";
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
 							};
 							default
 							{
@@ -357,6 +378,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATH",5],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATH",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["O_Truck_03_transport_F","O_LSV_02_unarmed_F","O_LSV_02_unarmed_F","O_Truck_03_medical_F","O_MRAP_02_F","O_MRAP_02_F","O_MRAP_02_F","O_APC_Wheeled_02_rcws_F",
+								"O_Truck_03_transport_F","O_Heli_Light_02_unarmed_F","O_Heli_Transport_04_covered_F","O_Heli_Light_02_unarmed_F","O_Truck_03_repair_F","O_Truck_03_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -614,6 +661,35 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -699,6 +775,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATW",5],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATW",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course
+								["O_T_Truck_03_transport_ghex_F","O_T_LSV_02_unarmed_F","O_T_LSV_02_unarmed_F","O_T_Truck_03_medical_ghex_F","O_T_MRAP_02_ghex_F","O_T_MRAP_02_ghex_F","O_T_MRAP_02_ghex_F","O_T_APC_Wheeled_02_rcws_ghex_F",
+								"O_T_Truck_03_transport_ghex_F","O_Heli_Light_02_unarmed_F","O_Heli_Transport_04_covered_F","O_Heli_Light_02_unarmed_F","O_T_Truck_03_repair_ghex_F","O_T_Truck_03_fuel_ghex_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -956,6 +1058,35 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -1041,6 +1172,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",5],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["O_Truck_03_transport_F","O_LSV_02_unarmed_F","O_LSV_02_unarmed_F","O_Truck_03_medical_F","O_MRAP_02_F","O_MRAP_02_F","O_MRAP_02_F","O_APC_Wheeled_02_rcws_F",
+								"O_Truck_03_transport_F","O_Heli_Light_02_unarmed_F","O_Heli_Transport_04_covered_F","O_Heli_Light_02_unarmed_F","O_Truck_03_repair_F","O_Truck_03_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -1298,6 +1455,35 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -1385,6 +1571,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["RUS",5],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>T-90</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["RUS",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_O_Ural_Open_RU","CUP_O_UAZ_Open_RU","CUP_O_UAZ_Open_RU","CUP_O_Ural_RU","CUP_O_UAZ_Open_RU","CUP_O_UAZ_Open_RU","CUP_O_UAZ_Open_RU","CUP_O_BTR90_HQ_RU",
+								"CUP_O_Ural_Open_RU","CUP_O_Ka60_Grey_RU","JAS_CUP_O_Mi8_RU","CUP_O_Ka60_Grey_RU","CUP_O_Ural_Repair_RU","CUP_O_Ural_Refuel_RU"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -1642,6 +1854,35 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -1741,6 +1982,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>T-55</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",6],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["TKA",7],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_O_Ural_Open_TKA","CUP_O_UAZ_Unarmed_TKA","CUP_O_UAZ_Unarmed_TKA","CUP_O_LR_Ambulance_TKA","CUP_O_UAZ_Unarmed_TKA","CUP_O_UAZ_Unarmed_TKA","CUP_O_UAZ_Unarmed_TKA","CUP_O_BTR60_TK",
+								"CUP_O_Ural_Open_TKA","JAS_CUP_O_Mi24_D_TK","CUP_O_Mi17_VIV_TK","JAS_CUP_O_Mi24_D_TK","CUP_O_Ural_Repair_TKA","CUP_O_Ural_Refuel_TKA"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -1998,6 +2265,35 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -2073,6 +2369,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",5],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_O_V3S_Open_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_BTR60_TK",
+								"CUP_O_V3S_Open_TKM","","","","CUP_O_V3S_Repair_TKM","CUP_O_V3S_Refuel_TKM"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -2330,6 +2652,35 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -2405,6 +2756,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",5],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_O_V3S_Open_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_LR_Transport_TKM","CUP_O_BTR60_TK",
+								"CUP_O_V3S_Open_TKM","","","","CUP_O_V3S_Repair_TKM","CUP_O_V3S_Refuel_TKM"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -2662,6 +3039,35 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -2737,6 +3143,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",5],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATU",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["O_Truck_03_transport_F","O_LSV_02_unarmed_F","O_LSV_02_unarmed_F","O_Truck_03_medical_F","O_MRAP_02_F","O_MRAP_02_F","O_MRAP_02_F","O_APC_Wheeled_02_rcws_F",
+								"O_Truck_03_transport_F","O_Heli_Light_02_unarmed_F","O_Heli_Transport_04_covered_F","O_Heli_Light_02_unarmed_F","O_Truck_03_repair_F","O_Truck_03_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -3009,6 +3441,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -3095,6 +3557,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Challenger 2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",6],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>Merkava</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOD",7],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["B_Truck_01_transport_F","B_LSV_01_unarmed_F","B_LSV_01_unarmed_F","B_Truck_01_medical_F","B_MRAP_01_F","B_MRAP_01_F","B_MRAP_01_F","B_APC_Wheeled_01_cannon_F",
+								"B_Truck_01_transport_F","B_Heli_Light_01_F","B_Heli_Transport_03_unarmed_F","B_Heli_Light_01_F","B_Truck_01_Repair_F","B_Truck_01_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -3357,6 +3845,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -3447,6 +3965,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>M1A1 Abrams</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",6],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>Merkava</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["NATOW",7],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["B_T_Truck_01_transport_F","B_T_LSV_01_unarmed_F","B_T_LSV_01_unarmed_F","B_T_Truck_01_medical_F","B_T_MRAP_01_F","B_T_MRAP_01_F","B_T_MRAP_01_F","B_T_APC_Wheeled_01_cannon_F",
+								"B_T_Truck_01_transport_F","B_Heli_Light_01_F","B_Heli_Transport_03_unarmed_F","B_Heli_Light_01_F","B_T_Truck_01_Repair_F","B_T_Truck_01_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -3709,6 +4253,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -3813,6 +4387,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Wolfhound GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",14],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>Challenger 2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["BAFD",15],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_B_Mastiff_LMG_GB_D","CUP_B_LR_Special_M2_GB_D","CUP_B_LR_Special_M2_GB_D","CUP_B_LR_Ambulance_GB_D","CUP_B_Ridgback_LMG_GB_D","CUP_B_Ridgback_LMG_GB_D","CUP_B_Ridgback_LMG_GB_D",
+								"CUP_B_MCV80_GB_D_SLAT","CUP_B_Mastiff_LMG_GB_D","JAS_CUP_B_AW159_Unarmed_GB","JAS_CUP_B_CH47F_GB","JAS_CUP_B_AW159_Unarmed_GB","CUP_B_Wolfhound_LMG_GB_D","CUP_B_Wolfhound_LMG_GB_D"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -4423,6 +5023,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -4503,6 +5133,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>RG31</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",4],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>Abrams</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCD",5],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_B_MTVR_USMC","CUP_B_HMMWV_M1114_USMC","CUP_B_HMMWV_M1114_USMC","CUP_B_HMMWV_Ambulance_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_LAV25_HQ_USMC",
+								"CUP_B_MTVR_USMC","CUP_B_UH60S_USN","JAS_CUP_B_CH53E_USMC","CUP_B_UH60S_USN","CUP_B_MTVR_Repair_USMC","CUP_B_MTVR_Refuel_USMC"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -4765,6 +5421,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -4845,6 +5531,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>RG31</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",4],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>Abrams</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["USMCW",5],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_B_MTVR_USMC","CUP_B_HMMWV_M1114_USMC","CUP_B_HMMWV_M1114_USMC","CUP_B_HMMWV_Ambulance_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_LAV25_HQ_USMC",
+								"CUP_B_MTVR_USMC","CUP_B_UH60S_USN","JAS_CUP_B_CH53E_USMC","CUP_B_UH60S_USN","CUP_B_MTVR_Repair_USMC","CUP_B_MTVR_Refuel_USMC"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -5107,6 +5819,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -5189,6 +5931,32 @@
 								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["INSW",5],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
 								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["INSW",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_B_MTVR_USMC","CUP_B_HMMWV_M1114_USMC","CUP_B_HMMWV_M1114_USMC","CUP_B_HMMWV_Ambulance_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_LAV25_HQ_USMC",
+								"CUP_B_MTVR_USMC","CUP_B_UH60S_USN","JAS_CUP_B_CH53E_USMC","CUP_B_UH60S_USN","CUP_B_MTVR_Repair_USMC","CUP_B_MTVR_Refuel_USMC"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -5451,6 +6219,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -5508,6 +6306,32 @@
 								GW_TrainingGround_soloBird = _heli;
 								GW_TrainingGround_spawnedAssets pushBack _heli;
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_B_MTVR_USMC","CUP_B_HMMWV_M1114_USMC","CUP_B_HMMWV_M1114_USMC","CUP_B_HMMWV_Ambulance_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_LAV25_HQ_USMC",
+								"CUP_B_MTVR_USMC","CUP_B_UH60S_USN","JAS_CUP_B_CH53E_USMC","CUP_B_UH60S_USN","CUP_B_MTVR_Repair_USMC","CUP_B_MTVR_Refuel_USMC"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -5770,6 +6594,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -5827,6 +6681,32 @@
 								GW_TrainingGround_soloBird = _heli;
 								GW_TrainingGround_spawnedAssets pushBack _heli;
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["B_Truck_01_transport_F","B_LSV_01_unarmed_F","B_LSV_01_unarmed_F","B_Truck_01_medical_F","B_MRAP_01_F","B_MRAP_01_F","B_MRAP_01_F","B_APC_Wheeled_01_cannon_F",
+								"B_Truck_01_transport_F","B_Heli_Light_01_F","B_Heli_Transport_03_unarmed_F","B_Heli_Light_01_F","B_Truck_01_Repair_F","B_Truck_01_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -6099,6 +6979,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -6187,6 +7097,32 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["I_Truck_02_transport_F","I_MRAP_03_F","I_MRAP_03_F","I_Truck_02_medical_F","I_MRAP_03_F","I_MRAP_03_F","I_MRAP_03_F","I_APC_Wheeled_03_cannon_F",
+								"I_Truck_02_transport_F","I_Heli_light_03_dynamicLoadout_F","I_Heli_Transport_02_F","I_Heli_light_03_dynamicLoadout_F","I_Truck_02_box_F","I_Truck_02_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","indep"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -6445,6 +7381,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -6509,6 +7475,32 @@
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["I_Truck_02_transport_F","I_MRAP_03_F","I_MRAP_03_F","I_Truck_02_medical_F","I_MRAP_03_F","I_MRAP_03_F","I_MRAP_03_F","I_APC_Wheeled_03_cannon_F",
+								"I_Truck_02_transport_F","I_Heli_light_03_dynamicLoadout_F","I_Heli_Transport_02_F","I_Heli_light_03_dynamicLoadout_F","I_Truck_02_box_F","I_Truck_02_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","indep"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
 							};
 						};
 					};
@@ -6767,6 +7759,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -6824,6 +7846,32 @@
 								GW_TrainingGround_soloBird = _heli;
 								GW_TrainingGround_spawnedAssets pushBack _heli;
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["I_Truck_02_transport_F","I_MRAP_03_F","I_MRAP_03_F","I_Truck_02_medical_F","I_MRAP_03_F","I_MRAP_03_F","I_MRAP_03_F","I_APC_Wheeled_03_cannon_F",
+								"I_Truck_02_transport_F","I_Heli_light_03_dynamicLoadout_F","I_Heli_Transport_02_F","I_Heli_light_03_dynamicLoadout_F","I_Truck_02_box_F","I_Truck_02_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","indep"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -7086,6 +8134,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -7143,6 +8221,32 @@
 								GW_TrainingGround_soloBird = _heli;
 								GW_TrainingGround_spawnedAssets pushBack _heli;
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["I_Truck_02_transport_F","I_MRAP_03_F","I_MRAP_03_F","I_Truck_02_medical_F","I_MRAP_03_F","I_MRAP_03_F","I_MRAP_03_F","I_APC_Wheeled_03_cannon_F",
+								"I_Truck_02_transport_F","I_Heli_light_03_dynamicLoadout_F","I_Heli_Transport_02_F","I_Heli_light_03_dynamicLoadout_F","I_Truck_02_box_F","I_Truck_02_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","indep"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{
@@ -7405,6 +8509,36 @@
 									sleep 30;
 								};
 							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup east;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["O_APC_Tracked_02_cannon_F","CUP_O_BMP1_CSAT","CUP_O_BMP1P_CSAT","CUP_O_BMP2_CSAT",
+												"CUP_O_BMP_HQ_CSAT","CUP_O_BMP2_AMB_CSAT","CUP_O_BMP2_ZU_CSAT","CUP_O_BRDM2_CSAT",
+												"CUP_O_BRDM2_ATGM_CSAT","CUP_O_BRDM2_HQ_CSAT","CUP_O_BTR60_CSAT","O_APC_Wheeled_02_rcws_F",
+												"O_MBT_02_arty_F","CUP_O_T55_CSAT","CUP_O_T72_CSAT","O_MBT_02_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
 							default
 							{
 								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
@@ -7462,6 +8596,32 @@
 								GW_TrainingGround_soloBird = _heli;
 								GW_TrainingGround_spawnedAssets pushBack _heli;
 								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["I_Truck_02_transport_F","I_MRAP_03_F","I_MRAP_03_F","I_Truck_02_medical_F","I_MRAP_03_F","I_MRAP_03_F","I_MRAP_03_F","I_APC_Wheeled_03_cannon_F",
+								"I_Truck_02_transport_F","I_Heli_light_03_dynamicLoadout_F","I_Heli_Transport_02_F","I_Heli_light_03_dynamicLoadout_F","I_Truck_02_box_F","I_Truck_02_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","indep"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
 							};
 							default
 							{

@@ -51,4 +51,23 @@ _this animateSource ["wing_fold_l", 1];
 
 =========================================================================================================
 
+FOB Cluster:
 
+pole teleport = done
+mil vehicles spawn func
+munitions spawn func -> superfluous, simply add gear/ammo crates
+laptop3 actions
+laptop6 range control actions and funcs
+laptop13 actions and funcs
+laptop31 actions and funcs
+laptop8 actions and funcs
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+combined FOB unpack function:
+
+// detect faction of player -> route through spawnAircraft -> callsign = "Construct" -> exe ID = Individual FOBs/PBs -> call construct handler func based on selection
+
+// spawn relevant vehicles -> must include transport for squads to move between ranges
+// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
