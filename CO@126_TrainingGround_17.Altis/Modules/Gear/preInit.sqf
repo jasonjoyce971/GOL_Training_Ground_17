@@ -27,22 +27,48 @@ PREP(replaceAttachments);
 		[
 			"NATO-D",
 			"NATO-W",
+			"NATO-CTRG",
 			"BAF-D",
+			"SAS",
 			"USMC-D",
 			"USMC-W",
+			"MARSOC",
+			"ACR",
+			"601stSFG",
+			"CDF-D",
+			"CDF-F",
+			"CDF-M",
+			"US-OCP",
+			"US-UCP",
+			"US-R",
+			"SWAT",
 			"INSURGENT-D",
 			"INSURGENT-W",
-			"CAMPAIGN-W"
+			"CAMPAIGN-W",
+			"CAMPAIGN-GEORGIA"
 		],
 		[
 			"NATO-Desert",
 			"NATO-Woodland",
-			"BAF-Desert",
+			"NATO-CTRG",
+			"British Army",
+			"22 SAS",
 			"USMC-Desert",
 			"USMC-Woodland",
+			"MARSOC",
+			"Czech Army",
+			"601st SFG",
+			"CDF-Desert",
+			"CDF-Forest",
+			"CDF-Mountain",
+			"US Army-OCP",
+			"US Army-UCP",
+			"US Army Rangers",
+			"Tanoa SWAT",
 			"INSURGENT-Desert",
 			"INSURGENT-Woodland",
-			"Campaign-"
+			"Campaign-",
+			"Campaign-Georgia"
 		],
 		0
 	],
@@ -58,21 +84,29 @@ PREP(replaceAttachments);
 			"CSAT-H",
 			"CSAT-W",
 			"CSAT-U",
+			"CSAT-V",
 			"RUSSIAN-W",
+			"SPETSNAZ",
 			"TAKIARMY-D",
+			"SLA",
 			"INSURGENT-D",
 			"INSURGENT-W",
-			"CAMPAIGN-E"
+			"CAMPAIGN-E",
+			"CAMPAIGN-SEP"
 		],
 		[
 			"CSAT-Hex",
 			"CSAT-Woodland",
 			"CSAT-Urban",
+			"CSAT-Vyper Team",
 			"Russian-Woodland",
+			"Spetsnaz",
 			"Takistani Army-Desert",
+			"Sahrani Liberation Army",
 			"INSURGENT-Desert",
 			"INSURGENT-Woodland",
-			"Campaign-"
+			"Campaign-",
+			"Campaign-Seperatists"
 		],
 		0
 	]
@@ -88,16 +122,30 @@ PREP(replaceAttachments);
 		[
 			"AAF-W",
 			"PMC",
+			"SYND",
+			"UN",
 			"INSURGENT-D",
 			"INSURGENT-W",
-			"CAMPAIGN-I"
+			"CAMPAIGN-I",
+			"CAMPAIGN-ACR",
+			"CAMPAIGN-601",
+			"CAMPAIGN-AAF",
+			"CAMPAIGN-RACS",
+			"CAMPAIGN-CDF"
 		],
 		[
 			"AAF-Woodland",
 			"PMC",
+			"Syndikat",
+			"United Nations",
 			"INSURGENT-Desert",
 			"INSURGENT-Woodland",
-			"Campaign-"
+			"Campaign-",
+			"Campaign-Czech Army",
+			"Campaign-601stSFG",
+			"Campaign-AAF",
+			"Campaign-RACS",
+			"Campaign-CDF"
 		],
 		0
 	],

@@ -1,4 +1,3 @@
-
 // Cloths
 _goggles = "";
 _helmet = "";
