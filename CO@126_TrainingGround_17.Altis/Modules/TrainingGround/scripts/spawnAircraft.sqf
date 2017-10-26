@@ -411,6 +411,74 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
@@ -801,6 +869,74 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{
@@ -1205,6 +1341,539 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					default
+					{
+						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
+					};
+				};
+			};
+			case "CSAT-V":
+			{
+				switch (_callsign) do
+				{
+					case "Raven":
+					{
+						switch (_exerciseID) do
+						{
+							case 1:
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking","parking_1","parking_2","parking_3","parking_4","parking_5","parking_6","parking_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_Heli_Light_02_v2_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign/Exercise Switch";
+							};
+						};
+					};
+					case "Giant":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Solo Practice
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["O_Heli_Transport_04_bench_F", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Giant"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Giant Insertion Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_Heli_Transport_04_covered_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"Giant",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Giant Sling Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								_crateSlots = ["sling","sling_1","sling_2","sling_3","sling_4","sling_5","sling_6","sling_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["CargoNet_01_barrels_F", _position, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _crateSlots;
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_Heli_Transport_04_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Giant/Exercise Switch";
+							};
+						};
+					};
+					case "Condor":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Solo Practice
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["O_T_VTOL_02_infantry_F", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Condor"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Condor HLS Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["VTOLPark","VTOLPark_1","VTOLPark_2","VTOLPark_3","VTOLPark_4","VTOLPark_5","VTOLPark_6","VTOLPark_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_T_VTOL_02_infantry_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"CondorHLS",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Giant Sling Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								_crateSlots = ["sling","sling_1","sling_2","sling_3","sling_4","sling_5","sling_6","sling_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["CargoNet_01_barrels_F", _position, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _crateSlots;
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_Heli_Transport_04_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Giant/Exercise Switch";
+							};
+						};
+					};
+					case "Range":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Rocket/Gunnery
+							{
+								for "_i" from 1 to 10 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+												"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+												"B_LSV_01_armed_F","B_LSV_01_unarmed_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 2: // ATGM
+							{
+								for "_i" from 1 to 10 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_APC_Tracked_01_CRV_F",
+												"B_MBT_01_mlrs_F","B_MBT_01_arty_F","CUP_B_Challenger2_NATO","B_MBT_01_TUSK_F",
+												"B_MBT_01_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 3: // Bombs
+							{
+								for "_i" from 1 to 10 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["Land_BagBunker_Large_F","Land_Cargo_House_V1_F","Land_Cargo_HQ_V1_F",
+												"Land_Cargo_Patrol_V1_F","Land_Cargo_Tower_V1_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 4: // SEAD
+							{
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["CUP_B_ZSU23_CDF","CUP_B_ZU23_CDF","B_APC_Tracked_01_AA_F","CUP_B_HMMWV_Avenger_NATO_T",
+												"CUP_B_M6LineBacker_NATO_T","CUP_B_M163_USA"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
+							};
+						};
+					};
+					case "ACM":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: 
+							{
+								_group = createGroup west;
+								_unitTypePool = ["CUP_B_L39_CAP_CZ","JS_JC_FA18E","CUP_B_F35B_AA_BAF","CUP_B_GR9_CAP_GB",
+												"CUP_B_AV8B_CAP_USMC","CUP_B_F35B_AA_USMC","I_Plane_Fighter_03_AA_F"];
+								_unit = selectRandom _unitTypePool;
+								[getMarkerPos "ACM",0,_unit,_group] call BIS_fnc_spawnVehicle;
+								{
+									GW_TrainingGround_spawnedOPFOR pushBack _x;
+								} foreach units _group;
+								_group addWaypoint [getMarkerPos "ravenSolo", 0];
+							};
+						};
+					};
+					case "EP":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Solo Practice
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["O_Heli_Light_02_F", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\EPFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATV",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATV",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATV",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>KamAZ</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATV",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATV",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATV",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Quad Bike</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATV",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Typhoon</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATV",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["CSATV",8],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATV",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BM-2T Stalker</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATV",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Otokar ARMA</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATV",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher HMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATV",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Punisher GMG</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATV",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Qilin</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATV",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-100</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["CSATV",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["O_Truck_03_transport_F","O_LSV_02_unarmed_F","O_LSV_02_unarmed_F","O_Truck_03_medical_F","O_MRAP_02_F","O_MRAP_02_F","O_MRAP_02_F","O_APC_Wheeled_02_rcws_F",
+								"O_Truck_03_transport_F","O_Heli_Light_02_unarmed_F","O_Heli_Transport_04_covered_F","O_Heli_Light_02_unarmed_F","O_Truck_03_repair_F","O_Truck_03_fuel_F"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
@@ -1597,6 +2266,541 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					default
+					{
+						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
+					};
+				};
+			};
+			case "SPETSNAZ":
+			{
+				switch (_callsign) do
+				{
+					case "Raven":
+					{
+						switch (_exerciseID) do
+						{
+							case 1:
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["JAS_CUP_O_Mi8_AAC", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_AAC", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_AAC", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_AAC", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_AAC", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign/Exercise Switch";
+							};
+						};
+					};
+					case "Giant":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Solo Practice
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["JAS_CUP_O_Mi8_RU", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Giant"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Giant Insertion Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_RU", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"Giant",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Giant Sling Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								_crateSlots = ["sling","sling_1","sling_2","sling_3","sling_4","sling_5","sling_6","sling_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["CargoNet_01_barrels_F", _position, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _crateSlots;
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_RU", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Giant/Exercise Switch";
+							};
+						};
+					};
+					case "Condor":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Solo Practice
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["O_T_VTOL_02_infantry_F", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Condor"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Condor HLS Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["VTOLPark","VTOLPark_1","VTOLPark_2","VTOLPark_3","VTOLPark_4","VTOLPark_5","VTOLPark_6","VTOLPark_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_T_VTOL_02_infantry_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"CondorHLS",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Giant Sling Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								_crateSlots = ["sling","sling_1","sling_2","sling_3","sling_4","sling_5","sling_6","sling_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["CargoNet_01_barrels_F", _position, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _crateSlots;
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["O_Heli_Transport_04_F", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Giant/Exercise Switch";
+							};
+						};
+					};
+					case "Range":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Rocket/Gunnery
+							{
+								for "_i" from 1 to 10 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+												"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+												"B_LSV_01_armed_F","B_LSV_01_unarmed_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 2: // ATGM
+							{
+								for "_i" from 1 to 10 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_APC_Tracked_01_CRV_F",
+												"B_MBT_01_mlrs_F","B_MBT_01_arty_F","CUP_B_Challenger2_NATO","B_MBT_01_TUSK_F",
+												"B_MBT_01_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 3: // Bombs
+							{
+								for "_i" from 1 to 10 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["Land_BagBunker_Large_F","Land_Cargo_House_V1_F","Land_Cargo_HQ_V1_F",
+												"Land_Cargo_Patrol_V1_F","Land_Cargo_Tower_V1_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 4: // SEAD
+							{
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["CUP_B_ZSU23_CDF","CUP_B_ZU23_CDF","B_APC_Tracked_01_AA_F","CUP_B_HMMWV_Avenger_NATO_T",
+												"CUP_B_M6LineBacker_NATO_T","CUP_B_M163_USA"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
+							};
+						};
+					};
+					case "ACM":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: 
+							{
+								_group = createGroup west;
+								_unitTypePool = ["CUP_B_L39_CAP_CZ","JS_JC_FA18E","CUP_B_F35B_AA_BAF","CUP_B_GR9_CAP_GB",
+												"CUP_B_AV8B_CAP_USMC","CUP_B_F35B_AA_USMC","I_Plane_Fighter_03_AA_F"];
+								_unit = selectRandom _unitTypePool;
+								[getMarkerPos "ACM",0,_unit,_group] call BIS_fnc_spawnVehicle;
+								{
+									GW_TrainingGround_spawnedOPFOR pushBack _x;
+								} foreach units _group;
+								_group addWaypoint [getMarkerPos "ravenSolo", 0];
+							};
+						};
+					};
+					case "EP":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Solo Practice
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["O_Heli_Light_02_F", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\EPFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-3</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BRDM-2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-90</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Vodnik</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>UAZ</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Ural</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",8],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-90</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SPET",9],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SPET",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SPET",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-3</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SPET",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BRDM-2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SPET",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-90</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SPET",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SPET",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-90</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SPET",6],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_O_Ural_Open_RU","CUP_O_UAZ_Open_RU","CUP_O_UAZ_Open_RU","CUP_O_Ural_RU","CUP_O_UAZ_Open_RU","CUP_O_UAZ_Open_RU","CUP_O_UAZ_Open_RU","CUP_O_BTR90_HQ_RU",
+								"CUP_O_Ural_Open_RU","CUP_O_Ka60_Grey_RU","JAS_CUP_O_Mi8_RU","CUP_O_Ka60_Grey_RU","CUP_O_Ural_Repair_RU","CUP_O_Ural_Refuel_RU"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{
@@ -2015,6 +3219,537 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					default
+					{
+						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
+					};
+				};
+			};
+			case "SLA":
+			{
+				switch (_callsign) do
+				{
+					case "Raven":
+					{
+						switch (_exerciseID) do
+						{
+							case 1:
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["JAS_CUP_O_Mi8_SLA_2", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Raven Normal Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_SLA_2", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"normal",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Raven Urban Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_SLA_2", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 4: // Raven Special Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_SLA_2", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"special",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 5: // Raven Assault Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_SLA_2", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"assault",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign/Exercise Switch";
+							};
+						};
+					};
+					case "Giant":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Solo Practice
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["JAS_CUP_O_Mi8_SLA_2", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Giant"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Giant Insertion Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_SLA_2", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"Giant",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Giant Sling Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								_crateSlots = ["sling","sling_1","sling_2","sling_3","sling_4","sling_5","sling_6","sling_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["CargoNet_01_barrels_F", _position, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _crateSlots;
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["JAS_CUP_O_Mi8_SLA_2", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Giant/Exercise Switch";
+							};
+						};
+					};
+					case "Condor":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Solo Practice
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["CUP_O_C47_SLA", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Condor"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+							};
+							case 2: // Condor HLS Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["VTOLPark","VTOLPark_1","VTOLPark_2","VTOLPark_3","VTOLPark_4","VTOLPark_5","VTOLPark_6","VTOLPark_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["CUP_O_C47_SLA", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"CondorHLS",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							case 3: // Giant Sling Ops
+							{
+								_group = group _caller;
+								_parkingSlots = ["parking_12","parking_15","parking","parking_5","parking_2","parking_7","parking_8","parking_11"];
+								_crateSlots = ["sling","sling_1","sling_2","sling_3","sling_4","sling_5","sling_6","sling_7"];
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["CargoNet_01_barrels_F", _position, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _crateSlots;
+								{
+									_position = getMarkerPos _x;
+									_heli = createVehicle ["CUP_O_C47_SLA", _position, [], 0, "CAN_COLLIDE"];
+									_heli setDir 130;
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								}foreach _parkingSlots;
+								GW_TrainingGround_AACFSM = [_caller,_side,6,"urban",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Giant/Exercise Switch";
+							};
+						};
+					};
+					case "Range":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Rocket/Gunnery
+							{
+								for "_i" from 1 to 10 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+												"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+												"B_LSV_01_armed_F","B_LSV_01_unarmed_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 2: // ATGM
+							{
+								for "_i" from 1 to 10 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_APC_Tracked_01_CRV_F",
+												"B_MBT_01_mlrs_F","B_MBT_01_arty_F","CUP_B_Challenger2_NATO","B_MBT_01_TUSK_F",
+												"B_MBT_01_cannon_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 3: // Bombs
+							{
+								for "_i" from 1 to 10 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["Land_BagBunker_Large_F","Land_Cargo_House_V1_F","Land_Cargo_HQ_V1_F",
+												"Land_Cargo_Patrol_V1_F","Land_Cargo_Tower_V1_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 4: // SEAD
+							{
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _airTgts;
+									_locArray = [_loc];
+									_airTgts = _airTgts - _locArray;
+									_unitType = ["CUP_B_ZSU23_CDF","CUP_B_ZU23_CDF","B_APC_Tracked_01_AA_F","CUP_B_HMMWV_Avenger_NATO_T",
+												"CUP_B_M6LineBacker_NATO_T","CUP_B_M163_USA"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							case 5: // Mortar Range @ OP Dragon
+							{
+								null = [[monitor6],["spotter_21","spotter_22","spotter_23","spotter_24","spotter_25"]] execVM "LFC\feedInit.sqf";
+								_mortars = ["mortarSpawn","mortarSpawn_1","mortarSpawn_2","mortarSpawn_3","mortarSpawn_4"];
+								{
+									_pos = getMarkerPos _x;
+									_heli = createVehicle ["I_Mortar_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedAssets pushBack _heli;
+								} foreach _mortars;
+								for "_i" from 1 to 5 do
+								{
+									_group = createGroup west;
+									_loc = selectRandom _morTgts;
+									_locArray = [_loc];
+									_morTgts = _morTgts - _locArray;
+									_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+											"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+											"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+									_unit = _unitType call BIS_fnc_selectRandom;
+									[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+									_markerstr = createMarker [_loc + "1", getMarkerPos _loc];
+									_markerstr setMarkerShape "ICON";
+									_markerstr setMarkerType "hd_destroy";
+									{
+										GW_TrainingGround_spawnedOPFOR pushBack _x;
+									} foreach units _group;
+									sleep 30;
+								};
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Range/Exercise Switch";
+							};
+						};
+					};
+					case "ACM":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: 
+							{
+								_group = createGroup west;
+								_unitTypePool = ["CUP_B_L39_CAP_CZ","JS_JC_FA18E","CUP_B_F35B_AA_BAF","CUP_B_GR9_CAP_GB",
+												"CUP_B_AV8B_CAP_USMC","CUP_B_F35B_AA_USMC","I_Plane_Fighter_03_AA_F"];
+								_unit = selectRandom _unitTypePool;
+								[getMarkerPos "ACM",0,_unit,_group] call BIS_fnc_spawnVehicle;
+								{
+									GW_TrainingGround_spawnedOPFOR pushBack _x;
+								} foreach units _group;
+								_group addWaypoint [getMarkerPos "ravenSolo", 0];
+							};
+						};
+					};
+					case "EP":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Solo Practice
+							{
+								_position = getmarkerpos "ravenSolo";
+								_heli = createVehicle ["JAS_CUP_O_Mi8_SLA_2", _position, [], 0, "CAN_COLLIDE"];
+								GW_TrainingGround_soloBird = _heli;
+								GW_TrainingGround_spawnedAssets pushBack _heli;
+								GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird] execFSM "Modules\TrainingGround\FSM\EPFlight.fsm";
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Raven/Exercise Switch";
+							};
+						};
+					};
+					case "Vehicle":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Driving Course
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SLA",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SLA",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BRDM-2</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SLA",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-60</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SLA",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>UAZ</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SLA",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Ural</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SLA",5],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>Volha</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SLA",6],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-55</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SLA",7],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleDrivingCourse.sqf",["SLA",8],1,false,false,"",""];
+							};
+							case 2: // Range
+							{
+								removeAllActions Laptop_4;
+								
+								Laptop_4 addAction ["<t color='#FFFF00'>BACK</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SLA",0],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BMP-2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SLA",1],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BRDM-2</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SLA",2],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>BTR-60</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SLA",3],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-55</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SLA",4],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_4 addAction ["<t color='#FFFF00'>T-72</t>","Modules\TrainingGround\scripts\vehicleFiringRange.sqf",["SLA",5],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "FOB":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Cluster
+							{
+								removeAllActions Laptop_6;
+								
+								// spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+								["CUP_O_Ural_Open_SLA","CUP_O_UAZ_Unarmed_SLA","CUP_O_UAZ_Unarmed_SLA","CUP_O_UAZ_Unarmed_SLA","CUP_O_UAZ_Unarmed_SLA","CUP_O_UAZ_Unarmed_SLA","CUP_O_UAZ_Unarmed_SLA","CUP_O_BTR60_SLA",
+								"CUP_O_Ural_Open_SLA","JAS_CUP_O_Mi8_SLA_2","JAS_CUP_O_Mi8_SLA_2","JAS_CUP_O_Mi8_SLA_2","CUP_O_Ural_Repair_SLA","CUP_O_Ural_Refuel_SLA"] call GW_TrainingGround_fnc_fobcluster;
+								
+								// spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
+								_markers = ["986300","986303","981303","984312","981304"];
+								{
+									_pos = getMarkerPos _x;
+									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
+									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
+								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
@@ -2395,6 +4130,74 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{
@@ -2789,6 +4592,74 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Callsign Switch";
@@ -3169,6 +5040,74 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","east"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{
@@ -3590,6 +5529,74 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign Switch";
@@ -3991,6 +5998,74 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{
@@ -4413,6 +6488,74 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{
@@ -5166,6 +7309,74 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign Switch";
@@ -5557,6 +7768,74 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{
@@ -5964,6 +8243,74 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign Switch";
@@ -6339,6 +8686,74 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/BLUFOR/Callsign Switch";
@@ -6707,6 +9122,74 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","west"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{
@@ -7126,6 +9609,74 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Callsign Switch";
@@ -7497,6 +10048,74 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","indep"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{
@@ -7879,6 +10498,74 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Callsign Switch";
@@ -8254,6 +10941,74 @@
 							};
 						};
 					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
 					default
 					{
 						hint "CODE FAIL. spawnAircraft.sqf Main/INDEP/Callsign Switch";
@@ -8622,6 +11377,74 @@
 									_box = createVehicle ["Box_NATO_Ammo_F", _pos, [], 0, "CAN_COLLIDE"];
 									[_box, ["big_box","indep"]] call GW_Gear_Fnc_Init;
 								}foreach _markers;
+							};
+							default
+							{
+								hint "CODE FAIL. spawnAircraft.sqf Main/OPFOR/Vehicle/Exercise Switch";
+							};
+						};
+					};
+					case "EOD":
+					{
+						switch (_exerciseID) do
+						{
+							case 1: // Training
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["TrainingMine_01_F", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+							};
+							case 2: // Live
+							{
+								{deleteVehicle _x}foreach GW_TrainingGround_spawnedMines;
+								for "_i" from 1 to 50 do
+								{
+									_pos = GW_TrainingGround_EODPOS call BIS_fnc_selectRandom;
+									_mine = createVehicle ["APERSMine", _pos, [], 0, "CAN_COLLIDE"];
+									GW_TrainingGround_spawnedMines pushBack _mine;
+									_pospop = [_pos];
+									GW_TrainingGround_EODPOS = GW_TrainingGround_EODPOS - _pospop;
+									sleep 0.1;
+								};
+								GW_TrainingGround_EODPOS = [[17407.6,13096.4,-0.00167561],[17409.3,13098,-0.00168133],[17410.7,13099.4,-0.00434685],[17412.6,13101.1,-0.00435638],[17408.7,13092.6,0.00167179],[17410.2,13094.3,5.72205e-006],[17411.9,13095.9,0],
+								[17413.2,13097.3,0],[17415.2,13099.1,0],[17411.6,13090.1,0.000333786],[17413.1,13091.8,0],[17414.8,13093.3,0],[17416.2,13094.7,0],[17418.1,13096.5,0],[17413.5,13085.9,0.000997543],[17415,13087.6,0],
+								[17416.7,13089.1,0],[17418,13090.5,0],[17420,13092.3,0],[17416,13082.5,0.00167179],[17417.6,13084.2,5.72205e-006],[17419.2,13085.7,0],[17420.6,13087.1,0],[17422.6,13088.9,0],[17420.3,13081,-0.00168037],
+								[17418.8,13079.3,0.000319481],[17422,13082.6,-0.00167656],[17423.3,13084,-0.00333881],[17425.3,13085.7,-0.00201321],[17422,13076.1,0.000319481],[17423.6,13077.8,-0.000350952],[17425.3,13079.4,-0.000355721],
+								[17426.6,13080.8,-0.00333881],[17428.6,13082.6,-0.00201321],[17424.3,13072.5,0.00120354],[17425.8,13074.2,5.72205e-006],[17427.5,13075.8,0],[17428.9,13077.2,0],[17430.8,13079,0],[17428.1,13069.3,0],
+								[17429.7,13071,0],[17431.3,13072.6,0],[17432.7,13073.9,0],[17434.7,13075.7,0],[17434.9,13069.1,0.00264454],[17436.4,13070.8,0.00097847],[17438.1,13072.4,-0.00184059],[17439.5,13073.8,-0.00467777],
+								[17441.4,13075.5,-0.00468731],[17427.7,13058.3,-0.00201225],[17429.2,13060,-0.00100136],[17430.9,13061.6,-0.00267792],[17432.2,13062.9,-0.00334167],[17434.2,13064.7,-0.00335217],[17438,13067.7,0.000660896],
+								[17439.6,13069.4,-0.00101185],[17441.3,13071,-0.00168324],[17442.6,13072.4,-0.00449467],[17444.6,13074.1,-0.00402737],[17431.2,13055.4,-0.00167465],[17432.8,13057.1,-0.0026722],[17434.4,13058.7,-0.00268364],
+								[17435.8,13060.1,-0.00335407],[17437.8,13061.9,-0.00402737],[17440.3,13063.2,0.000321388],[17441.8,13064.9,-0.00108337],[17443.5,13066.5,-0.00166798],[17444.8,13067.9,-0.00434494],[17446.8,13069.7,-0.00435448],
+								[17435.1,13050.7,-0.00167751],[17436.7,13052.4,-0.00267696],[17438.4,13054,-0.00301647],[17439.7,13055.4,-0.00434399],[17441.7,13057.2,-0.00435257],[17444.2,13059.8,0.000329971],[17445.8,13061.5,-0.00100422],
+								[17447.4,13063.1,-0.00234509],[17448.8,13064.4,-0.00501537],[17450.8,13066.2,-0.00435829],[17448.6,13053.9,-0.00100327],[17450.2,13055.6,-0.00266933],[17451.8,13057.2,-0.00268459],[17453.2,13058.6,-0.00401974],
+								[17455.2,13060.4,-0.00402927],[17439.4,13046.7,0.00100231],[17441,13048.4,-0.00667477],[17442.6,13050,-0.00367451],[17444,13051.3,-0.00435162],[17446,13053.1,-0.0026989],[17451.1,13048.2,-0.000684738],
+								[17452.7,13049.9,-0.0022459],[17454.3,13051.5,-0.00200653],[17455.7,13052.9,-0.00468063],[17457.7,13054.7,-0.00535011]];
+								Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+								Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
 							};
 							default
 							{

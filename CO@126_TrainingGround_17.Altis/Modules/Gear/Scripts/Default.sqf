@@ -84,6 +84,7 @@ switch (toLower(_role)) do {
 		[_goggles,_helmet,_uniform,_vest] call _addEquipment;
 		[_rifle, _rifle_mag, ""] call _addPrimary;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
+		_mine_detector call _addToUniform;
 		_IFAK call _addToUniform;
 		[[_pistol_mag,2],[_smokegrenadeY,3]] call _addToUniform;
 		[[_grenademini,2],[_grenade,2],[_rifle_mag,4],[_rifle_mag_tr,4]] call _addToVest;
@@ -141,17 +142,17 @@ switch (toLower(_role)) do {
 
 	case "p": {
 		[_goggles,_helmet,_uniform,_vest,_backpackRadio] call _addEquipment;
-		[_rifleC, _rifleC_mag_tr, ""] call _addPrimary;
+		[_rifleC, _rifleC_mag_tr, _rifleC_mag] call _addPrimary;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
 		[[_smokegrenadeY,2],[_smokegrenadeP,3],[_grenademini,1]] call _addToUniform;
-		[[_rifleC_mag_tr,2]] call _addToVest;
+		[[_rifleC_mag_tr,2],[_rifleC_mag,2]] call _addToVest;
 		_FAKBig call _addToBackpack;
 		[_map, _gps, "", _compass, _watch, _nvg] call _addLinkedItems;
 	};
 
 	case "crew": {
-		[_goggles,_helmet,_uniform,_vest] call _addEquipment;
+		[_goggles,_helmet,_uniform,_vest,_backpack] call _addEquipment;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
 		[[_pistol_mag,2],[_smokegrenadeY,2]] call _addToUniform;
@@ -218,6 +219,20 @@ switch (toLower(_role)) do {
 		};
 		_laserDesignator call _addBino;
 		[_map, _gps, "", _compass, _watch, _nvg] call _addLinkedItems;
+	};
+	
+	case "eod": {
+		[_goggles,_helmet,_uniform,_vest] call _addEquipment;
+		[_rifle, _rifle_mag, ""] call _addPrimary;
+		[_pistol, _pistol_mag, ""] call _addHandGun;
+		_mine_detector call _addToUniform;
+		_IFAK call _addToUniform;
+		[[_pistol_mag,2]] call _addToUniform;
+		[[_grenademini,2],[_grenade,2],[_rifle_mag,4],[_rifle_mag_tr,4],[_smokegrenadeY,3]] call _addToVest;
+		[_map, "", "", _compass, _watch, _nvg] call _addLinkedItems;
+		["","","","",_backpack] call _addEquipment;
+		[[_cables,1],[_defusalKit,1],[_clacker,1],[_demoCharge,2],[_satchelCharge,1]] call _addToBackpack;
+		[_map, "", "", _compass, _watch, _nvg] call _addLinkedItems;
 	};
 
 	default {

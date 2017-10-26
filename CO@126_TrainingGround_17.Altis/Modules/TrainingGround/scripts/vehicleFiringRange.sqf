@@ -907,6 +907,153 @@
 			};
 		};
 	};
+	case "SLA":
+	{
+		switch (_exerciseID) do
+		{
+			case 0:
+			{};
+			case 1:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_O_BMP2_SLA", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				for "_i" from 1 to 5 do
+				{
+					_group = createGroup west;
+					_loc = selectRandom _vehTgts;
+					_locArray = [_loc];
+					_vehTgts = _vehTgts - _locArray;
+					_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+							"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+							"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+					_unit = _unitType call BIS_fnc_selectRandom;
+					[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+					{
+						GW_TrainingGround_spawnedOPFOR pushBack _x;
+					} foreach units _group;
+					sleep 30;
+				};
+			};
+			case 2:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_O_BRDM2_SLA", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				for "_i" from 1 to 5 do
+				{
+					_group = createGroup west;
+					_loc = selectRandom _vehTgts;
+					_locArray = [_loc];
+					_vehTgts = _vehTgts - _locArray;
+					_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+							"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+							"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
+					_unit = _unitType call BIS_fnc_selectRandom;
+					[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+					{
+						GW_TrainingGround_spawnedOPFOR pushBack _x;
+					} foreach units _group;
+					sleep 30;
+				};
+			};
+			case 3:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_O_BTR60_SLA", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				for "_i" from 1 to 5 do
+				{
+					_group = createGroup west;
+					_loc = selectRandom _vehTgts;
+					_locArray = [_loc];
+					_vehTgts = _vehTgts - _locArray;
+					_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+							"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+							"B_LSV_01_armed_F","B_LSV_01_unarmed_F"];
+					_unit = _unitType call BIS_fnc_selectRandom;
+					[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+					{
+						GW_TrainingGround_spawnedOPFOR pushBack _x;
+					} foreach units _group;
+					sleep 30;
+				};
+			};
+			case 4:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_O_T55_SLA", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				for "_i" from 1 to 5 do
+				{
+					_group = createGroup west;
+					_loc = selectRandom _vehTgts;
+					_locArray = [_loc];
+					_vehTgts = _vehTgts - _locArray;
+					_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+							"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+							"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_MBT_01_cannon_F"];
+					_unit = _unitType call BIS_fnc_selectRandom;
+					[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+					{
+						GW_TrainingGround_spawnedOPFOR pushBack _x;
+					} foreach units _group;
+					sleep 30;
+				};
+			};
+			case 5:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_O_T72_SLA", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				for "_i" from 1 to 5 do
+				{
+					_group = createGroup west;
+					_loc = selectRandom _vehTgts;
+					_locArray = [_loc];
+					_vehTgts = _vehTgts - _locArray;
+					_unitType = ["B_Truck_01_mover_F","B_Truck_01_ammo_F","B_Truck_01_box_F","B_Truck_01_fuel_F","B_Truck_01_medical_F",
+							"B_Truck_01_Repair_F","B_Truck_01_transport_F","B_Truck_01_covered_F","B_MRAP_01_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F",
+							"B_LSV_01_armed_F","B_LSV_01_unarmed_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_MBT_01_cannon_F"];
+					_unit = _unitType call BIS_fnc_selectRandom;
+					[getMarkerPos _loc,0,_unit,_group] call BIS_fnc_spawnVehicle;
+					{
+						GW_TrainingGround_spawnedOPFOR pushBack _x;
+					} foreach units _group;
+					sleep 30;
+				};
+			};
+			default
+			{
+				hint "CODE FAIL. vehicleDrivingCourse.sqf Callsign/Exercise Switch";
+			};
+		};
+	};
 	case "NATOD":
 	{
 		switch (_exerciseID) do

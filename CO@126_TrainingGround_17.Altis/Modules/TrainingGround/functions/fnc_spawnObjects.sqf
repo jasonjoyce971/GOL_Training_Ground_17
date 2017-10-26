@@ -89,7 +89,6 @@ _this spawn
 		_location = (_x select 2);
 		_veh = _Object createVehicle [0,0,0];
 		_veh setDir _direction;
-		_veh setVariable ["GOL_Caching", true, true];
 
 		if (typeName (_this select 1) isEqualTo "OBJECT") then
 		{

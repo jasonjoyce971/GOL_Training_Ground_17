@@ -71,3 +71,20 @@ combined FOB unpack function:
 // spawn relevant vehicles -> must include transport for squads to move between ranges
 // spawn relevant supplies -> initialise spawned boxes as supply crates which should in turn call the relevant framework handler
 // spawn relevant objects to construct the ranges/assault course -> check nekos code for important stuff like target naming etc
+
+
+[17337.5,13581.9,0] O_Truck_03_transport_F 214.319
+[17323.8,13558.2,0] O_LSV_02_unarmed_F 28.693
+[17319.2,13548.8,0] O_LSV_02_unarmed_F 28.403
+[17405.7,13214.8,0] O_Truck_03_medical_F 168.024
+[17434.8,13168.2,0] O_MRAP_02_F 46.175
+[17438.2,13164.3,0] O_MRAP_02_F 47.537
+[17475.7,13164.9,0] O_MRAP_02_F 45.676
+[17491,13195.4,0] O_APC_Wheeled_02_rcws_F 46.708
+[17524.4,13176.7,0] O_Truck_03_transport_F 317.478
+[17532.7,13222,0] O_Heli_Light_02_unarmed_F 0
+[17550.3,13240.4,0] O_Heli_Transport_04_covered_F 0
+[17565.6,13256,0] O_Heli_Light_02_unarmed_F 0
+[17527.8,13243.7,0] O_Truck_03_repair_F 45.147
+[17543.3,13259.9,9.53674e-007] O_Truck_03_fuel_F 45.219
+

@@ -101,3 +101,8 @@
  // FOB Unpack Laptop @ FOB Cluster
  Laptop_6 addAction ["<t color='#FFFF00'>Unpack FOB Cluster</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["FOB",1],1,false,false,"",""];
  
+  // EOD Lane Control Laptop @ FOB Cluster
+ Laptop_7 addAction ["<t color='#FFFF00'>Training Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",1],1,false,false,"",""];
+ Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
+ Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
+ 

@@ -14,8 +14,7 @@ _veh12 = _this select 11;
 _veh13 = _this select 12;
 _veh14 = _this select 13;
 
-// Inside compound
-["Cluster1",["Land_BagFence_Long_F",315.513,[17365.4,13139.4,0.000310898]],["Land_BagFence_Long_F",45.493,[17363.2,13139.4,-0.000164986]],
+_placements = [["Land_BagFence_Long_F",315.513,[17365.4,13139.4,0.000310898]],["Land_BagFence_Long_F",45.493,[17363.2,13139.4,-0.000164986]],
 ["Land_BagFence_Long_F",49.2877,[17363.9,13127.4,-0.000227928]],["Land_BagFence_Long_F",319.298,[17364.3,13129.5,0.000265121]],
 ["Land_BagFence_Long_F",49.2874,[17366.3,13129.4,-0.000239372]],["Land_BagFence_Long_F",319.298,[17366,13127.4,0.000265121]],
 ["Land_CncWall4_F",47.9986,[17388.5,13138.1,0.00622845]],["Land_CncBarrierMedium4_F",138.635,[17395.2,13139.3,-0.450702]],
@@ -35,10 +34,8 @@ _veh14 = _this select 13;
 ["Land_CncBarrierMedium4_F",49.2166,[17395.5,13166.9,-0.450054]],["Land_BagBunker_Large_F",227.352,[17379.7,13160.6,-0.00695896]],
 ["Land_CncBarrierMedium4_F",49.2215,[17400.5,13161.3,-0.450336]],["Land_CncBarrierMedium4_F",49.2215,[17405.4,13155.7,-0.450341]],
 ["Land_CncBarrierMedium4_F",138.619,[17406.3,13149.3,-0.450277]],["Land_CncBarrierMedium4_F",138.619,[17400.7,13144.3,-0.450151]],
-["Land_CncWall4_F",136.861,[17381.7,13170.1,-0.000857353]],["Land_CncBarrierMedium4_F",49.2258,[17390.7,13172.2,-0.450497]]] call GW_TrainingGround_fnc_spawnObjects;
-
-// Service Station + Landing Zone
-["Cluster2",["Land_HelipadSquare_F",224.926,[17532.5,13222.4,0]],["Land_BarrelSand_F",359.952,[17535.7,13251.9,0.000210762]],
+["Land_CncWall4_F",136.861,[17381.7,13170.1,-0.000857353]],["Land_CncBarrierMedium4_F",49.2258,[17390.7,13172.2,-0.450497]],
+["Land_HelipadSquare_F",224.926,[17532.5,13222.4,0]],["Land_BarrelSand_F",359.952,[17535.7,13251.9,0.000210762]],
 ["Land_BarrelEmpty_F",265.313,[17533.1,13248.7,7.24792e-005]],["Land_MetalBarrel_F",359.928,[17535.9,13253.5,9.72748e-005]],
 ["Land_MetalBarrel_F",311.778,[17534.8,13252.5,0.000274658]],["Land_MetalBarrel_F",305.328,[17533,13245.8,8.10623e-005]],
 ["Land_MetalBarrel_F",56.7684,[17530.6,13246.2,9.63211e-005]],["Land_HelipadSquare_F",224.867,[17566,13255.9,0]],
@@ -55,10 +52,8 @@ _veh14 = _this select 13;
 ["Land_CncBarrier_F",278.249,[17465.3,13302,0.000352859]],["Land_CncBarrier_F",280.241,[17464.7,13292.6,0.000108719]],
 ["Land_BarrelEmpty_F",348.499,[17464.9,13304,0.000165939]],["Land_BarrelSand_F",124.457,[17465.9,13295.9,0.000102997]],
 ["Land_MetalBarrel_F",269.045,[17463.8,13304.9,0.000185966]],["Land_MetalBarrel_F",295.111,[17464.2,13302.9,0.000161171]],
-["Land_MetalBarrel_F",89.9661,[17465.4,13294.8,0.000104904]],["Land_MetalBarrel_F",39.8817,[17463.6,13291.1,7.05719e-005]]] call GW_TrainingGround_fnc_spawnObjects;
-
-// Obstacle Course SE
-["Cluster3",["Land_Obstacle_RunAround_F",226.097,[17482.8,13244.2,0.000229836]],["Land_Obstacle_Ramp_F",224.867,[17491,13252.9,0.0189056]],
+["Land_MetalBarrel_F",89.9661,[17465.4,13294.8,0.000104904]],["Land_MetalBarrel_F",39.8817,[17463.6,13291.1,7.05719e-005]],
+["Land_Obstacle_RunAround_F",226.097,[17482.8,13244.2,0.000229836]],["Land_Obstacle_Ramp_F",224.867,[17491,13252.9,0.0189056]],
 ["Land_Obstacle_Saddle_F",49.0866,[17493.8,13255.7,1.06102]],["Land_Obstacle_Saddle_F",81.9388,[17497.1,13257.1,1.00853]],
 ["Land_Obstacle_Saddle_F",17.5475,[17499.3,13259.1,1.05124]],["Land_Obstacle_Saddle_F",49.0857,[17501.4,13262.2,1.07226]],
 ["Land_Obstacle_Ramp_F",46.2579,[17504.2,13264.8,0.0146446]],["Land_Obstacle_Climb_F",313.534,[17507.4,13268,4.19617e-005]],
@@ -106,9 +101,8 @@ _veh14 = _this select 13;
 ["Land_Bricks_V1_F",42.6849,[17484.1,13216.6,-4.76837e-006]],["Land_Bricks_V1_F",45.9031,[17476,13225.4,-2.86102e-006]],
 ["Land_Obstacle_Cross_F",226.025,[17536.2,13271.3,2.67029e-005]],["Land_WoodenBox_F",225.51,[17536.2,13271.3,-5.72205e-006]],
 ["Land_Obstacle_Cross_F",226.025,[17533.2,13268.4,2.76566e-005]],["Land_WoodenBox_F",225.509,[17533.3,13268.4,-9.53674e-006]],
-["Land_Obstacle_Cross_F",226.025,[17529.8,13265.1,3.52859e-005]],["Land_WoodenBox_F",225.518,[17529.8,13265.1,0.000137329]]] call GW_TrainingGround_fnc_spawnObjects;
-
-["Cluster4",["Land_Obstacle_RunAround_F",226.101,[17460.7,13267.8,0.00044632]],["Land_Obstacle_Ramp_F",224.866,[17468.9,13276.5,6.86646e-005]],
+["Land_Obstacle_Cross_F",226.025,[17529.8,13265.1,3.52859e-005]],["Land_WoodenBox_F",225.518,[17529.8,13265.1,0.000137329]],
+["Land_Obstacle_RunAround_F",226.101,[17460.7,13267.8,0.00044632]],["Land_Obstacle_Ramp_F",224.866,[17468.9,13276.5,6.86646e-005]],
 ["Land_Obstacle_Saddle_F",49.0853,[17471.7,13279.3,1.04064]],["Land_Obstacle_Saddle_F",81.9431,[17475.2,13280.8,1.14664]],
 ["Land_Obstacle_Saddle_F",17.5427,[17477.6,13282.8,1.08116]],["Land_Obstacle_Saddle_F",49.0844,[17479.3,13285.7,1.03049]],
 ["Land_Obstacle_Ramp_F",46.2556,[17482.1,13288.4,5.72205e-005]],["Land_Obstacle_Climb_F",313.538,[17485.3,13291.6,0.000295639]],
@@ -156,10 +150,8 @@ _veh14 = _this select 13;
 ["Land_Bricks_V1_F",42.6845,[17462,13240.2,-2.86102e-006]],["Land_Bricks_V1_F",45.9046,[17453.9,13249,-1.90735e-005]],
 ["Land_Obstacle_Cross_F",226.027,[17514.1,13294.9,-2.00272e-005]],["Land_WoodenBox_F",225.512,[17514.1,13294.9,4.76837e-006]],
 ["Land_Obstacle_Cross_F",226.022,[17511.1,13292,-2.67029e-005]],["Land_WoodenBox_F",225.506,[17511.2,13292,1.81198e-005]],
-["Land_Obstacle_Cross_F",226.026,[17507.7,13288.7,-2.67029e-005]],["Land_WoodenBox_F",225.517,[17507.7,13288.7,1.33514e-005]]] call GW_TrainingGround_fnc_spawnObjects;
-
-// Pistol Draw + Shooting Range
-["Cluster5",["CamoNet_BLUFOR_F",287.414,[17272.8,13452.6,0.00329018]],["Land_ClutterCutter_large_F",292.533,[17272.7,13452.5,0]],
+["Land_Obstacle_Cross_F",226.026,[17507.7,13288.7,-2.67029e-005]],["Land_WoodenBox_F",225.517,[17507.7,13288.7,1.33514e-005]],
+["CamoNet_BLUFOR_F",287.414,[17272.8,13452.6,0.00329018]],["Land_ClutterCutter_large_F",292.533,[17272.7,13452.5,0]],
 ["Land_Bench_F",297.471,[17273.3,13454.7,0.0218773]],["Land_ChairWood_F",172.58,[17274.3,13452.6,4.19617e-005]],
 ["MapBoard_altis_F",337.285,[17274.8,13456,8.2016e-005]],["Land_BagFence_Long_F",215.426,[17338.7,13554.2,0.00161934]],
 ["TargetP_Inf_F",210.391,[17335.9,13541.4,0.449504]],["TargetP_Inf_F",211.334,[17334.2,13541.1,0.450331]],
@@ -178,10 +170,8 @@ _veh14 = _this select 13;
 ["TargetP_Inf_F",39.4098,[17353.3,13567.1,0.298294]],["TargetP_Inf_F",39.2389,[17356.4,13567.1,0.306375]],
 ["TargetP_Inf_F",39.2389,[17358.1,13565.3,1.50633]],["TargetP_Inf_F",39.347,[17346.1,13572.2,4.09453]],
 ["TargetP_Inf_F",46.4928,[17348.1,13570.7,4.09947]],["TargetP_Inf_F",40.9786,[17353.2,13565.4,4.09855]],
-["TargetP_Inf_F",42.0903,[17355.7,13563.3,4.10227]]] call GW_TrainingGround_fnc_spawnObjects;
-
-// Firing Range + Bursts Range
-["Cluster6",["Land_CncWall4_F",50.0325,[17759.1,13396,0]],["Land_Cargo_Patrol_V3_F",225.164,[17554.2,13167.1,-1.90735e-006]],
+["TargetP_Inf_F",42.0903,[17355.7,13563.3,4.10227]],
+["Land_CncWall4_F",50.0325,[17759.1,13396,0]],["Land_Cargo_Patrol_V3_F",225.164,[17554.2,13167.1,-1.90735e-006]],
 ["CamoNet_INDP_F",317.937,[17539.2,13184.8,-0.00144386]],["Land_BagBunker_Small_F",225.869,[17548.8,13175.2,0.00952053]],
 ["Land_BagFence_Long_F",45.6691,[17547.5,13179.3,0.000509262]],["Land_BagFence_Long_F",45.6691,[17545.4,13181.4,0.000508308]],
 ["Land_ClutterCutter_large_F",323.057,[17539.2,13184.9,0]],["MapBoard_altis_F",348.4,[17541.7,13187.7,-0.00187111]],
@@ -220,9 +210,8 @@ _veh14 = _this select 13;
 ["Land_CncWall4_F",136.156,[17628.9,13109.3,-0.0186863]],["Land_CncWall4_F",136.186,[17636.4,13116.6,-0.0196133]],
 ["Land_CncWall4_F",136.186,[17632.6,13112.9,-0.019474]],["ShootingPos_F",136.559,[17624,13175.9,0.00137615]],
 ["Land_CncWall4_F",136.777,[17681.6,13124.3,-0.0231533]],["Land_CncWall4_F",136.718,[17677.8,13120.7,-0.0226288]],
-["Land_CncWall4_F",136.524,[17674.1,13117.1,-0.00722885]],["CamoNet_INDP_F",137.121,[17611.3,13160.3,3.24249e-005]]] call GW_TrainingGround_fnc_spawnObjects;
-
-["Cluster7",["Land_ClutterCutter_large_F",0.013442,[17577.3,13220.3,9.53674e-007]],["Land_ClutterCutter_large_F",0.0034631,[17582.5,13215,-9.53674e-007]],
+["Land_CncWall4_F",136.524,[17674.1,13117.1,-0.00722885]],["CamoNet_INDP_F",137.121,[17611.3,13160.3,3.24249e-005]],
+["Land_ClutterCutter_large_F",0.013442,[17577.3,13220.3,9.53674e-007]],["Land_ClutterCutter_large_F",0.0034631,[17582.5,13215,-9.53674e-007]],
 ["Land_ClutterCutter_large_F",0.0121203,[17587.8,13209.6,0]],["Land_ClutterCutter_large_F",0.00570366,[17592.5,13204.4,-9.53674e-007]],
 ["Land_ClutterCutter_large_F",0.0374672,[17599.5,13197.2,9.53674e-007]],["Land_ClutterCutter_large_F",0.140735,[17611.1,13202.1,0]],
 ["Land_ClutterCutter_large_F",359.888,[17602.8,13207.9,0]],["Land_ClutterCutter_large_F",359.997,[17595.5,13214.8,9.53674e-007]],
@@ -258,7 +247,14 @@ _veh14 = _this select 13;
 ["Land_ClutterCutter_large_F",359.995,[17550.7,13185.9,0]],["Land_ClutterCutter_large_F",0.00152786,[17554.7,13180.9,0]],
 ["Land_ClutterCutter_large_F",359.999,[17558.3,13176.8,0]],["Land_ClutterCutter_large_F",359.999,[17561.5,13173.7,0]],
 ["Land_ClutterCutter_large_F",359.997,[17550.3,13183.4,0]],["Land_ClutterCutter_large_F",359.999,[17556.9,13177.1,0]],
-["Land_ClutterCutter_large_F",0.00183348,[17565.2,13167.4,0]]] call GW_TrainingGround_fnc_spawnObjects;
+["Land_ClutterCutter_large_F",0.00183348,[17565.2,13167.4,0]]];
+
+{
+	_veh = createVehicle [_x select 0, _x select 2, [], 0, "CAN_COLLIDE"];
+	_dir = _x select 1;
+	_veh setDir _dir;
+	sleep 0.1;
+} foreach _placements;
 
 // spawn relevant vehicles -> must include transport for squads to move between ranges
 _heli = createVehicle [_veh1, [17337.5,13581.9,0], [], 0, "NONE"];

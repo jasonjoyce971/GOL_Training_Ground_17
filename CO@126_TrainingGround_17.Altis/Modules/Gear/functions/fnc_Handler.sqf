@@ -55,7 +55,7 @@ private [
 	"_LAT","_LAT_mag","_LAT_mag_HE","_LAT_ReUsable",
 	"_MAT","_MAT_mag","_MAT_mag_HE",
 	"_pistol","_pistol_mag","_pistol_mag_tr",
-	"_useFactionRadio","_roleUseRadio"
+	"_useFactionRadio","_roleUseRadio","_mine_detector"
 ];
 
 params [
@@ -258,6 +258,14 @@ if (_isMan) then {
 				[_unit, _bandage, 40] call _fnc_AddObjectsCargo;
 				if (GVARMAIN(mod_ACE3)) then {
 					[_unit, _morph, 20] call _fnc_AddObjectsCargo;
+					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
+						[_unit, "ACE_elasticBandage", 100] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_tourniquet", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_packingBandage", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_adenosine", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_salineIV", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_surgicalKit", 50] call _fnc_AddObjectsCargo;
+					};
 				};
 
 				[_unit, _pistol_mag, 10] call _fnc_AddObjectsCargo;
@@ -280,6 +288,50 @@ if (_isMan) then {
 				[_unit, _demoCharge, 4] call _fnc_AddObjectsCargo;
 				[_unit, _satchelCharge, 2] call _fnc_AddObjectsCargo;
 			};
+			
+			case "small_box_SWAT": {
+				[_unit, _glHE, 20] call _fnc_AddObjectsCargo;
+				[_unit, _glsmokeY, 20] call _fnc_AddObjectsCargo;
+				[_unit, _glflareW, 20] call _fnc_AddObjectsCargo;
+				[_unit, _grenade, 20] call _fnc_AddObjectsCargo;
+				[_unit, _grenademini, 20] call _fnc_AddObjectsCargo;
+				[_unit, _smokegrenadeY, 20] call _fnc_AddObjectsCargo;
+				[_unit, _smokegrenadeG, 5] call _fnc_AddObjectsCargo;
+
+				[_unit, _bandage, 40] call _fnc_AddObjectsCargo;
+				if (GVARMAIN(mod_ACE3)) then {
+					[_unit, _morph, 20] call _fnc_AddObjectsCargo;
+					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
+						[_unit, "ACE_elasticBandage", 100] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_tourniquet", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_packingBandage", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_adenosine", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_salineIV", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_surgicalKit", 50] call _fnc_AddObjectsCargo;
+					};
+				};
+
+				[_unit, _pistol_mag, 10] call _fnc_AddObjectsCargo;
+				[_unit, _rifle_mag, 9] call _fnc_AddObjectsCargo;
+				[_unit, _rifle_mag_tr, 9] call _fnc_AddObjectsCargo;
+				[_unit, _rifleC_mag, 3] call _fnc_AddObjectsCargo;
+				[_unit, _rifleC_mag_tr, 3] call _fnc_AddObjectsCargo;
+				[_unit, _rifleGL_mag, 7] call _fnc_AddObjectsCargo;
+				[_unit, _rifleGL_mag_tr, 7] call _fnc_AddObjectsCargo;
+				[_unit, _LMG_mag_tr, (COUNT_AR_MAGS(_LMG_mag_tr) * 4)] call _fnc_AddObjectsCargo;
+				[_unit, _MMG_mag_tr, (COUNT_AR_MAGS(_MMG_mag_tr) * 2)] call _fnc_AddObjectsCargo;
+
+				if (_LAT_ReUsable) then {
+					[_unit, _LAT_mag, 3] call _fnc_AddObjectsCargo;
+				} else {
+					[_unit, (_LAT select 0), 3] call _fnc_AddObjectsCargo;
+				};
+				[_unit, _MAT_mag, 3] call _fnc_AddObjectsCargo;
+
+				[_unit, _demoCharge, 4] call _fnc_AddObjectsCargo;
+				[_unit, _satchelCharge, 2] call _fnc_AddObjectsCargo;
+				
+			};
 
 			case "big_box": {
 				[_unit, _glHE, 50] call _fnc_AddObjectsCargo;
@@ -295,6 +347,14 @@ if (_isMan) then {
 					[_unit, _morph, 20] call _fnc_AddObjectsCargo;
 					[_unit, _epi, 20] call _fnc_AddObjectsCargo;
 					[_unit, _blood, 10] call _fnc_AddObjectsCargo;
+					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
+						[_unit, "ACE_elasticBandage", 100] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_tourniquet", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_packingBandage", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_adenosine", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_salineIV", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_surgicalKit", 50] call _fnc_AddObjectsCargo;
+					};
 				};
 
 				[_unit, _pistol_mag, 20] call _fnc_AddObjectsCargo;
@@ -319,6 +379,7 @@ if (_isMan) then {
 
 				[_unit, _demoCharge, 8] call _fnc_AddObjectsCargo;
 				[_unit, _satchelCharge, 4] call _fnc_AddObjectsCargo;
+				
 			};
 
 			case "med_box": {
@@ -330,10 +391,10 @@ if (_isMan) then {
 					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
 						[_unit, "ACE_elasticBandage", 100] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_tourniquet", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_quikclot", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_atropine", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_packingBandage", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_adenosine", 50] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_salineIV", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_surgicalKit", 50] call _fnc_AddObjectsCargo;
+						//[_unit, "ACE_personalAidKit", 50] call _fnc_AddObjectsCargo;
 					};
 				};
 			};
