@@ -1350,6 +1350,148 @@
 			};
 		};
 	};
+	case "NATOC":
+	{
+		switch (_exerciseID) do
+		{
+			case 0:
+			{};
+			case 1:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["B_T_APC_Wheeled_01_cannon_F", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,east,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 2:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_M2Bradley_NATO_T", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 3:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["B_T_APC_Tracked_01_rcws_F", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 4:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["B_T_Truck_01_mover_F", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 5:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_HMMWV_Unarmed_NATO_T", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 6:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["B_T_MRAP_01_F", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 7:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["B_T_LSV_01_unarmed_F", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 8:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["B_T_Quadbike_01_F", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 9:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_M1A1_NATO_T", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 9:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["B_T_MBT_01_TUSK_F", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			default
+			{
+				hint "CODE FAIL. vehicleDrivingCourse.sqf NATOW Callsign/Exercise Switch";
+			};
+		};
+	};
 	case "BAFD":
 	{
 		switch (_exerciseID) do
@@ -1479,7 +1621,7 @@
 			};
 		};
 	};
-	case "BAFW":
+	case "SAS":
 	{
 		switch (_exerciseID) do
 		{
@@ -1807,6 +1949,533 @@
 				GW_TrainingGround_soloBird = _heli;
 				GW_TrainingGround_spawnedAssets pushBack _heli;
 				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			default
+			{
+				hint "CODE FAIL. vehicleDrivingCourse.sqf BAFW Callsign/Exercise Switch";
+			};
+		};
+	};
+	case "MARSOC":
+	{
+		switch (_exerciseID) do
+		{
+			case 0:
+			{};
+			case 1:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_AAV_Unarmed_USMC", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,east,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 2:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_LAV25_USMC", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 3:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_M1030_USMC", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 4:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_HMMWV_Unarmed_USMC", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 5:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_MTVR_USMC", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 6:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_RG31_M2_OD_USMC", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 7:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_M1A2_TUSK_MG_USMC", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			default
+			{
+				hint "CODE FAIL. vehicleDrivingCourse.sqf BAFW Callsign/Exercise Switch";
+			};
+		};
+	};
+	case "ACR":
+	{
+		switch (_exerciseID) do
+		{
+			case 0:
+			{};
+			case 1:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_BRDM2_CZ", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,east,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 2:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_BMP2_CZ", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 3:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_Dingo_CZ_Wdl", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 4:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_HMMWV_DSHKM_GPK_ACR", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 5:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_LR_Special_CZ_W", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 6:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_T810_Unarmed_CZ_WDL", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 7:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_UAZ_Unarmed_ACR", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			default
+			{
+				hint "CODE FAIL. vehicleDrivingCourse.sqf BAFW Callsign/Exercise Switch";
+			};
+		};
+	};
+	case "601STSFG":
+	{
+		switch (_exerciseID) do
+		{
+			case 0:
+			{};
+			case 1:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_BRDM2_CZ", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,east,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 2:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_BMP2_CZ", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 3:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_Dingo_CZ_Wdl", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 4:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_HMMWV_DSHKM_GPK_ACR", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 5:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_LR_Special_CZ_W", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 6:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_T810_Unarmed_CZ_WDL", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 7:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_UAZ_Unarmed_ACR", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			default
+			{
+				hint "CODE FAIL. vehicleDrivingCourse.sqf BAFW Callsign/Exercise Switch";
+			};
+		};
+	};
+	case "CDF":
+	{
+		switch (_exerciseID) do
+		{
+			case 0:
+			{};
+			case 1:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_BRDM2_CDF", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,east,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 2:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_BMP2_CDF", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 3:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_BTR60_CDF", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 4:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_BM21_CDF", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 5:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_UAZ_Unarmed_CDF", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 6:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_Ural_CDF", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 7:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_T72_CDF", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			default
+			{
+				hint "CODE FAIL. vehicleDrivingCourse.sqf BAFW Callsign/Exercise Switch";
+			};
+		};
+	};
+	case "USOCP":
+	{
+		switch (_exerciseID) do
+		{
+			case 0:
+			{};
+			case 1:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_M1126_ICV_M2_Desert", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,east,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 2:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_M113_desert_USA", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 3:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_M2A3Bradley_USA_D", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 4:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_HMMWV_Unarmed_USA", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 5:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_MTVR_USA", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			case 6:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["CUP_B_M1A2_TUSK_MG_DES_US_Army", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,_side,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
+			};
+			default
+			{
+				hint "CODE FAIL. vehicleDrivingCourse.sqf BAFW Callsign/Exercise Switch";
+			};
+		};
+	};
+	case "USOCP":
+	{
+		switch (_exerciseID) do
+		{
+			case 0:
+			{};
+			case 1:
+			{
+				_position = getmarkerpos "jaegerWP_21";
+				_heli = createVehicle ["B_GEN_Offroad_01_gen_F", _position, [], 0, "CAN_COLLIDE"];
+				_heli setDir 180;
+				null = [[monitor1],["spotter","spotter_1","spotter_2","spotter_3","spotter_4"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor2],["spotter_5","spotter_6","spotter_7","spotter_8","spotter_9"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor3],["spotter_10","spotter_11","spotter_12","spotter_13","spotter_14"]] execVM "LFC\feedInit.sqf";
+				null = [[monitor4],["spotter_15","spotter_16","spotter_17","spotter_18","spotter_19"]] execVM "LFC\feedInit.sqf";
+				GW_TrainingGround_soloBird = _heli;
+				GW_TrainingGround_spawnedAssets pushBack _heli;
+				GW_TrainingGround_SoloFSM = [_caller,east,6,GW_TrainingGround_soloBird,"Tank"] execFSM "Modules\TrainingGround\FSM\soloFlight.fsm";
 			};
 			default
 			{

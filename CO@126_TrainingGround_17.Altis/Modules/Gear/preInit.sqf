@@ -12,6 +12,16 @@ GVAR(Index302) = 0;
 GVAR(Stamina) = true;
 GVAR(StaminaCoef) = 0.5;
 
+// AAC Asset Generation Variables
+GVAR(RavenAirframe);
+GVAR(GiantAirframe);
+GVAR(AngelAirframe);
+GVAR(ZeusAirframe);
+GVAR(PhantomAirframe);
+GVAR(BansheeAirframe);
+GVAR(CondorAirframe);
+GVAR(AnvilAirframe);
+
 PREP(actions);
 PREP(getAttachments);
 PREP(getLoadoutClass);
@@ -34,7 +44,7 @@ PREP(replaceAttachments);
 			"USMC-W",
 			"MARSOC",
 			"ACR",
-			"601stSFG",
+			"601STSFG",
 			"CDF-D",
 			"CDF-F",
 			"CDF-M",
@@ -44,8 +54,7 @@ PREP(replaceAttachments);
 			"SWAT",
 			"INSURGENT-D",
 			"INSURGENT-W",
-			"CAMPAIGN-W",
-			"CAMPAIGN-GEORGIA"
+			"CAMPAIGN-W"
 		],
 		[
 			"NATO-Desert",
@@ -67,8 +76,7 @@ PREP(replaceAttachments);
 			"Tanoa SWAT",
 			"INSURGENT-Desert",
 			"INSURGENT-Woodland",
-			"Campaign-",
-			"Campaign-Georgia"
+			"Campaign-"
 		],
 		0
 	],
@@ -91,8 +99,7 @@ PREP(replaceAttachments);
 			"SLA",
 			"INSURGENT-D",
 			"INSURGENT-W",
-			"CAMPAIGN-E",
-			"CAMPAIGN-SEP"
+			"CAMPAIGN-E"
 		],
 		[
 			"CSAT-Hex",
@@ -105,8 +112,7 @@ PREP(replaceAttachments);
 			"Sahrani Liberation Army",
 			"INSURGENT-Desert",
 			"INSURGENT-Woodland",
-			"Campaign-",
-			"Campaign-Seperatists"
+			"Campaign-"
 		],
 		0
 	]
@@ -126,12 +132,7 @@ PREP(replaceAttachments);
 			"UN",
 			"INSURGENT-D",
 			"INSURGENT-W",
-			"CAMPAIGN-I",
-			"CAMPAIGN-ACR",
-			"CAMPAIGN-601",
-			"CAMPAIGN-AAF",
-			"CAMPAIGN-RACS",
-			"CAMPAIGN-CDF"
+			"CAMPAIGN-I"
 		],
 		[
 			"AAF-Woodland",
@@ -140,12 +141,7 @@ PREP(replaceAttachments);
 			"United Nations",
 			"INSURGENT-Desert",
 			"INSURGENT-Woodland",
-			"Campaign-",
-			"Campaign-Czech Army",
-			"Campaign-601stSFG",
-			"Campaign-AAF",
-			"Campaign-RACS",
-			"Campaign-CDF"
+			"Campaign-"
 		],
 		0
 	],
