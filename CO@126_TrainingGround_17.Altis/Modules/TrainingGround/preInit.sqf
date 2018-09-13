@@ -12,6 +12,12 @@ PREP(spawnObjects);
 PREP(handlerange);
 PREP(handlepistoldraw);
 PREP(fobcluster);
+PREP(fobalmyra);
+PREP(fobeternity);
+PREP(handlevehicles);
+PREP(handlevr);
+PREP(handlevrv2);
+PREP(doorCloser);
 
 GVAR(Laptops) = [];
 GVAR(portPoles) = [];
@@ -42,6 +48,7 @@ GVAR(vehTargets) = ["vehtgt","vehtgt_1","vehtgt_2","vehtgt_3","vehtgt_4","vehtgt
 					"vehtgt_21","vehtgt_22","vehtgt_23","vehtgt_24","vehtgt_25","vehtgt_26","vehtgt_27","vehtgt_28"];
 GVAR(morTargets) = ["mortgt","mortgt_1","mortgt_2","mortgt_3","mortgt_4","mortgt_5","mortgt_6","mortgt_7","mortgt_8","mortgt_9","mortgt_10",
 					"mortgt_11","mortgt_12","mortgt_13","mortgt_14","mortgt_15","mortgt_16","mortgt_17","mortgt_18","mortgt_19","mortgt_20"];
+GVAR(atTargets) = ["attgt","attgt_1","attgt_2","attgt_3","attgt_4","attgt_5","attgt_6","attgt_7","attgt_8","attgt_9","attgt_10"];
 GVAR(FiringRangeCANCEL) = false;
 GVAR(nopop) = false;
 GVAR(spawnedMines) = [];

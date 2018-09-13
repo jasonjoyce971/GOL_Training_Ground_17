@@ -29,11 +29,11 @@
 	mmg		- Medium Machine Gunner
 	ammg	- Asst. Medium Machine Gunner
 */
-#include "..\scriptComponent.hpp"
-#include "Functions.hpp"
+#include "scriptComponent.hpp"
+#include "functions.sqf"
 
 private [
-	"_isMan","_isCar","_isTank","_type","_allowedNightStuff","_side","_errorCode","_loadout","_loadoutFile",
+	"_isMan","_isCar","_isTank","_type","_allowedNightStuff","_isCivilian","_isPlayer","_side","_errorCode","_loadout","_loadoutFile",
 	"_addEquipment","_addLinkedItems","_addPrimary","_addLaunchers","_addHandGun","_addToUniform","_addToVest","_addToBackPack","_addBino",
 	"_grenade","_grenademini",
 	"_smokegrenadeW","_smokegrenadeB","_smokegrenadeG","_smokegrenadeO","_smokegrenadeP","_smokegrenadeR","_smokegrenadeY",
@@ -55,7 +55,7 @@ private [
 	"_LAT","_LAT_mag","_LAT_mag_HE","_LAT_ReUsable",
 	"_MAT","_MAT_mag","_MAT_mag_HE",
 	"_pistol","_pistol_mag","_pistol_mag_tr",
-	"_useFactionRadio","_roleUseRadio","_mine_detector","_mortarRangeCard"
+	"_useFactionRadio","_roleUseRadio","_useMineDetector","_mortarRangeCard","_smawSpottingRounds"
 ];
 
 params [
@@ -66,25 +66,32 @@ params [
 
 if !(_unit isEqualType objNull) exitWith {false};
 if !(local _unit) exitWith {false};
+//if (getNumber(configfile >> "CfgVehicles" >> (typeOf _unit) >> "side") isEqualTo 3) exitWith {false};	// Civilians
+
 _isMan = _unit isKindOf "CAManBase";
 _isCar = _unit isKindOf "Car";
 _isTank = _unit isKindOf "Tank";
 _errorCode = false;
 
 if (_isMan) then {
-	if (getNumber(configfile >> "CfgVehicles" >> (typeOf _unit) >> "side") isEqualTo 3) exitWith {false};	// Civilians
 	_loadout = [[],[],[],[],[],[],"","",[],[]];
 	_loadoutFile = "Default";
 	_useFactionRadio = true;
 	_roleUseRadio = true;
 	_allowedNightStuff = true;
-
+	_useMineDetector = false;
+	_isCivilian = (getNumber(configfile >> "CfgVehicles" >> (typeOf _unit) >> "side") isEqualTo 3);
+	_isPlayer = (isPlayer _unit);
 	_unit setVariable [QGVAR(Loadout), _role];
 	_unit setVariable ["BIS_enableRandomization", false];
-	if (GVARMAIN(mod_ACE3)) then {
-		_unit setVariable ["ACE_Medical_MedicClass", 1];	// IsMedic
-		_unit setVariable ["ACE_IsEngineer", 1];			// isEngineer
-		_unit setVariable ["ACE_GForceCoef", 0.55];			// IsPilot
+	if (_isPlayer) then {
+		_unit setUnitTrait ["engineer", true];
+		_unit setUnitTrait ["explosiveSpecialist", true];
+		if (GVARMAIN(mod_ACE3)) then {
+			_unit setVariable ["ACE_Medical_MedicClass", 1];	// IsMedic
+			_unit setVariable ["ACE_IsEngineer", 1];			// isEngineer
+			_unit setVariable ["ACE_GForceCoef", 0.75];			// IsPilot
+		};
 	};
 
 	if (_forceFaction isEqualTo "") then {
@@ -110,26 +117,33 @@ if (_isMan) then {
 	#include "..\Scripts\factions.sqf"
 	#include "isNilCheck.hpp"
 
-	if ((call EFUNC(Common,isNight)) && _allowedNightStuff) then {
-		_nvg = "NVGoggles_Opfor";
-	};
-	if !(isPlayer _unit) then {
-		_loadoutFile = "Default_AI";
-	};
-
-	switch (_loadoutFile) do {
-		case "Default_AI": {
-			#include "..\Scripts\Default_AI.sqf"
+	if (_isCivilian) then {
+		[_goggles,_helmet,_uniform,_vest,_backpack] call _addEquipment;
+		["", "", "", "", "", ""] call _addLinkedItems;
+	} else {
+		if ((call EFUNC(Common,isNight)) && _allowedNightStuff) then {
+			_nvg = "NVGoggles_Opfor";
 		};
-		default {
-			#include "..\Scripts\Default.sqf"
+
+		if !(_isPlayer || (_unit in switchableUnits)) then {
+			_loadoutFile = "Default_AI";
+			_unit enableGunLights "forceOn";
+		};
+
+		switch (_loadoutFile) do {
+			case "Default_AI": {
+				#include "..\Scripts\Default_AI.sqf"
+			};
+			default {
+				#include "..\Scripts\Default.sqf"
+			};
 		};
 	};
 
 	if !(_errorCode) then {
 		_unit setUnitLoadout _loadout;
 
-		if ((isPlayer _unit) && _useFactionRadio && _roleUseRadio) then {
+		if (_isPlayer && _useFactionRadio && _roleUseRadio) then {
 			_unit setVariable [QGVAR(isPlayer), true, true];
 			if (isClass ((missionConfigFile >> "GW_Modules" >> "Radios"))) then {
 				[{
@@ -142,11 +156,12 @@ if (_isMan) then {
 } else {
 	_role params [
 		["_class", "", [""]],
-		["_realSide", "west", [""]],
+		["_realSide", (_unit getVariable [QGVAR(side), EGVAR(Common,Faction)]), [""]],
 		["_movable", true, [true]]
 	];
 
 	_isVehicle = (_unit isKindOf "AllVehicles");
+
 	if !(_isVehicle) Then {
 		[_unit, _movable] call ACE_Dragging_fnc_setCarryable;
 		[_unit, _movable] call ACE_Dragging_fnc_setDraggable;
@@ -261,9 +276,10 @@ if (_isMan) then {
 					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
 						[_unit, "ACE_elasticBandage", 100] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_tourniquet", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_packingBandage", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_adenosine", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_quikclot", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_atropine", 50] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_salineIV", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_personalAidKit", 50] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_surgicalKit", 50] call _fnc_AddObjectsCargo;
 					};
 				};
@@ -287,50 +303,6 @@ if (_isMan) then {
 
 				[_unit, _demoCharge, 4] call _fnc_AddObjectsCargo;
 				[_unit, _satchelCharge, 2] call _fnc_AddObjectsCargo;
-			};
-			
-			case "small_box_SWAT": {
-				[_unit, _glHE, 20] call _fnc_AddObjectsCargo;
-				[_unit, _glsmokeY, 20] call _fnc_AddObjectsCargo;
-				[_unit, _glflareW, 20] call _fnc_AddObjectsCargo;
-				[_unit, _grenade, 20] call _fnc_AddObjectsCargo;
-				[_unit, _grenademini, 20] call _fnc_AddObjectsCargo;
-				[_unit, _smokegrenadeY, 20] call _fnc_AddObjectsCargo;
-				[_unit, _smokegrenadeG, 5] call _fnc_AddObjectsCargo;
-
-				[_unit, _bandage, 40] call _fnc_AddObjectsCargo;
-				if (GVARMAIN(mod_ACE3)) then {
-					[_unit, _morph, 20] call _fnc_AddObjectsCargo;
-					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
-						[_unit, "ACE_elasticBandage", 100] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_tourniquet", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_packingBandage", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_adenosine", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_salineIV", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_surgicalKit", 50] call _fnc_AddObjectsCargo;
-					};
-				};
-
-				[_unit, _pistol_mag, 10] call _fnc_AddObjectsCargo;
-				[_unit, _rifle_mag, 9] call _fnc_AddObjectsCargo;
-				[_unit, _rifle_mag_tr, 9] call _fnc_AddObjectsCargo;
-				[_unit, _rifleC_mag, 3] call _fnc_AddObjectsCargo;
-				[_unit, _rifleC_mag_tr, 3] call _fnc_AddObjectsCargo;
-				[_unit, _rifleGL_mag, 7] call _fnc_AddObjectsCargo;
-				[_unit, _rifleGL_mag_tr, 7] call _fnc_AddObjectsCargo;
-				[_unit, _LMG_mag_tr, (COUNT_AR_MAGS(_LMG_mag_tr) * 4)] call _fnc_AddObjectsCargo;
-				[_unit, _MMG_mag_tr, (COUNT_AR_MAGS(_MMG_mag_tr) * 2)] call _fnc_AddObjectsCargo;
-
-				if (_LAT_ReUsable) then {
-					[_unit, _LAT_mag, 3] call _fnc_AddObjectsCargo;
-				} else {
-					[_unit, (_LAT select 0), 3] call _fnc_AddObjectsCargo;
-				};
-				[_unit, _MAT_mag, 3] call _fnc_AddObjectsCargo;
-
-				[_unit, _demoCharge, 4] call _fnc_AddObjectsCargo;
-				[_unit, _satchelCharge, 2] call _fnc_AddObjectsCargo;
-				
 			};
 
 			case "big_box": {
@@ -350,9 +322,10 @@ if (_isMan) then {
 					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
 						[_unit, "ACE_elasticBandage", 100] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_tourniquet", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_packingBandage", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_adenosine", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_quikclot", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_atropine", 50] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_salineIV", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_personalAidKit", 50] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_surgicalKit", 50] call _fnc_AddObjectsCargo;
 					};
 				};
@@ -379,7 +352,6 @@ if (_isMan) then {
 
 				[_unit, _demoCharge, 8] call _fnc_AddObjectsCargo;
 				[_unit, _satchelCharge, 4] call _fnc_AddObjectsCargo;
-				
 			};
 
 			case "med_box": {
@@ -391,10 +363,11 @@ if (_isMan) then {
 					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
 						[_unit, "ACE_elasticBandage", 100] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_tourniquet", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_packingBandage", 50] call _fnc_AddObjectsCargo;
-						[_unit, "ACE_adenosine", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_quikclot", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_atropine", 50] call _fnc_AddObjectsCargo;
 						[_unit, "ACE_salineIV", 50] call _fnc_AddObjectsCargo;
-						//[_unit, "ACE_personalAidKit", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_personalAidKit", 50] call _fnc_AddObjectsCargo;
+						[_unit, "ACE_surgicalKit", 50] call _fnc_AddObjectsCargo;
 					};
 				};
 			};
@@ -462,3 +435,5 @@ if (_isMan) then {
 		};
 	};
 };
+
+true

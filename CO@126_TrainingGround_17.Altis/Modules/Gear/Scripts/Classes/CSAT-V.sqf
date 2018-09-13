@@ -15,12 +15,6 @@ if (_role in ["fac","sl","ftl","g","jtac"]) then {
 if (_role in ["ag","ammg"]) then {
 	_backpack = "B_Carryall_ghex_F";
 };
-if (_role isEqualTo "crew") then {
-	_helmet = "H_PilotHelmetFighter_O";
-	_uniform = "U_O_PilotCoveralls";
-	_vest = "V_Rangemaster_belt";
-	_backpack = "B_Parachute";
-};
 if (_role isEqualTo "p") then {
 	_goggles = "G_Aviator";
 	_helmet = "H_PilotHelmetHeli_O";
@@ -31,6 +25,18 @@ if (_role isEqualTo "marksman") then {
 	_helmet = "H_HelmetO_ViperSP_ghex_F";
 	_uniform = "U_O_V_Soldier_Viper_F";
 	_vest = "V_HarnessO_ghex_F";
+};
+if (_role isEqualTo "uav") then {
+	_backpack = "O_UAV_01_backpack_F";
+	_gps = "O_UAVTerminal";
+
+};
+if (_role isEqualTo "jetp") then {
+	_goggles = "G_Aviator";
+	_helmet = "H_PilotHelmetFighter_B";
+	_uniform = "U_B_PilotCoveralls";
+	_vest = "V_Rangemaster_belt";
+	_backpack = "B_Parachute";
 };
 
 _silencer = "muzzle_snds_58_ghex_F";
@@ -73,3 +79,14 @@ _pistol_mag = "16Rnd_9x21_Mag";
 _rifleMarksman = ["srifle_DMR_05_hex_F", "muzzle_snds_93mmg", "acc_pointer_IR", "optic_KHS_hex", "bipod_02_F_hex"];
 _rifleMarksman_mag = "10Rnd_93x64_DMR_05_Mag";
 _rifleMarksman_mag_tr = "10Rnd_93x64_DMR_05_Mag";
+
+if (_role isEqualTo "diver") then {
+	_backpack = "B_ViperHarness_blk_F";
+	_goggles = "G_B_Diving";
+	_helmet = "";
+	_vest = "V_RebreatherB";
+	_uniform = "U_B_Wetsuit";
+	_rifle = ["arifle_SDAR_F", "", "", "", ""];
+	_rifle_mag = "20Rnd_556x45_UW_mag";
+	_rifle_mag_tr = "ACE_30Rnd_556x45_Stanag_Mk318_mag";
+};

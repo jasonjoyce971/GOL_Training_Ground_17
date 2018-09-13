@@ -1,76 +1,91 @@
+_useMineDetector = true;
 
-_goggles = "G_Combat";
-_helmet = ["H_HelmetB_light_desert","H_HelmetSpecB_paint2"] call BIS_fnc_selectRandom;
-_uniform = ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_tshirt"] call BIS_fnc_selectRandom;
-_vest = "V_PlateCarrierSpec_mtp";
-_backpack = "B_Kitbag_mcamo";
+_goggles = "";
+_helmet = "H_HelmetB";
+_uniform = "U_B_CombatUniform_mcam";
+_vest = "V_PlateCarrier2_rgr";
+_backpack = "B_FieldPack_khk";
 _backpackRadio = _backpack;
 if (GVARMAIN(mod_TFAR)) then {
-	_backpackRadio = "tf_rt1523g_big_bwmod";
+	_backpackRadio = "tf_rt1523g_big";
 };
 
-if (_role in ["fac","sl","ftl","g","jtac"]) then {
-	_vest = "V_PlateCarrierGL_mtp";
-};
 if (_role in ["ag","ammg"]) then {
-	_backpack = "B_Carryall_mcamo";
+	_backpack = "B_Kitbag_rgr";
 };
 if (_role isEqualTo "crew") then {
+	_helmet = "H_HelmetCrew_B";
+	_vest = "V_BandollierB_khk";
+};
+if (_role isEqualTo "p") then {
+	_helmet = "H_PilotHelmetHeli_B";
+	_uniform = "U_B_PilotCoveralls";
+	_vest = "V_TacVest_blk";
+};
+if (_role isEqualTo "uav") then {
+	_backpack = "B_UAV_01_backpack_F";
+	_gps = "B_UAVTerminal";
+
+};
+if (_role isEqualTo "jetp") then {
 	_goggles = "G_Aviator";
 	_helmet = "H_PilotHelmetFighter_B";
 	_uniform = "U_B_PilotCoveralls";
 	_vest = "V_Rangemaster_belt";
 	_backpack = "B_Parachute";
 };
-if (_role isEqualTo "p") then {
-	_goggles = "G_Aviator";
-	_helmet = "H_PilotHelmetHeli_B";
-	_uniform = "U_B_HeliPilotCoveralls";
-	_vest = "V_PlateCarrier1_rgr";
-};
-if (_role isEqualTo "marksman") then {
-	_goggles = "G_Tactical_Clear";
-	_helmet = "H_Booniehat_mcamo";
-	_uniform = "U_B_CombatUniform_mcam_vest";
-	_vest = "V_PlateCarrier1_rgr";
-};
 
 _silencer = "";
-_pointer = "CUP_acc_ANPEQ_15";
-_sight = "optic_ACO_grn";
+_pointer = "";
+_sight = "optic_Aco";
 _bipod = "";
 
-_rifle = ["arifle_MX_F", _silencer, _pointer, _sight, _bipod];
+_rifle = ["arifle_MX_Black_F", _silencer, _pointer, _sight, _bipod];
+_rifleC = ["arifle_MXC_Black_F", _silencer, _pointer, _sight, _bipod];
+_rifleGL = ["arifle_MX_GL_Black_F", _silencer, _pointer, _sight, _bipod];
 _rifle_mag = "30Rnd_65x39_caseless_mag";
 _rifle_mag_tr = "30Rnd_65x39_caseless_mag_Tracer";
 
-_rifleGL = ["arifle_MX_GL_F", _silencer, _pointer, _sight, _bipod];
-_rifleGL_mag = "30Rnd_65x39_caseless_mag";
-_rifleGL_mag_tr = "30Rnd_65x39_caseless_mag_Tracer";
-
-_rifleC = ["arifle_MXC_F", _silencer, "", "", _bipod];
-_rifleC_mag_tr = "30Rnd_65x39_caseless_mag_Tracer";
-
-_LMG = ["arifle_MX_SW_F", _silencer, _pointer, _sight, "bipod_01_F_snd"];
+_LMG = ["arifle_MX_SW_Black_F", _silencer, _pointer, _sight, _bipod];
 _LMG_mag = "100Rnd_65x39_caseless_mag";
 _LMG_mag_tr = "100Rnd_65x39_caseless_mag_Tracer";
 
-_MMG = ["MMG_02_camo_F", _silencer, _pointer, _sight, "bipod_01_F_mtp"];
-_MMG_mag = "130Rnd_338_Mag";
-_MMG_mag_tr = "130Rnd_338_Mag";
+_MMG = ["LMG_Mk200_F", _silencer, _pointer, _sight, _bipod];
+_MMG_mag = "200Rnd_65x39_cased_Box";
+_MMG_mag_tr = "200Rnd_65x39_cased_Box_Tracer";
 
-_LAT = ["launch_NLAW_F", _silencer, "", "", _bipod];
-_LAT_mag = "ACE_PreloadedMissileDummy";
-_LAT_mag_HE = "ACE_PreloadedMissileDummy";
+_sight = "";
+
+_LAT = ["launch_NLAW_F", _silencer, _pointer, _sight, _bipod];
+_LAT_mag = "NLAW_F";
 _LAT_ReUsable = false;
+if (GVARMAIN(mod_ACE3)) then {
+	_LAT_ReUsable = true;
+};
 
-_MAT = ["launch_B_Titan_short_F", _silencer, "", "", _bipod];
-_MAT_mag = "Titan_AT";
-_MAT_mag_HE = "Titan_AP";
+_MAT = ["launch_RPG32_F", _silencer, _pointer, _sight, _bipod];
+_MAT_mag = "RPG32_F";
+_MAT_mag_HE = "RPG32_HE_F";
 
-_pistol = ["hgun_P07_F", _silencer, "", "", _bipod];
-_pistol_mag = "16Rnd_9x21_Mag";
+_pistol = ["hgun_Pistol_heavy_01_F", _silencer, _pointer, "optic_MRD", _bipod];
+_pistol_mag = "11Rnd_45ACP_Mag";
 
-_rifleMarksman = ["srifle_DMR_02_sniper_F", _silencer, "CUP_acc_ANPEQ_15", "optic_AMS_snd", "bipod_01_F_snd"];
-_rifleMarksman_mag = "ACE_10Rnd_338_API526_Mag";
-_rifleMarksman_mag_tr = "ACE_10Rnd_338_API526_Mag";
+_silencer = "muzzle_snds_338_sand";
+_pointer = "acc_pointer_IR";
+_sight = "optic_LRPS";
+_bipod = "bipod_01_F_snd";
+
+_rifleMarksman = ["srifle_DMR_02_sniper_F", _silencer, _pointer, _sight, _bipod];
+_rifleMarksman_mag = "10Rnd_338_Mag";
+_rifleMarksman_mag_tr = "10Rnd_338_Mag";
+
+if (_role isEqualTo "diver") then {
+	_backpack = "B_ViperHarness_blk_F";
+	_goggles = "G_B_Diving";
+	_helmet = "";
+	_vest = "V_RebreatherB";
+	_uniform = "U_B_Wetsuit";
+	_rifle = ["arifle_SDAR_F", "", "", "", ""];
+	_rifle_mag = "20Rnd_556x45_UW_mag";
+	_rifle_mag_tr = "ACE_30Rnd_556x45_Stanag_Mk318_mag";
+};

@@ -12,7 +12,7 @@ if (GVARMAIN(mod_TFAR)) then {
 if (_role in ["ag","ammg"]) then {
 	_backpack = "B_Carryall_oli";
 };
-if (_role isEqualTo "crew") then {
+if (_role isEqualTo "jetp") then {
 	_goggles = "G_Aviator";
 	_helmet = "H_Cap_headphones";
 	_uniform = "U_I_C_Soldier_Camo_F";
@@ -24,6 +24,11 @@ if (_role isEqualTo "p") then {
 	_helmet = "H_Cap_headphones";
 	_uniform = "U_I_C_Soldier_Camo_F";
 	_vest = "V_TacChestrig_oli_F";
+};
+if (_role isEqualTo "uav") then {
+	_backpack = "I_UAV_01_backpack_F";
+	_gps = "I_UAVTerminal";
+
 };
 
 _silencer = "";
@@ -65,3 +70,14 @@ _pistol_mag = "10Rnd_9x21_Mag";
 _rifleMarksman = ["srifle_DMR_06_olive_F", _silencer, "", "optic_LRPS_tna_F", "bipod_03_F_oli"];
 _rifleMarksman_mag = "ACE_20Rnd_762x51_M993_AP_Mag";
 _rifleMarksman_mag_tr = "ACE_20Rnd_762x51_M993_AP_Mag";
+
+if (_role isEqualTo "diver") then {
+	_backpack = "B_ViperHarness_blk_F";
+	_goggles = "G_B_Diving";
+	_helmet = "";
+	_vest = "V_RebreatherB";
+	_uniform = "U_B_Wetsuit";
+	_rifle = ["arifle_SDAR_F", "", "", "", ""];
+	_rifle_mag = "20Rnd_556x45_UW_mag";
+	_rifle_mag_tr = "ACE_30Rnd_556x45_Stanag_Mk318_mag";
+};

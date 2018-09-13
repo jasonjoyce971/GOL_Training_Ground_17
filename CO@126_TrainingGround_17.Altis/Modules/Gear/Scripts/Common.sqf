@@ -49,7 +49,7 @@ if (GVARMAIN(mod_CTAB)) then {
 	_microDAGR = "ItemMicroDAGR";
 	_HelmetCam = "ItemcTabHCam";
 
-	if (isPlayer _unit) then {
+	if (_isPlayer) then {
 		_gps = _Android;
 		if (_role in ["pl","fac","crew","p","pj","dragon","marksman"]) then {
 			_gps = _cTab;
@@ -65,30 +65,21 @@ _morph = "";
 _IFAK = [[_bandage,1]];					//	Individual First Aid Kits
 _FAKSmall = [[_bandage,15]];			//	Medic Kit Small
 _FAKBig = [[_bandage,10],[_blood,1]];	//	Medic Kit Big
-if (GVARMAIN(mod_ACE3_Medical)) then {	// Basic
+if (GVARMAIN(mod_ACE3_Medical)) then {	//	ACE
 	_bandage = "ACE_fieldDressing";
 	_blood = "ACE_bloodIV";
 	_epi = "ACE_epinephrine";
 	_morph = "ACE_morphine";
 	_IFAK = [[_bandage,3]];
-	_FAKSmall = [
-		[_bandage,20],
-		[_morph,5]
-	];
-	_FAKBig = [
-		[_bandage,20],
-		[_morph,5],
-		[_epi,5],
-		[_blood,3]
-	];
 	if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {	// Advanced
 		_blood = "ACE_bloodIV";
 		_epi = "ACE_epinephrine";
 		_morph = "ACE_morphine";
-		_IFAK = [[_bandage,5],["ACE_tourniquet",1]];
+		_IFAK = [["ACE_elasticBandage",5],["ACE_tourniquet",1]];
 		_FAKSmall = [
 			[_bandage, 25],
 			["ACE_elasticBandage", 5],
+			["ACE_packingBandage", 5],
 			["ACE_tourniquet", 3],
 			[_morph, 6],
 			[_epi, 6],
@@ -105,6 +96,17 @@ if (GVARMAIN(mod_ACE3_Medical)) then {	// Basic
 			["ACE_salineIV", 5],
 			["ACE_personalAidKit", 5],
 			[_blood, 3]
+		];
+	} else {
+		_FAKSmall = [
+			[_bandage,20],
+			[_morph,5]
+		];
+		_FAKBig = [
+			[_bandage,20],
+			[_morph,5],
+			[_epi,5],
+			[_blood,3]
 		];
 	};
 };
@@ -126,9 +128,6 @@ _handFlareG = "";
 _handFlareR = "";
 _handFlareW = "";
 _handFlareY = "";
-
-_mine_detector = [["MineDetector",1]];
-
 if (GVARMAIN(mod_ACE3)) then {
 	_barrel = "ACE_SpareBarrel";
 	_cables = "ACE_CableTie";
@@ -150,7 +149,7 @@ if (GVARMAIN(mod_ACE3)) then {
 
 //	_gps = _microDAGR;
 
-	if ((isPlayer _unit) && (_role in ["sl","ftl"])) then {
+	if (_isPlayer && (_role in ["sl","ftl"])) then {
 		[[_gps,1]] call _addToUniform;
 	};
 };

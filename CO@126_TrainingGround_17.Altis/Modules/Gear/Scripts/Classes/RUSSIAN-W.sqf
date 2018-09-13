@@ -11,38 +11,47 @@ _glsmokeY = "CUP_1Rnd_SmokeYellow_GP25_M";
 _glflareG = "CUP_FlareGreen_GP25_M";
 _glflareR = "CUP_FlareRed_GP25_M";
 
-
-_goggles = "G_Combat";
+_goggles = "";
 _helmet = "CUP_H_RUS_6B27";
 _uniform = "CUP_U_O_RUS_EMR_2_VDV";
-_vest = "CUP_V_CDF_6B3_4_MNT";
-_backpack = "B_TacticalPack_oli";
+_vest = "CUP_V_RUS_6B3_1";
+_backpack = "CUP_B_AlicePack_Khaki";
 _backpackRadio = _backpack;
 if (GVARMAIN(mod_TFAR)) then {
-	_backpackRadio = "tf_mr3000_rhs";
+	_backpackRadio = "tf_anprc155";
 };
 
+if (_role in ["r","rat","mat","amat"]) then {
+	_backpack = "CUP_B_RUS_Pack_AT";
+};
 if (_role in ["ag","ammg"]) then {
-	_backpack = "B_Carryall_oli";
+	_vest = "CUP_V_RUS_6B3_3";
+	_backpack = "CUP_B_RUS_Pack_Medic";
+};
+if (_role in ["ar","mmg"]) then {
+	_uniform = "CUP_U_O_RUS_EMR_1_VDV";
+	_vest = "CUP_V_RUS_6B3_2";
+	_backpack = "CUP_B_RUS_Pack_AR";
 };
 if (_role isEqualTo "crew") then {
-	_goggles = "";
-	_helmet = "CUP_H_RUS_ZSH_Shield_Down";
-	_uniform = "CUP_U_O_SLA_Overalls_Pilot";
-	_vest = "V_Chestrig_blk";
-	_backpack = "B_Parachute";
+	_helmet = "CUP_H_RUS_TSH_4_Brown";
+	_vest = "CUP_V_RUS_6B3_3";
 };
 if (_role isEqualTo "p") then {
-	_goggles = "G_Aviator";
-	_helmet = "CUP_H_TK_PilotHelmet";
-	_uniform = "CUP_U_O_RUS_EMR_2_VDV";
-	_vest = "CUP_V_CDF_6B3_1_MNT";
+	_helmet = "CUP_H_RUS_ZSH_Shield_Up";
+	_uniform = "CUP_U_O_RUS_EMR_1_VDV";
 };
-if (_role isEqualTo "marksman") then {
-	_goggles = "";
-	_helmet = "CUP_H_FR_BandanaGreen";
-	_uniform = "CUP_U_O_RUS_EMR_2_VDV";
-	_vest = "CUP_V_CDF_6B3_1_MNT";
+if (_role isEqualTo "uav") then {
+	_backpack = "O_UAV_01_backpack_F";
+	_gps = "O_UAVTerminal";
+
+};
+if (_role isEqualTo "jetp") then {
+	_goggles = "G_Aviator";
+	_helmet = "H_PilotHelmetFighter_B";
+	_uniform = "U_B_PilotCoveralls";
+	_vest = "V_Rangemaster_belt";
+	_backpack = "B_Parachute";
 };
 
 _silencer = "";
@@ -51,36 +60,43 @@ _sight = "";
 _bipod = "";
 
 _rifle = ["CUP_arifle_AK74M", _silencer, _pointer, _sight, _bipod];
+_rifleC = ["CUP_arifle_AKS74U", _silencer, _pointer, _sight, _bipod];
+_rifleGL = ["CUP_arifle_AK74M_GL", _silencer, _pointer, _sight, _bipod];
 _rifle_mag = "CUP_30Rnd_545x39_AK_M";
 _rifle_mag_tr = "CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M";
 
-_rifleGL = ["CUP_arifle_AK74M_GL", _silencer, _pointer, _sight, _bipod];
-_rifleGL_mag = "CUP_30Rnd_545x39_AK_M";
-_rifleGL_mag_tr = "CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M";
-
-_rifleC = ["arifle_AKS_F", _silencer, "", "", _bipod];
-_rifleC_mag_tr = "30Rnd_545x39_Mag_Tracer_Green_F";
-
 _LMG = ["CUP_arifle_RPK74M", _silencer, _pointer, _sight, _bipod];
 _LMG_mag = "CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M";
-_LMG_mag_tr = "CUP_75Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M";
 
 _MMG = ["CUP_lmg_Pecheneg", _silencer, _pointer, _sight, _bipod];
 _MMG_mag = "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M";
-_MMG_mag_tr = "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M";
 
-_LAT = ["CUP_launch_RPG7V", _silencer, "", "", _bipod];
-_LAT_mag = "CUP_PG7VR_M";
-_LAT_mag_HE = "CUP_TBG7V_M";
-_LAT_ReUsable = true;
+_LAT = ["CUP_launch_RPG18", _silencer, _pointer, _sight, _bipod];
+_LAT_mag = "";
+_LAT_ReUsable = false;
 
-_MAT = ["CUP_launch_Metis", _silencer, "", "", _bipod];
-_MAT_mag = "CUP_AT13_M";
-_MAT_mag_HE = "CUP_AT13_M";
+_MAT = ["launch_RPG7_F", _silencer, _pointer, _sight, _bipod];
+_MAT_mag = "RPG7_F";
 
-_pistol = ["hgun_Rook40_F", _silencer, "", "", _bipod];
-_pistol_mag = "16Rnd_9x21_Mag";
+_pistol = ["CUP_hgun_PB6P9", _silencer, _pointer, _sight, _bipod];
+_pistol_mag = "CUP_8Rnd_9x18_Makarov_M";
 
-_rifleMarksman = ["CUP_srifle_SVD", _silencer, "", "CUP_optic_PSO_3", ""];
+_silencer = "";
+_pointer = "CUP_SVD_camo_g";
+_sight = "CUP_optic_PSO_3";
+_bipod = "";
+
+_rifleMarksman = ["CUP_srifle_SVD", _silencer, _pointer, _sight, _bipod];
 _rifleMarksman_mag = "CUP_10Rnd_762x54_SVD_M";
 _rifleMarksman_mag_tr = "CUP_10Rnd_762x54_SVD_M";
+
+if (_role isEqualTo "diver") then {
+	_backpack = "B_ViperHarness_blk_F";
+	_goggles = "G_B_Diving";
+	_helmet = "";
+	_vest = "V_RebreatherB";
+	_uniform = "U_B_Wetsuit";
+	_rifle = ["arifle_SDAR_F", "", "", "", ""];
+	_rifle_mag = "20Rnd_556x45_UW_mag";
+	_rifle_mag_tr = "ACE_30Rnd_556x45_Stanag_Mk318_mag";
+};
