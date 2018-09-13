@@ -106,3 +106,9 @@
  Laptop_7 addAction ["<t color='#FF0000'>===========================</t>","",[],1,false,false,"",""];
  Laptop_7 addAction ["<t color='#FFFF00'>Live Lane</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["EOD",2],1,false,false,"",""];
  
+ // FOB Unpack Laptop @ FOB Almyra
+ Laptop_8 addAction ["<t color='#FFFF00'>Unpack FOB Almyra</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["FOB",2],1,false,false,"",""];
+ 
+ // FOB Unpack at Eternity
+ Laptop_10 addAction ["<t color='#FFFF00'>Unpack FOB Eternity</t>","Modules\TrainingGround\scripts\spawnAircraft.sqf",["FOB",3],1,false,false,"",""];
+ 

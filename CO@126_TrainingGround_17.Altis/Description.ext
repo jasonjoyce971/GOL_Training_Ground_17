@@ -5,7 +5,7 @@
 #define	isDescription
 #include "scriptComponent.hpp"
 
-briefingName = "CO@126 Training Ground 2017";						// Mission Name
+briefingName = "CO@126 Training Ground 2018";						// Mission Name
 overviewText = "Version 0.1";
 
 class GW_FRAMEWORK {	// NOTE: SENSETIVE, UPPERCASE ONLY FOR BOOL
@@ -18,10 +18,10 @@ class GW_FRAMEWORK {	// NOTE: SENSETIVE, UPPERCASE ONLY FOR BOOL
 	};
 
 	class Naming {
-// 		currently broken		Name = "Training Ground 2017";				// Mission Name
+// 		currently broken		Name = "Training Ground 2018";				// Mission Name
 		Author = "Jason";						// Author
 		AuthorUID[] = {"_SP_PLAYER_"};
-		Description = "Last Update 16/03/17";	// Description in mission select
+		Description = "Last Update 22/11/17";	// Description in mission select
 		onLoad = "Remember the 7 Ps";						// Description on loading
 		Picture = "";									// Picture on loading
 		version = 0.1;									// Version of mission

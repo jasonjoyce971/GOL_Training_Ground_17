@@ -503,6 +503,46 @@
 			default
 			{
 				hint "CODE FAIL. spawnCasualty.sqf Main/OPFOR Switch";
+				switch (_exerciseID) do
+				{
+					case 1:
+					{
+						_group = createGroup east;
+						'O_Soldier_F' createUnit [getmarkerPos 'PatientSpawn', _group,'pat1=this; dostop pat1'];
+						_hitpoints = ["head","body","hand_l","hand_r","leg_l","leg_r"];
+						{
+							_hit = selectRandom ["true","false"];
+							if(_hit == "true")then
+							{
+								[pat1, selectRandom[0.5,0.7,0.9], _x, selectrandom ["bullet","grenade","explosive","shell","vehiclecrash","backblast","stab","punch","falling""ropeburn"]] call ace_medical_fnc_addDamageToUnit;
+							};
+						}foreach _hitpoints;
+						[pat1, 0.7, "body", "bullet"] call ace_medical_fnc_addDamageToUnit;
+						[pat1] call ace_medical_fnc_handleDamage_advancedSetDamage;
+						[pat1,true,600,true] call ace_medical_fnc_setUnconscious;
+						GW_TrainingGround_spawnedOPFOR pushBack pat1;
+					};
+					case 2:
+					{
+						_group = group _caller;
+						_heli = createVehicle ["O_Heli_Light_02_F", [8422.48,18207.7,4.57764e-005], [], 0, "CAN_COLLIDE"];
+						_heli setDir 115;
+						GW_TrainingGround_spawnedAssets pushBack _heli;
+						GW_TrainingGround_AACFSM = [_caller,_side,6,"casevac",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+					};
+					case 3:
+					{
+						_group = group _caller;
+						_heli = createVehicle ["O_Heli_Light_02_F", [8422.48,18207.7,4.57764e-005], [], 0, "CAN_COLLIDE"];
+						_heli setDir 115;
+						GW_TrainingGround_spawnedAssets pushBack _heli;
+						GW_TrainingGround_AACFSM = [_caller,_side,6,"casevacL",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+					};
+					default
+					{
+						hint "CODE FAIL. spawnCasualty.sqf Main/OPFOR/Callsign/Exercise Switch";
+					};
+				};
 			};
 		};
 	};
@@ -1373,6 +1413,46 @@
 			default
 			{
 				hint "CODE FAIL. spawnCasualty.sqf Main/BLUFOR Switch";
+				switch (_exerciseID) do
+				{
+					case 1:
+					{
+						_group = createGroup west;
+						'B_Soldier_F' createUnit [getmarkerPos 'PatientSpawn', _group,'pat1=this; dostop pat1'];
+						_hitpoints = ["head","body","hand_l","hand_r","leg_l","leg_r"];
+						{
+							_hit = selectRandom ["true","false"];
+							if(_hit == "true")then
+							{
+								[pat1, selectRandom[0.5,0.7,0.9], _x, selectrandom ["bullet","grenade","explosive","shell","vehiclecrash","backblast","stab","punch","falling""ropeburn"]] call ace_medical_fnc_addDamageToUnit;
+							};
+						}foreach _hitpoints;
+						[pat1, 0.7, "body", "bullet"] call ace_medical_fnc_addDamageToUnit;
+						[pat1] call ace_medical_fnc_handleDamage_advancedSetDamage;
+						[pat1,true,600,true] call ace_medical_fnc_setUnconscious;
+						GW_TrainingGround_spawnedOPFOR pushBack pat1;
+					};
+					case 2:
+					{
+						_group = group _caller;
+						_heli = createVehicle ["B_Heli_Transport_01_camo_F", [8422.48,18207.7,4.57764e-005], [], 0, "CAN_COLLIDE"];
+						_heli setDir 115;
+						GW_TrainingGround_spawnedAssets pushBack _heli;
+						GW_TrainingGround_AACFSM = [_caller,_side,6,"casevac",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+					};
+					case 3:
+					{
+						_group = group _caller;
+						_heli = createVehicle ["B_Heli_Transport_01_camo_F", [8422.48,18207.7,4.57764e-005], [], 0, "CAN_COLLIDE"];
+						_heli setDir 115;
+						GW_TrainingGround_spawnedAssets pushBack _heli;
+						GW_TrainingGround_AACFSM = [_caller,_side,6,"casevacL",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+					};
+					default
+					{
+						hint "CODE FAIL. spawnCasualty.sqf Main/OPFOR/Callsign/Exercise Switch";
+					};
+				};
 			};
 		};
 	};
@@ -1598,6 +1678,46 @@
 			default
 			{
 				hint "CODE FAIL. spawnAircraft.sqf Main/INDEP Switch";
+				switch (_exerciseID) do
+				{
+					case 1:
+					{
+						_group = createGroup independent;
+						'I_soldier_F' createUnit [getmarkerPos 'PatientSpawn', _group,'pat1=this; dostop pat1'];
+						_hitpoints = ["head","body","hand_l","hand_r","leg_l","leg_r"];
+						{
+							_hit = selectRandom ["true","false"];
+							if(_hit == "true")then
+							{
+								[pat1, selectRandom[0.5,0.7,0.9], _x, selectrandom ["bullet","grenade","explosive","shell","vehiclecrash","backblast","stab","punch","falling""ropeburn"]] call ace_medical_fnc_addDamageToUnit;
+							};
+						}foreach _hitpoints;
+						[pat1, 0.7, "body", "bullet"] call ace_medical_fnc_addDamageToUnit;
+						[pat1] call ace_medical_fnc_handleDamage_advancedSetDamage;
+						[pat1,true,600,true] call ace_medical_fnc_setUnconscious;
+						GW_TrainingGround_spawnedOPFOR pushBack pat1;
+					};
+					case 2:
+					{
+						_group = group _caller;
+						_heli = createVehicle ["I_Heli_light_03_F", [8422.48,18207.7,4.57764e-005], [], 0, "CAN_COLLIDE"];
+						_heli setDir 115;
+						GW_TrainingGround_spawnedAssets pushBack _heli;
+						GW_TrainingGround_AACFSM = [_caller,_side,6,"casevac",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+					};
+					case 3:
+					{
+						_group = group _caller;
+						_heli = createVehicle ["I_Heli_light_03_F", [8422.48,18207.7,4.57764e-005], [], 0, "CAN_COLLIDE"];
+						_heli setDir 115;
+						GW_TrainingGround_spawnedAssets pushBack _heli;
+						GW_TrainingGround_AACFSM = [_caller,_side,6,"casevacL",_group] execFSM "Modules\TrainingGround\FSM\ravenFlight.fsm";
+					};
+					default
+					{
+						hint "CODE FAIL. spawnCasualty.sqf Main/OPFOR/Callsign/Exercise Switch";
+					};
+				};
 			};
 		};
 	};

@@ -6,14 +6,17 @@ switch (_side) do {
 	case "BAF-D": {
 		#include "Classes\BAF-D.sqf"
 	};
-	case "CAMPAIGN-E": {
-		#include "Classes\CAMPAIGN-E.sqf"
+	case "BAF-W": {
+		#include "Classes\BAF-W.sqf"
 	};
-	case "CAMPAIGN-I": {
-		#include "Classes\CAMPAIGN-I.sqf"
+	case "CIVI-ALTIS": {
+		#include "Classes\CIVI-ALTIS.sqf"
 	};
-	case "CAMPAIGN-W": {
-		#include "Classes\CAMPAIGN-W.sqf"
+	case "CIVI-CHERNARUS": {
+		#include "Classes\CIVI-CHERNARUS.sqf"
+	};
+	case "CIVI-TAKISTAN": {
+		#include "Classes\CIVI-TAKISTAN.sqf"
 	};
 	case "CSAT-H": {
 		#include "Classes\CSAT-H.sqf"
@@ -23,6 +26,15 @@ switch (_side) do {
 	};
 	case "CSAT-U": {
 		#include "Classes\CSAT-U.sqf"
+	};
+	case "CUSTOM-E": {
+		#include "Classes\CUSTOM-E.sqf"
+	};
+	case "CUSTOM-I": {
+		#include "Classes\CUSTOM-I.sqf"
+	};
+	case "CUSTOM-W": {
+		#include "Classes\CUSTOM-W.sqf"
 	};
 	case "INSURGENT-D": {
 		#include "Classes\INSURGENT-D.sqf"
@@ -51,74 +63,39 @@ switch (_side) do {
 	case "USMC-W": {
 		#include "Classes\USMC-W.sqf"
 	};
-	
-	case "CSAT-V":
-	{
-		#include "Classes\CSAT-V.sqf"
-	};
-	case "SWAT":
-	{
-		#include "Classes\SWAT.sqf"
-	};
-	case "SPETSNAZ":
-	{
-		#include "Classes\Spetsnaz.sqf"
-	};
-	case "NATO-CTRG":
-	{
-		#include "Classes\CTRG.sqf"
-	};
-	case "SAS":
-	{
-		#include "Classes\SAS.sqf"
-	};
-	case "MARSOC":
-	{
+	case "MARSOC": {
 		#include "Classes\MARSOC.sqf"
 	};
-	case "ACR":
-	{
-		#include "Classes\ACR.sqf"
-	};
-	case "601STSFG":
-	{
-		#include "Classes\601stSFG.sqf";
-	};
-	case "CDF-D":
-	{
-		#include "Classes\CDF-D.sqf";
+	case "USARMY": {
+		#include "Classes\USARMY.sqf"
 	};
 	case "CDF-F":
 	{
 		#include "Classes\CDF-F.sqf";
 	};
-	case "CDF-M":
-	{
-		#include "Classes\CDF-M.sqf";
-	};
-	case "US-OCP":
-	{
-		#include "Classes\US-OCP.sqf";
-	};
-	case "US-UCP":
-	{
-		#include "Classes\US-UCP.sqf";
-	};
-	case "US-R":
-	{
-		#include "Classes\US-R.sqf";
-	};
 	case "SLA":
 	{
 		#include "Classes\SLA.sqf";
+	};
+	case "RACS-MTP":
+	{
+		#include "Classes\RACS-MTP.sqf";
 	};
 	case "SYND":
 	{
 		#include "Classes\SYND.sqf";
 	};
-	case "UN":
+	case "NATO-CTRG":
 	{
-		#include "Classes\UN.sqf";
+		#include "Classes\CTRG.sqf"
+	};
+	case "CSAT-V":
+	{
+		#include "Classes\CSAT-V.sqf"
+	};
+	case "SPETSNAZ":
+	{
+		#include "Classes\Spetsnaz.sqf"
 	};
 	default {
 		_errorCode = true;

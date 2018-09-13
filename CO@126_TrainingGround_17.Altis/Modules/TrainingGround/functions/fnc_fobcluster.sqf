@@ -331,3 +331,5 @@ Laptop8 addAction ["<t color='#58D3F7'>Raise all targets",{{_x setDamage 0; _x a
 Laptop8 addAction ["<t color='#58D3F7'>Lower all targets",{{_x setDamage 0; _x animate["terc", 1]} forEach laneTargets14;}];  
 Laptop8 addAction ["<t color='#F7FE2E'>Challenge - Medium</t>",{ExecVM "Modules\TrainingGround\scripts\popup targets\Challenge3Medium.sqf"}]; 
 Laptop8 addAction ["<t color='#FF8000'>Challenge - Hard</t>",{ExecVM "Modules\TrainingGround\scripts\popup targets\Challenge3Hard.sqf"}];
+
+hint "Unpacking Complete";

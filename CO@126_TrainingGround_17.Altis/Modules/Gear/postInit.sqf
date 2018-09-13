@@ -11,9 +11,7 @@
 		};
 	};
 
-	[{
-		_this call FUNC(Init);
-	}, _this, 0.1] call CBA_fnc_waitAndExecute;
+	_this call FUNC(Init);
 }, true, [], true] call CBA_fnc_addClassEventHandler;
 
 [QGVAR(setPlayerStamina), {
@@ -54,15 +52,4 @@
 			[QGVAR(setPlayerStamina), []] call CBA_fnc_localEvent;
 		}, _this, 0.1] call CBA_fnc_waitAndExecute;
 	}, true, [], true] call CBA_fnc_addClassEventHandler;
-
-	player addEventHandler ["InventoryOpened", {
-		params ["_unit","_container","_secondaryContainer"];
-		if (GVAR(BlockAIGear)) then {
-			if (((_container isKindOf "CAManBase") && !(_container getVariable [QGVAR(isPlayer), false])) || ((_secondaryContainer isKindOf "CAManBase") && (_secondaryContainer getVariable [QGVAR(isPlayer), false]))) then {
-				true
-			};
-		} else {
-			false
-		};
-	}];
 }] call CBA_fnc_addEventHandler;
